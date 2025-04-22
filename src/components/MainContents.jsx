@@ -11,11 +11,11 @@ const Contact = React.lazy(() => import('./Contact'));
 const MainContents = () => {
   return (
     <div>
-        <div className='db:absolute db:top-0 db:right-0 border-b-2 border-l-2 text-black dark:text-white border-gray-300 dark:border-gray-600 db:rounded-bl-3xl db:justify-center p-4'>
+        <div className='fixed bottom-0 left-0 w-full db:static db:w-auto border-t-2 db:border-2 text-black dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl p-1 db:p-4 flex justify-around db:justify-center bg-white dark:bg-black z-50 shadow-lg'>
             <Header />
         </div>
         {/* Lazy loading fallback */}
-        <div className='mt-20'>
+        <div className='db:mt-20'>
             <Suspense fallback={<p className="text-center"><SkeletonCard /></p>}>
             <Routes>
                 <Route path="/" element={<AboutMe />} />

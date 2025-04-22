@@ -24,7 +24,7 @@ function App() {
           <ThemeToggle />
         </div>
         <div className='flex gap-4 flex-col tb:flex-row'>
-          <div className='flex border-2 bg-stone-100 text-black dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl db:justify-center rounded-xl p-4'>
+          <div className='flex border-2 bg-stone-100 text-black dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl justify-center rounded-xl p-4'>
             <Sidebar />
           </div>
           <div className='flex-1 border-2 bg-stone-100 text-black dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl db:justify-center rounded-xl p-4 db:relative'>

@@ -30,17 +30,17 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <div className="relative pl-6 mt-10">
+        <div className="db:pl-6 db:mt-10">
             {experiences.map((exp, idx) => (
                 <div key={idx} className="mb-10">
-                    <div className='flex items-center gap-2 mb-2'>
+                    <div className='flex items-center gap-2 mb-2 flex-wrap'>
                         <span className="bg-yellow-500 w-5 h-5 rounded-full flex items-center justify-center text-white shadow-md">
                             <Briefcase size={14} />
                         </span>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">{exp.title}</h3>
+                        <h3 className="font-bold text-gray-900 dark:text-white db:text-base text-sm">{exp.title}, </h3>
+                        <p className="text-gray-600 dark:text-gray-400 db:text-sm text-xs">{exp.duration}</p>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{exp.duration}</p>
-                    <ul className="list-disc pl-5 space-y-1 text-gray-800 dark:text-gray-300 ">
+                    <ul className="list-disc pl-5 db:text-sm text-xs space-y-1 text-gray-800 dark:text-gray-300 ">
                         {exp.bullets.map((point, i) => (
                             <li key={i}>{point}</li>
                         ))}
