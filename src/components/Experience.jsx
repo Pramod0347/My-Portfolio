@@ -30,17 +30,18 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <div className="db:pl-6 db:mt-10">
+        <div className="">
+            <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-stone-300 after:dark:bg-gray-800 after:rounded-full">My Work Experience</h2>
             {experiences.map((exp, idx) => (
-                <div key={idx} className="mb-10">
+                <div key={idx} className="my-4">
                     <div className='flex items-center gap-2 mb-2 flex-wrap'>
-                        <span className="bg-yellow-500 w-5 h-5 rounded-full flex items-center justify-center text-white shadow-md">
+                        <span className="bg-yellow-500 w-5 h-5 rounded-full flex items-center justify-center text-stone-100 shadow-md">
                             <Briefcase size={14} />
                         </span>
-                        <h3 className="font-bold text-gray-900 dark:text-white db:text-base text-sm">{exp.title}, </h3>
-                        <p className="text-gray-600 dark:text-gray-400 db:text-sm text-xs">{exp.duration}</p>
+                        <h3 className="font-bold text-gray-900 dark:text-stone-100 text-base lg:text-lg">{exp.title}, </h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-base">{exp.duration}</p>
                     </div>
-                    <ul className="list-disc pl-5 db:text-sm text-xs space-y-1 text-gray-800 dark:text-gray-300 ">
+                    <ul className="list-disc pl-5 text-sm lg:text-base space-y-1 text-gray-800 dark:text-gray-300 ">
                         {exp.bullets.map((point, i) => (
                             <li key={i}>{point}</li>
                         ))}

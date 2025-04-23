@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ThemeToggle from './components/ThemeToggle';
 import Sidebar from './components/Sidebar';
 import MainContents from './components/MainContents';
 
@@ -19,15 +18,12 @@ function App() {
 
   return (
     <Router>
-      <div className='db:py-20 db:px-60 p-8 min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white'>
-        <div className="flex justify-end gap-4">
-          <ThemeToggle />
-        </div>
-        <div className='flex gap-4 flex-col tb:flex-row'>
-          <div className='flex border-2 bg-stone-100 text-black dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl justify-center rounded-xl p-4'>
+      <div className='bg-stone-100 text-gray-700 dark:bg-gray-700 dark:text-stone-100 md:px-4 lg:px-8'>
+        <div className='flex sm:gap-4 md:gap-0 flex-col md:flex-row'>
+          <div className='w-full md:w-[20%] md:sticky md:h-[100vh] md:pt-12 md:top-0 md:self-start border-r-2 text-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 p-4 overflow-hidden overflow-y-auto'>
             <Sidebar />
           </div>
-          <div className='flex-1 border-2 bg-stone-100 text-black dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 db:rounded-3xl db:justify-center rounded-xl p-4 db:relative'>
+          <div className='bg-stone-100 text-gray-700 dark:bg-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 lg:justify-center md:sticky md:w-[80%] md:self-start relative'>
             <MainContents />
           </div>
         </div>

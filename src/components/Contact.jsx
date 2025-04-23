@@ -37,7 +37,8 @@ const Contact = () => {
 
   return (
     <div>
-      <form className='space-y-4' onSubmit={handleSubmit(onSubmit, onError)}>
+      <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-stone-300 after:dark:bg-gray-800 after:rounded-full">Contact</h2>
+      <form className='space-y-4 my-4' onSubmit={handleSubmit(onSubmit, onError)}>
         <div className='flex flex-col'>
           <label htmlFor="name" className='text-sm font-semibold'>Name</label>
           <input type="text" id='name' {...register('name', {required: 'Name is required'})} className='border-2 border-gray-300 rounded p-2'/>
@@ -56,7 +57,7 @@ const Contact = () => {
           {errors.message && <p className='text-red-500 text-xs'>{errors.message.message}</p>}
         </div>
 
-        <button type="submit" disabled={isSubmitting} className={`bg-blue-500 text-white rounded p-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+        <button type="submit" disabled={isSubmitting} className={`bg-blue-500 text-stone-100 rounded p-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>

@@ -9,10 +9,13 @@ module.exports = {
       },
     },
     screens: {
-      // By default it's desktop-first, so no need to define 'desktop'
-      tb: '768px',      // Tablet breakpoint
-      db: '1024px', // Desktop breakpoint
-    },
+      sm: '640px',
+      md: '768px',
+      tb: '820px',
+      db: '1024px',
+      lg: '1280px',
+      xl: '1536px'
+    }
   },
   plugins: [],
 };

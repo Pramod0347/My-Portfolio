@@ -48,23 +48,26 @@ const Projects = () => {
   
 
   return (
-    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 db:p-4">
-      {projects.map((project, index) => (
-        <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-          {/* <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-md mb-4" /> */}
-          <h2 className="text-base font-semibold border-b-2 border-blue-500 w-fit mb-2">
-            {project.title}
-          </h2>
-          <ul className='list-disc pl-5 text-xs db:text-sm mt-2 text-gray-800 dark:text-gray-300 space-y-1'>
-            {project.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-medium hover:underline">
-            View Project
-          </a>
-        </div>
-      ))}
+    <div>
+      <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-stone-300 after:dark:bg-gray-800 after:rounded-full">My Projects</h2>
+      <div className="flex flex-col gap-4 mt-4">
+        {projects.map((project, index) => (
+          <div key={index}>
+            {/* <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-md mb-4" /> */}
+            <h2 className="font-bold text-gray-900 dark:text-stone-100 text-base lg:text-lg">
+              {index + 1 + ' ' + project.title} - 
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-medium hover:underline">
+                View Project
+              </a>
+            </h2>
+            <ul className='list-disc pl-4 text-sm lg:text-base mt-2 text-gray-800 dark:text-gray-300 space-y-1'>
+              {project.description.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
