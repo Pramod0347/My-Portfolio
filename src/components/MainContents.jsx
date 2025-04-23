@@ -74,7 +74,7 @@ const MainContents = () => {
         <section className='scroll-mt-24 my-4 md:my-12' ref={experienceRef}><Experience /></section>
         <section className='scroll-mt-24 my-4 md:my-12' ref={skillsRef}><Skills /></section>
         <section className='scroll-mt-24 my-4 md:my-12' ref={projectsRef}><Projects /></section>
-        <section className='scroll-mt-24 my-4 md:my-12' ref={contactRef}><Contact /></section>
+        <section className='scroll-mt-24 mt-4 mb-12' ref={contactRef}><Contact /></section>
       </div>
     </div>
   );
