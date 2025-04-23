@@ -54,9 +54,9 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="p-5 rounded-2xl transition-all duration-300 ease-in-out hover:shadow-xl hover:bg-gray-100 dark:hover:bg-stone-800/30 bg-white/20 dark:bg-white/5 backdrop-blur-md border border-stone-200 dark:border-stone-700"
+            className="p-2 rounded transition-all duration-300 ease-in-out hover:shadow-xl hover:bg-gray-100 dark:hover:bg-stone-800/30 bg-white/20 dark:bg-white/5 backdrop-blur-md border border-stone-200 dark:border-stone-700"
           >
-            <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-stone-100">
+            <h3 className="font-bold text-gray-900 dark:text-stone-100 text-base lg:text-lg">
               {project.title}
             </h3>
             <ul className="list-disc pl-5 text-sm md:text-base mt-2 text-gray-800 dark:text-gray-300 space-y-1">

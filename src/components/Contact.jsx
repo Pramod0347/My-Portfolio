@@ -20,7 +20,11 @@ const Contact = () => {
       })
 
       if (response.ok) {
-        reset()
+        reset();
+      }
+      else {
+        alert('Your Message has been sent.')
+        reset();
       }
     } catch (error) {
       console.error('Error:', error)
@@ -108,9 +112,8 @@ const Contact = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-3 text-lg font-semibold text-white rounded-md transition-all duration-300 ${
-            isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 animate__animated animate__pulse animate__delay-1s'
-          }`}
+          className={`w-full py-3 text-lg font-semibold text-white rounded-md transition-all duration-300 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 animate__animated animate__pulse animate__delay-1s'
+            }`}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

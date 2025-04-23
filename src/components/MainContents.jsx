@@ -29,7 +29,7 @@ const MainContents = () => {
       rootMargin: '0px',
       threshold: 0.4,
     };
-  
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -42,29 +42,29 @@ const MainContents = () => {
         }
       });
     }, options);
-  
+
     Object.values(sectionRefs).forEach((ref) => {
       if (ref.current) observer.observe(ref.current);
     });
-  
+
     return () => {
       Object.values(sectionRefs).forEach((ref) => {
         if (ref.current) observer.unobserve(ref.current);
       });
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
 
   return (
     <div>
       {/* Desktop Header */}
-      <div className="hidden sticky top-0 left-0 md:flex justify-end overflow-hidden mx-4">
+      <div className="hidden sticky top-0 left-0 md:flex justify-end  m-4">
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
       </div>
 
       {/* Mobile Header */}
-      <div className='fixed md:hidden bottom-0 left-0 w-full sm:static sm:w-auto border-t-2 sm:border-2 text-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 sm:rounded-3xl p-1 md:p-4 flex justify-around sm:justify-center bg-stone-100 dark:bg-gray-700 z-10 shadow-lg'>
+      <div className='fixed md:hidden bottom-0 left-0 w-full sm:static sm:w-auto py-[2px] border-t-2 sm:border-2 text-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 sm:rounded-3xl flex justify-around sm:justify-center bg-stone-100 dark:bg-gray-700 z-10 shadow-lg'>
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
       </div>
 
