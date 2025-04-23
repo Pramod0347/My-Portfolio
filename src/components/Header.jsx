@@ -15,15 +15,15 @@ const Header = ({ sectionRefs, activeSection }) => {
   };
 
   return (
-    <nav className="hidden md:flex justify-between items-center px-4 bg-white dark:bg-gray-900 shadow-md rounded-t-3xl">
-      <div className="flex">
+    <nav className="md:flex justify-between items-center md:px-4 w-full md:w-fit bg-white dark:bg-gray-900 shadow-md md:rounded-t-3xl z-10">
+      <div className="flex justify-between items-center w-full md:w-auto">
         {navItems.map(({ key, icon: Icon, label }) => {
           const isActive = activeSection === key;
           return (
             <button
               key={key}
               onClick={() => handleScroll(key)}
-              className={`flex items-center gap-2 px-6 py-4 text-base font-semibold transition-colors duration-300 
+              className={`flex items-center gap-2 px-1 py-2 md:px-6 md:py-4 text-base font-semibold transition-colors duration-300 
                 ${
                   isActive
                     ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400'
@@ -37,7 +37,7 @@ const Header = ({ sectionRefs, activeSection }) => {
         })}
       </div>
       
-      <div className="pr-4">
+      <div className="pr-4 absolute bottom-[60px] right-0 md:static">
         <ThemeToggle />
       </div>
     </nav>

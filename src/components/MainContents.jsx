@@ -59,17 +59,17 @@ const MainContents = () => {
   return (
     <div>
       {/* Desktop Header */}
-      <nav className="hidden sticky top-0 left-0 md:flex justify-center overflow-hidden bg-stone-200 dark:bg-gray-800 text-stone-100 z-10 shadow-md mx-4 rounded-bl-md rounded-br-md">
+      <div className="hidden sticky top-0 left-0 md:flex justify-end overflow-hidden mx-4">
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
-      </nav>
+      </div>
 
       {/* Mobile Header */}
-      <div className='fixed md:hidden bottom-0 left-0 w-full sm:static sm:w-auto border-t-2 sm:border-2 text-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 sm:rounded-3xl p-1 sm:p-4 flex justify-around sm:justify-center bg-stone-100 dark:bg-gray-700 z-10 shadow-lg'>
+      <div className='fixed md:hidden bottom-0 left-0 w-full sm:static sm:w-auto border-t-2 sm:border-2 text-gray-700 dark:text-stone-100 border-gray-300 dark:border-gray-600 sm:rounded-3xl p-1 md:p-4 flex justify-around sm:justify-center bg-stone-100 dark:bg-gray-700 z-10 shadow-lg'>
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
       </div>
 
       {/* Sections */}
-      <div className='p-4 md:p-8 lg:p-12'>
+      <div className='px-4 py-8 md:p-8 lg:p-12'>
         <section className='scroll-mt-24 my-4 md:my-12' ref={aboutRef}><AboutMe /></section>
         <section className='scroll-mt-24 my-4 md:my-12' ref={experienceRef}><Experience /></section>
         <section className='scroll-mt-24 my-4 md:my-12' ref={skillsRef}><Skills /></section>

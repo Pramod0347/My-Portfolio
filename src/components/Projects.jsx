@@ -1,9 +1,5 @@
 import React from 'react'
-
-// Import all the images here.. or bring them here i wanna use them 
-// import Levis from "./images/Levis.avif";
-// import Kushals from "../images/Kushals.png";
-// import Bewakoof from "../images/Bewakoof.webp";
+import { motion } from 'framer-motion'
 
 const Projects = () => {
   const projects = [
@@ -15,7 +11,6 @@ const Projects = () => {
         'Improved Store Inventory Management, reducing fulfillment errors by ~25%.'
       ],
       link: 'https://example.com/kushals',
-      // image: Kushals
     },
     {
       title: 'Levi\'s, Nobero, Urbano – E-Commerce Development',
@@ -24,7 +19,6 @@ const Projects = () => {
         'Integrated key features and third-party apps for end-to-end functionality.'
       ],
       link: 'https://example.com/levis',
-      // image: Levis
     },
     {
       title: 'Bewakoof – Website Migration',
@@ -33,7 +27,6 @@ const Projects = () => {
         'Improved site performance and modernized UI with Liquid and React.'
       ],
       link: 'https://example.com/bewakoof',
-      // image: Bewakoof
     },
     {
       title: 'Spotify Homepage Clone',
@@ -42,33 +35,47 @@ const Projects = () => {
         'Focused on pixel-perfect layout and smooth interactions.'
       ],
       link: 'https://example.com/spotify-clone',
-      // image: 'https://via.placeholder.com/150'
     }
-  ]
-  
+  ];
 
   return (
-    <div>
-      <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-stone-300 after:dark:bg-gray-800 after:rounded-full">My Projects</h2>
-      <div className="flex flex-col gap-4 mt-4">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="w-full mt-8"
+    >
+      <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
+        My Projects
+      </h2>
+
+      <div className="flex flex-col gap-6 mt-6">
         {projects.map((project, index) => (
-          <div key={index}>
-            {/* <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-md mb-4" /> */}
-            <h2 className="font-bold text-gray-900 dark:text-stone-100 text-base lg:text-lg">
-              {index + 1 + ' ' + project.title} - 
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-medium hover:underline">
-                View Project
-              </a>
-            </h2>
-            <ul className='list-disc pl-4 text-sm lg:text-base mt-2 text-gray-800 dark:text-gray-300 space-y-1'>
+          <div
+            key={index}
+            className="p-5 rounded-2xl transition-all duration-300 ease-in-out hover:shadow-xl hover:bg-gray-100 dark:hover:bg-stone-800/30 bg-white/20 dark:bg-white/5 backdrop-blur-md border border-stone-200 dark:border-stone-700"
+          >
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-stone-100">
+              {project.title}
+            </h3>
+            <ul className="list-disc pl-5 text-sm md:text-base mt-2 text-gray-800 dark:text-gray-300 space-y-1">
               {project.description.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ul>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline mt-3 inline-block text-sm md:text-base"
+            >
+              View Project
+            </a>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
