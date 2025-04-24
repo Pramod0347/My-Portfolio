@@ -69,12 +69,12 @@ const MainContents = () => {
       </div>
 
       {/* Sections */}
-      <div className='px-4 py-8 md:p-8 lg:p-12'>
-        <section className='scroll-mt-24 my-4 md:my-12' ref={aboutRef}><AboutMe /></section>
-        <section className='scroll-mt-24 my-4 md:my-12' ref={experienceRef}><Experience /></section>
-        <section className='scroll-mt-24 my-4 md:my-12' ref={skillsRef}><Skills /></section>
-        <section className='scroll-mt-24 my-4 md:my-12' ref={projectsRef}><Projects /></section>
-        <section className='scroll-mt-24 mt-4 mb-12' ref={contactRef}><Contact /></section>
+      <div className='px-4 pb-8 md:p-8 lg:p-12'>
+        <section className='scroll-mt-24 mt-4 mb-12' ref={aboutRef}><AboutMe /></section>
+        <section className='scroll-mt-24 my-12' ref={experienceRef}><Experience /></section>
+        <section className='scroll-mt-24 my-12' ref={skillsRef}><Skills /></section>
+        <section className='scroll-mt-24 my-12' ref={projectsRef}><Projects /></section>
+        <section className='scroll-mt-24 my-12' ref={contactRef}><Contact /></section>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ const Contact = () => {
     }
   }
 
-  const inputStyles = "peer block w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent dark:bg-transparent dark:text-white dark:border-gray-600"
+  const inputStyles = "peer block w-full p-3 text-lg border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent dark:bg-transparent dark:text-white dark:border-gray-600"
 
   const labelStyles = "absolute text-sm text-gray-600 dark:text-gray-300 left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 " +
     "peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 " +

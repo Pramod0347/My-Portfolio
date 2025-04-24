@@ -30,13 +30,13 @@ const Header = ({ sectionRefs, activeSection }) => {
                 }`}
             >
               <Icon size={20} />
-              <p className="text-xs lg:text-sm">{label}</p>
+              <p className="text-sm lg:text-lg">{label}</p>
             </button>
           );
         })}
       </div>
 
-      <div className="pr-4 absolute bottom-[70px] right-0 md:static">
+      <div className="pr-4 absolute bottom-[75px] right-0 md:static">
         <ThemeToggle />
       </div>
     </nav>

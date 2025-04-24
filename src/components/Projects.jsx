@@ -10,7 +10,7 @@ const Projects = () => {
         'Implemented ‘Book My Appointment’, Bundling, and Close Matched Products features to boost engagement and sales.',
         'Improved Store Inventory Management, reducing fulfillment errors by ~25%.'
       ],
-      link: 'https://example.com/kushals',
+      link: 'https://kushals.com/',
     },
     {
       title: 'Levi\'s, Nobero, Urbano – E-Commerce Development',
@@ -18,15 +18,25 @@ const Projects = () => {
         'Built comprehensive e-commerce websites from scratch using Shopify.',
         'Integrated key features and third-party apps for end-to-end functionality.'
       ],
-      link: 'https://example.com/levis',
+      link: 'https://levi.in/',
     },
     {
-      title: 'Bewakoof – Website Migration',
+      title: 'Youtube Clone, Swiggy Clone using React',
       description: [
-        'Migrated website from WooCommerce to Shopify.',
-        'Improved site performance and modernized UI with Liquid and React.'
+        'Built end-to-end responsive web apps using React.js, leveraging Redux for scalable state management and React Lazy Loading for performance optimization.',
+        'Designed sleek UIs with Tailwind CSS, ensuring pixel-perfect layouts and mobile responsiveness.',
+        'Integrated YouTube Open APIs for dynamic video streaming and search functionalities; implemented modular architecture using CRA (Create React App).'
       ],
-      link: 'https://example.com/bewakoof',
+      link: 'https://youtube-clone-dun-phi-25.vercel.app/',
+    },
+    {
+      title: 'Personal Portfolio Website – React Based ',
+      description: [
+        'Developed a responsive personal portfolio using React, React Hook Form, Tailwind CSS, Redux, and Framer Motion.',
+        'Features include a toggleable sidebar, contact form integrated with Google Sheets, animated components, and mobile-friendly navigation.',
+        'Deployed the project using Vercel.'
+      ],
+      link: 'https://pramod-347.vercel.app/',
     },
     {
       title: 'Spotify Homepage Clone',
@@ -34,7 +44,7 @@ const Projects = () => {
         'Developed a responsive UI clone using HTML5, CSS3, and JavaScript.',
         'Focused on pixel-perfect layout and smooth interactions.'
       ],
-      link: 'https://example.com/spotify-clone',
+      link: 'https://swiggy-clone-jet-omega.vercel.app/',
     }
   ];
 

@@ -39,7 +39,7 @@ const Experience = () => {
             viewport={{ once: true }}
         >
             <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
-                My Work Experience
+                Work Experience
             </h2>
 
             {experiences.map((exp, idx) => (
