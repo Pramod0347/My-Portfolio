@@ -59,7 +59,7 @@ const MainContents = () => {
   return (
     <div>
       {/* Desktop Header */}
-      <div className="hidden sticky top-0 left-0 md:flex justify-end  m-4">
+      <div className="hidden sticky top-0 left-0 md:flex justify-end m-4 z-10">
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
       </div>
 
