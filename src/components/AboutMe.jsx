@@ -12,13 +12,14 @@ const AboutMe = () => {
     >
       <div>
         <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
-          About Me
+          My Tech Journey
         </h2>
         <p className='text-sm lg:text-base mt-2 text-gray-800 dark:text-gray-300'>
-          Results-driven Software Developer with 2 years of experience in building full-stack web apps using React, JavaScript, and Shopify. 
-          I specialize in custom e-commerce solutions, scalable backend services, and clean UI/UX. 
-          Currently upskilling in Java and backend technologies to transition into a Full-Stack Developer role.
+          Full-stack-focused Software Developer with 2.5 years of experience building responsive, scalable web applications using <b>React</b>, <b>JavaScript</b>, and modern frameworks. 
+          Currently deepening expertise in <b>Java</b>, <b>Node.js</b>, <b>SQL</b>, and <b>Cloud technologies</b>, while exploring the potential of <b>Generative AI</b>. 
+          Passionate about building impactful digital solutions with clean architecture and strong user experience.
         </p>
+
       </div>
     </motion.div>
   );

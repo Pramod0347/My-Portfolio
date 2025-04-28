@@ -32,7 +32,7 @@ const Contact = () => {
     }
   }
 
-  const inputStyles = "peer block w-full p-3 text-lg border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent dark:bg-transparent dark:text-white dark:border-gray-600"
+  const inputStyles = "peer block w-full p-2 text-base border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent dark:bg-transparent dark:text-white dark:border-gray-600"
 
   const labelStyles = "absolute text-sm text-gray-600 dark:text-gray-300 left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 " +
     "peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 " +
@@ -112,7 +112,7 @@ const Contact = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-3 text-lg font-semibold text-white rounded-md transition-all duration-300 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 animate__animated animate__pulse animate__delay-1s'
+          className={`w-fit py-2 px-4 text-lg font-semibold text-white rounded-md transition-all duration-300 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 animate__animated animate__pulse animate__delay-1s'
             }`}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}

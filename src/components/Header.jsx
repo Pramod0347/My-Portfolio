@@ -15,7 +15,7 @@ const Header = ({ sectionRefs, activeSection }) => {
   };
 
   return (
-    <nav className="md:flex justify-between items-center md:px-4 w-full md:w-fit md:bg-white dark:md:bg-gray-700 md:rounded-3xl md:shadow-2xl">
+    <nav className="md:flex justify-between items-center md:px-4 w-full md:w-fit md:bg-white dark:md:bg-gray-800 md:rounded-3xl md:shadow-xl">
       <div className="flex justify-around items-center w-full md:w-auto">
         {navItems.map(({ key, icon: Icon, label }) => {
           const isActive = activeSection === key;
