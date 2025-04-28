@@ -2,23 +2,26 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import {
   SiJavascript, SiReact, SiShopify, SiHtml5, SiCss3,
-  SiNodedotjs, SiMysql, SiTailwindcss, SiGit, SiPostman, SiFigma
+  SiNodedotjs, SiMysql, SiTailwindcss, SiGit, SiPostman, SiFigma, SiGooglecloud
 } from 'react-icons/si';
 import { FaJava } from "react-icons/fa";
+import { TbBrandOpenai } from "react-icons/tb"; // for AI related icon
 
 const skills = [
   { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
   { name: 'React', icon: SiReact, color: '#61dafb' },
   { name: 'Java', icon: FaJava, color: '#00758f' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38bdf8' },
-  { name: 'Postman', icon: SiPostman, color: '#ff6c37' },
   { name: 'My SQL', icon: SiMysql, color: '#00758f' },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38bdf8' },
+  { name: 'HTML5', icon: SiHtml5, color: '#e44d26' },
   { name: 'CSS3', icon: SiCss3, color: '#264de4' },
   { name: 'Git', icon: SiGit, color: '#f1502f' },
-  { name: 'Node.js', icon: SiNodedotjs, color: '#68a063' },
+  { name: 'Postman', icon: SiPostman, color: '#ff6c37' },
   { name: 'Shopify', icon: SiShopify, color: '#95bf47' },
-  { name: 'HTML5', icon: SiHtml5, color: '#e44d26' },
   { name: 'Figma', icon: SiFigma, color: '#a259ff' },
+  { name: 'Node.js', icon: SiNodedotjs, color: '#68a063' },
+  { name: 'Google Cloud', icon: SiGooglecloud, color: '#4285F4' },
+  { name: 'Generative AI', icon: TbBrandOpenai, color: '#00c49a' },
 ];
 
 const Skills = () => {

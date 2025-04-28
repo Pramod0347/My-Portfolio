@@ -5,6 +5,7 @@ import Experience from './Experience';
 import Projects from './Projects';
 import Contact from './Contact';
 import Skills from './Skills';
+import Certifications from './Certifications';
 
 const MainContents = () => {
   const aboutRef = useRef(null);
@@ -12,6 +13,7 @@ const MainContents = () => {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const skillsRef = useRef(null);
+  const certificationsRef = useRef(null);
 
   const sectionRefs = {
     home: aboutRef,
@@ -19,6 +21,7 @@ const MainContents = () => {
     skills: skillsRef,
     projects: projectsRef,
     contact: contactRef,
+    certifications: certificationsRef,
   };
 
   const [activeSection, setActiveSection] = useState('home');
@@ -73,6 +76,7 @@ const MainContents = () => {
         <section className='scroll-mt-24 mt-4 mb-12' ref={aboutRef}><AboutMe /></section>
         <section className='scroll-mt-24 my-12' ref={experienceRef}><Experience /></section>
         <section className='scroll-mt-24 my-12' ref={skillsRef}><Skills /></section>
+        <section className='scroll-mt-24 my-12' ref={certificationsRef}><Certifications /></section>
         <section className='scroll-mt-24 my-12' ref={projectsRef}><Projects /></section>
         <section className='scroll-mt-24 my-12' ref={contactRef}><Contact /></section>
       </div>
