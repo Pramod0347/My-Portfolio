@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import MainContents from './components/MainContents';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
