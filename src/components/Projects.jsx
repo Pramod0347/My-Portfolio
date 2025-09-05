@@ -1,94 +1,267 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { ExternalLink, Github } from 'lucide-react'
+import kushalsBanner from '../Images/kushalsBanner.png'
+import swiggy from '../Images/swiggy.avif'
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Kushals Fashion Jewellery – Website/App Enhancements',
-      description: [
-        'Optimized image rendering, reducing site load time by 30%.',
-        'Developed “Book My Appointment”, Product Bundling, and Cross-Sell features to boost engagement.',
-        'Enhanced store inventory management, cutting fulfillment errors by 25%.'
-      ],
-      link: 'https://kushals.com/',
+      title: 'TaskFlow - Full-Stack Task Management App',
+      description:
+        'Responsive, offline-first PWA with real-time collaboration and drag-and-drop boards using MERN stack (MongoDB, Express.js, React, Node.js), Service Workers, Socket.io, and axios for API/file requests. Modular microservices (Node/Express) with JWT authentication, bcrypt password hashing, Redis caching, and Docker Compose for containerized deployment.',
+      image:
+        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center',
+      technologies: ['MERN Stack', 'Socket.io', 'Redis', 'Docker', 'PWA', 'Microservices'],
+      liveLink: 'https://taskflow-demo.vercel.app/',
+      githubLink: 'https://github.com/pramod347/taskflow',
+      featured: true,
     },
     {
-      title: 'Levi\'s, Nobero, Urbano – E-Commerce Development',
-      description: [
-        'Built and launched responsive Shopify-based e-commerce websites.',
-        'Integrated payment gateways, product filters, and dynamic inventory syncs.',
-        'Customized third-party apps to meet brand-specific UX needs.'
-      ],
-      link: 'https://levi.in/',
+      title: 'YouTube-Like Video Platform',
+      description:
+        'Responsive video streaming UI with infinite scroll, debounced search, lazy loading, and axios-based paginated requests to YouTube Data API v3 using Redux Toolkit. Reusable Tailwind CSS UI components and improved performance via code-splitting, memoization (React.memo, useCallback), and custom hooks.',
+      image:
+        'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&h=400&fit=crop&crop=center',
+      technologies: ['React', 'Redux Toolkit', 'YouTube API', 'Tailwind CSS', 'Performance Optimization'],
+      liveLink: 'https://youtube-clone-dun-phi-25.vercel.app/',
+      githubLink: 'https://github.com/pramod347/youtube-clone',
+      featured: true,
     },
     {
-      title: 'YouTube and Swiggy Clones – React Projects',
-      description: [
-        'Built responsive YouTube and Swiggy web app clones with React.js and Redux.',
-        'Integrated YouTube Open API for dynamic search and video streaming.',
-        'Applied lazy loading, modular architecture, and TailwindCSS for UI perfection.'
-      ],
-      link: 'https://youtube-clone-dun-phi-25.vercel.app/',
+      title: 'Kushals Fashion Jewellery - E-commerce Platform',
+      description:
+        'Full-stack e-commerce solution with inventory sync structure using Node.js, MongoDB, and AWS-hosted pipelines. Implemented OTP-based authentication, personalized recommendations, and AWS EC2/S3 migration. Optimized performance with lazy loading and image compression, reducing load time by 30%.',
+      image: kushalsBanner,
+      technologies: ['Node.js', 'MongoDB', 'AWS', 'Express.js', 'JWT', 'E-commerce'],
+      liveLink: 'https://kushals.com/',
+      githubLink: null,
+      featured: false,
     },
     {
-      title: 'Personal Portfolio Website – React Based',
-      description: [
-        'Designed a dynamic portfolio using React, Tailwind CSS, Redux, and Framer Motion.',
-        'Built animated sidebar navigation, Google Sheets-powered contact form, and smooth mobile UX.',
-        'Deployed using Vercel for lightning-fast performance.'
-      ],
-      link: 'https://pramod-347.vercel.app/',
+      title: "Levi's & Nobero - Shopify E-commerce",
+      description:
+        'Custom Shopify development for major retail brands with backend return-flow system, custom coupon logic, and third-party API integrations. Built scalable component-driven architecture and delivered end-to-end e-commerce solutions with reliable backend infrastructure.',
+      image:
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center',
+      technologies: ['Shopify', 'Node.js', 'MongoDB', 'E-commerce', 'API Integration'],
+      liveLink: 'https://levi.in/',
+      githubLink: null,
+      featured: false,
+    },
+    {
+      title: 'Personal Portfolio Website',
+      description:
+        'Modern, responsive portfolio built with React, Tailwind CSS, Redux, and Framer Motion. Features animated sidebar navigation, dark/light theme toggle, smooth scrolling, and optimized performance. Deployed on Vercel with CI/CD pipeline.',
+      image:
+        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&crop=center',
+      technologies: ['React', 'Tailwind CSS', 'Redux', 'Framer Motion', 'Vercel'],
+      liveLink: 'https://pramod-347.vercel.app/',
+      githubLink: 'https://github.com/pramod347/portfolio',
+      featured: false,
     },
     {
       title: 'Spotify Homepage UI Clone',
-      description: [
-        'Cloned Spotify’s homepage UI using HTML5, CSS3, and vanilla JavaScript.',
-        'Focused on pixel-perfect design, responsiveness, and interactive hover effects.',
-        'Achieved fast load times and seamless user experience.'
-      ],
-      link: 'https://swiggy-clone-jet-omega.vercel.app/',
-    }
-  ];
+      description:
+        "Cloned Spotify's homepage UI using HTML5, CSS3, and vanilla JavaScript. Focused on pixel-perfect design, responsiveness, and interactive hover effects. Achieved fast load times and seamless user experience.",
+      image:
+        'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop&crop=center',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+      liveLink: 'https://spotify-clone-demo.vercel.app/',
+      githubLink: 'https://github.com/pramod347/spotify-clone',
+      featured: false,
+    },
+    {
+      title: 'Swiggy Food Delivery Clone',
+      description:
+        'Built a responsive food delivery app clone with React.js featuring restaurant listings, menu browsing, cart functionality, and order tracking. Implemented state management with Redux and integrated with mock APIs for realistic user experience.',
+      image: swiggy,
+      technologies: ['React', 'Redux', 'JavaScript', 'API Integration', 'State Management'],
+      liveLink: 'https://swiggy-clone-jet-omega.vercel.app/',
+      githubLink: 'https://github.com/pramod347/swiggy-clone',
+      featured: false,
+    },
+    {
+      title: 'Weather App with Location Services',
+      description:
+        'Real-time weather application with geolocation services, 7-day forecast, and interactive maps. Built with React and integrated with OpenWeatherMap API. Features include current weather, hourly forecasts, and weather alerts.',
+      image:
+        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&crop=center',
+      technologies: ['React', 'API Integration', 'Geolocation', 'Weather API', 'Responsive Design'],
+      liveLink: 'https://weather-app-demo.vercel.app/',
+      githubLink: 'https://github.com/pramod347/weather-app',
+      featured: false,
+    },
+  ]
+
+  const featuredProjects = projects.filter((project) => project.featured)
+  const otherProjects = projects.filter((project) => !project.featured)
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
       className="w-full mt-8"
     >
-      <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
-        My Projects
-      </h2>
+      <div className="mb-12">
+        <h2 className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm">
+          Featured Projects
+        </h2>
+        <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+          Key development projects showcasing expertise in full stack development, microservices, and modern web technologies.
+        </p>
+      </div>
 
-      <div className="flex flex-col gap-6 mt-6">
-        {projects.map((project, index) => (
-          <div
+      {/* Featured Projects Grid */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        {featuredProjects.map((project, index) => (
+          <motion.div
             key={index}
-            className="p-2 rounded md:rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:bg-gray-100 dark:hover:bg-stone-800/30 bg-white/20 dark:bg-white/5 backdrop-blur-md border border-stone-200 dark:border-stone-700"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
           >
-            <h3 className="font-bold text-gray-900 dark:text-stone-100 text-base lg:text-lg">
-              {project.title}
-            </h3>
-            <ul className="list-disc pl-5 text-sm md:text-base mt-2 text-gray-800 dark:text-gray-300 space-y-1">
-              {project.description.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 font-medium hover:underline mt-3 inline-block text-sm md:text-base"
-            >
-              View Project
-            </a>
-          </div>
+            {/* Project Image */}
+            <div className="relative h-40 sm:h-44 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+              {/* Subtle featured tag */}
+              <div className="absolute bottom-3 left-3 px-2 py-1 bg-yellow-500 text-white text-xs font-medium rounded-md shadow">
+                Featured
+              </div>
+            </div>
+
+            {/* Project Content */}
+            <div className="p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
+                {project.title}
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+                {project.description}
+              </p>
+
+              {/* Technology Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors duration-200"
+                >
+                  <ExternalLink size={14} />
+                  View Details
+                </a>
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-xs font-medium rounded-lg transition-colors duration-200"
+                  >
+                    <Github size={14} />
+                    Code
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
+
+      {/* Other Projects */}
+      {otherProjects.length > 0 && (
+        <div className="mt-16">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-8">Other Projects</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {otherProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
+              >
+                {/* Project Image */}
+                <div className="relative h-32 sm:h-36 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  {/* no tag here */}
+                </div>
+
+                {/* Project Content */}
+                <div className="p-4">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
+                    {project.title}
+                  </h4>
+
+                  <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Technology Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Action Button */}
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors duration-200 w-full justify-center"
+                  >
+                    <ExternalLink size={14} />
+                    View Project
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
     </motion.div>
   )
 }
 
-export default Projects;
+export default Projects
