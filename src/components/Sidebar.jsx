@@ -27,8 +27,8 @@ const Sidebar = () => {
             viewport={{ once: true }}
         >
             {/* Header with Avatar and Basic Info */}
-            <div className={`lg:text-center flex lg:flex-col gap-2 items-center ${showContent ? 'border-b-2 border-stone-300 dark:border-gray-800 mb-4 pb-4' : ''}`}>
-                <span className="bg-stone-300 dark:bg-gray-800 rounded-3xl flex justify-center items-center w-20 h-20 lg:w-32 lg:h-32 overflow-hidden">
+            <div className={`lg:text-center flex lg:flex-col gap-2 items-center ${showContent ? 'border-b-2 border-gray-200 dark:border-gray-700 mb-4 pb-4' : ''}`}>
+                <span className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-3xl flex justify-center items-center w-20 h-20 lg:w-32 lg:h-32 overflow-hidden shadow-lg border border-gray-300 dark:border-gray-600">
                     <img
                         src="https://debeshpanda555.github.io/assets/images/my-avatar.png"
                         alt="Profile"
@@ -36,8 +36,8 @@ const Sidebar = () => {
                     />
                 </span>
                 <div className="flex flex-col gap-1 lg:gap-2">
-                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-white font-semibold">Pramod G</p>
-                    <p className="text-sm lg:text-base bg-stone-300 dark:bg-gray-800 rounded py-1 px-2 lg:px-3 lg:py-2 w-fit">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-white font-semibold drop-shadow-sm">Pramod G</p>
+                    <p className="text-sm lg:text-base bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/50 dark:to-blue-800/50 text-blue-800 dark:text-blue-200 rounded-full py-1 px-3 lg:px-4 lg:py-2 w-fit font-medium shadow-sm border border-blue-200 dark:border-blue-700">
                         Software Engineer
                     </p>
                 </div>
@@ -60,16 +60,16 @@ const Sidebar = () => {
                         className="overflow-hidden flex flex-col gap-4"
                     >
                         {contactItems.map(({ icon: Icon, label, value, link }) => (
-                            <div key={label} className="flex gap-3 w-fit items-center">
-                                <span className="p-2 bg-stone-300 dark:bg-gray-800 rounded w-8 h-8 flex items-center justify-center">
-                                    <Icon className="w-4 h-4 text-gray-800 dark:text-gray-200" />
+                            <div key={label} className="flex gap-3 w-fit items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors duration-200">
+                                <span className="p-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-lg w-8 h-8 flex items-center justify-center shadow-sm border border-gray-300 dark:border-gray-600">
+                                    <Icon className="w-4 h-4 text-gray-700 dark:text-gray-300" />
                                 </span>
                                 <div className="flex flex-col">
-                                    <p className="text-xs lg:text-sm uppercase font-bold opacity-70">{label}</p>
+                                    <p className="text-xs lg:text-sm uppercase font-bold text-gray-600 dark:text-gray-400">{label}</p>
                                     {link ? (
-                                        <a href={link} target="_blank" rel="noopener noreferrer" className="text-sm lg:text-base break-all">{value}</a>
+                                        <a href={link} target="_blank" rel="noopener noreferrer" className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">{value}</a>
                                     ) : (
-                                        <span className="text-sm lg:text-base break-all">{value}</span>
+                                        <span className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200">{value}</span>
                                     )}
                                 </div>
                             </div>
