@@ -3,7 +3,7 @@ import { ChevronDown, Mail, Phone, MapPin, Calendar, Github, Linkedin } from 'lu
 import { AnimatePresence, motion } from 'framer-motion';
 
 const contactItems = [
-    { icon: Mail, label: 'Gmail', value: 'pgoudar347@gmail.com', link: 'mailto:pgoudar347@gmail.com'},
+    { icon: Mail, label: 'Gmail', value: 'pramodgoudar.fullstack@gmail.com', link: 'mailto:pramodgoudar.fullstack@gmail.com'},
     { icon: Phone, label: 'Phone', value: '+918296090286', link: 'tel:+918296090286' },
     { icon: MapPin, label: 'Location', value: 'Bangalore, India' },
     { icon: Calendar, label: 'Birthday', value: 'July 17, 2000' },
