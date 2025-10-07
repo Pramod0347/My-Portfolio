@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Mail, Phone, MapPin, Calendar, Github, Linkedin } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+ 
 
 const contactItems = [
     { icon: Mail, label: 'Gmail', value: 'pramodgoudar.fullstack@gmail.com', link: 'mailto:pramodgoudar.fullstack@gmail.com'},
@@ -19,126 +19,88 @@ const Sidebar = () => {
     };
 
     return (
-        <motion.div
+        <div
             className="w-full"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
         >
             {/* Header with Avatar and Basic Info */}
-            <motion.div 
+            <div 
                 className={`lg:text-center flex lg:flex-col gap-2 items-center ${showContent ? 'border-b-2 border-gray-200 dark:border-gray-700 mb-4 pb-4' : ''}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
             >
-                <motion.span 
+                <span 
                     className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-3xl flex justify-center items-center w-20 h-20 lg:w-32 lg:h-32 overflow-hidden shadow-lg border border-gray-300 dark:border-gray-600"
-                    whileHover={{ scale: 1.05, rotate: 2 }}
-                    transition={{ duration: 0.3 }}
                 >
-                    <motion.img
+                    <img
                         src="https://debeshpanda555.github.io/assets/images/my-avatar.png"
                         alt="Profile"
                         className="object-cover w-full h-full"
-                        initial={{ scale: 1.1 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
                     />
-                </motion.span>
-                <motion.div 
+                </span>
+                <div 
                     className="flex flex-col gap-1 lg:gap-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                    <motion.p 
+                    <p 
                         className="text-xl lg:text-2xl text-gray-800 dark:text-white font-semibold drop-shadow-sm"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.2 }}
                     >
                         Pramod G
-                    </motion.p>
-                    <motion.p 
+                    </p>
+                    <p 
                         className="text-sm lg:text-base bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/50 dark:to-blue-800/50 text-blue-800 dark:text-blue-200 rounded-full py-1 px-3 lg:px-4 lg:py-2 w-fit font-medium shadow-sm border border-blue-200 dark:border-blue-700"
-                        whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                        transition={{ duration: 0.3 }}
                     >
                         Software Engineer
-                    </motion.p>
-                </motion.div>
+                    </p>
+                </div>
                 {/* Toggle Button (Visible only on mobile) */}
-                <motion.div 
+                <div 
                     onClick={toggleContent} 
                     className="cursor-pointer transition-transform duration-300 ease-in-out lg:hidden ml-auto"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                 >
-                    <motion.div
-                        animate={{ rotate: showContent ? 180 : 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    <div
+                        className={showContent ? 'rotate-180 transition-transform duration-300 ease-in-out' : 'transition-transform duration-300 ease-in-out'}
                     >
                         <ChevronDown className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                    </motion.div>
-                </motion.div>
-            </motion.div>
+                    </div>
+                </div>
+            </div>
 
             {/* Animated Contact Info */}
-            <AnimatePresence>
-                {showContent && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
+            {showContent && (
+                    <div
                         className="overflow-hidden flex flex-col gap-4"
                     >
                         {contactItems.map(({ icon: Icon, label, value, link }, index) => (
-                            <motion.div 
+                            <div 
                                 key={label} 
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.02, x: 5 }}
                                 className="flex gap-3 w-fit items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-pointer"
                             >
-                                <motion.span 
+                                <span 
                                     className="p-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-lg w-8 h-8 flex items-center justify-center shadow-sm border border-gray-300 dark:border-gray-600"
-                                    whileHover={{ scale: 1.1, rotate: 5 }}
-                                    transition={{ duration: 0.2 }}
                                 >
                                     <Icon className="w-4 h-4 text-gray-700 dark:text-gray-300" />
-                                </motion.span>
+                                </span>
                                 <div className="flex flex-col">
-                                    <motion.p 
+                                    <p 
                                         className="text-xs lg:text-sm uppercase font-bold text-gray-600 dark:text-gray-400"
-                                        whileHover={{ color: "rgb(59, 130, 246)" }}
-                                        transition={{ duration: 0.2 }}
                                     >
                                         {label}
-                                    </motion.p>
+                                    </p>
                                     {link ? (
-                                        <motion.a 
+                                        <a 
                                             href={link} 
                                             target="_blank" 
                                             rel="noopener noreferrer" 
                                             className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                                            whileHover={{ scale: 1.02 }}
-                                            transition={{ duration: 0.2 }}
                                         >
                                             {value}
-                                        </motion.a>
+                                        </a>
                                     ) : (
                                         <span className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200">{value}</span>
                                     )}
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
-                    </motion.div>
+                    </div>
                 )}
-            </AnimatePresence>
-        </motion.div>
+        </div>
     );
 };
 

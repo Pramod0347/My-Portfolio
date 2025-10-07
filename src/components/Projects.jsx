@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+ 
 import { ExternalLink, Github } from 'lucide-react'
 import kushalsBanner from '../Images/kushalsBanner.png'
 import swiggy from '../Images/swiggy.avif'
@@ -100,305 +100,205 @@ const Projects = () => {
   const otherProjects = projects.filter((project) => !project.featured)
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      viewport={{ once: true }}
+    <div
       className="w-full mt-8"
     >
-      <motion.div 
+      <div 
         className="mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
       >
-        <motion.h2 
+        <h2 
           className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
         >
           Featured Projects
-        </motion.h2>
-        <motion.p 
+        </h2>
+        <p 
           className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
         >
           Key development projects showcasing expertise in full stack development, microservices, and modern web technologies.
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
 
       {/* Featured Projects Grid */}
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 mb-12">
         {featuredProjects.map((project, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-            viewport={{ once: true }}
-            whileHover={{ 
-              y: -5, 
-              scale: 1.02,
-              transition: { duration: 0.3, ease: "easeOut" }
-            }}
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-700"
           >
             {/* Project Image */}
-            <motion.div 
+            <div 
               className="relative h-40 sm:h-44 overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
             >
-              <motion.img
+              <img
                 src={project.image}
                 alt={project.title}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
               {/* Subtle featured tag */}
-              <motion.div 
+              <div 
                 className="absolute bottom-3 left-3 px-2 py-1 bg-yellow-500 text-white text-xs font-medium rounded-md shadow"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.5 }}
-                whileHover={{ scale: 1.1 }}
               >
                 Featured
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* Project Content */}
-            <motion.div 
+            <div 
               className="p-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
             >
-              <motion.h3 
+              <h3 
                 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
               >
                 {project.title}
-              </motion.h3>
+              </h3>
 
-              <motion.p 
+              <p 
                 className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.6 }}
               >
                 {project.description}
-              </motion.p>
+              </p>
 
               {/* Technology Tags */}
-              <motion.div 
+              <div 
                 className="flex flex-wrap gap-2 mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.7 }}
               >
                 {project.technologies.map((tech, techIndex) => (
-                  <motion.span
+                  <span
                     key={techIndex}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.8 + techIndex * 0.05 }}
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
                     className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
+              </div>
 
               {/* Action Buttons */}
-              <motion.div 
+              <div 
                 className="flex flex-wrap gap-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.9 }}
               >
-                <motion.a
+                <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgb(29, 78, 216)" }}
-                  whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-300"
                 >
                   <ExternalLink size={14} />
                   View Details
-                </motion.a>
+                </a>
                 {project.githubLink && (
-                  <motion.a
+                  <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                    whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-xs font-medium rounded-lg transition-all duration-300"
                   >
                     <Github size={14} />
                     Frontend
-                  </motion.a>
+                  </a>
                 )}
                 {project.backendLink && (
-                  <motion.a
+                  <a
                     href={project.backendLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                    whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-xs font-medium rounded-lg transition-all duration-300"
                   >
                     <Github size={14} />
                     Backend
-                  </motion.a>
+                  </a>
                 )}
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 
       {/* Other Projects */}
       {otherProjects.length > 0 && (
-        <motion.div 
+        <div 
           className="mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
         >
-          <motion.h3 
+          <h3 
             className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-8"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
           >
             Other Projects
-          </motion.h3>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {otherProjects.map((project, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -3, 
-                  scale: 1.02,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden border border-gray-200 dark:border-gray-700"
               >
                 {/* Project Image */}
-                <motion.div 
+                <div 
                   className="relative h-32 sm:h-36 overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
                 >
-                  <motion.img
+                  <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </motion.div>
+                </div>
 
                 {/* Project Content */}
-                <motion.div 
+                <div 
                   className="p-4"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
                 >
-                  <motion.h4 
+                  <h4 
                     className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
                   >
                     {project.title}
-                  </motion.h4>
+                  </h4>
 
-                  <motion.p 
+                  <p 
                     className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3 line-clamp-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.4 }}
                   >
                     {project.description}
-                  </motion.p>
+                  </p>
 
                   {/* Technology Tags */}
-                  <motion.div 
+                  <div 
                     className="flex flex-wrap gap-1.5 mb-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.5 }}
                   >
                     {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <motion.span
+                      <span
                         key={techIndex}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.2, delay: index * 0.1 + 0.6 + techIndex * 0.05 }}
-                        whileHover={{ scale: 1.05 }}
                         className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <motion.span 
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.2, delay: index * 0.1 + 0.7 }}
-                        whileHover={{ scale: 1.05 }}
+                      <span 
                         className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
                       >
                         +{project.technologies.length - 3}
-                      </motion.span>
+                      </span>
                     )}
-                  </motion.div>
+                  </div>
 
                   {/* Action Button */}
-                  <motion.a
+                  <a
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.8 }}
-                    whileHover={{ scale: 1.05, backgroundColor: "rgb(29, 78, 216)" }}
-                    whileTap={{ scale: 0.95 }}
                     className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-300 w-full justify-center"
                   >
                     <ExternalLink size={14} />
                     View Project
-                  </motion.a>
-                </motion.div>
-              </motion.div>
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   )
 }
 

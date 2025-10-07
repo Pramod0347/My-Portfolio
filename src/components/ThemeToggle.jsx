@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDarkMode } from '../redux/slices/themeSlice';
-import { motion } from 'framer-motion';
+ 
 
 const ThemeToggle = () => {
   const dispatch = useDispatch();
@@ -21,11 +21,8 @@ const ThemeToggle = () => {
       </div>
 
       {/* Toggle Ball */}
-      <motion.div
-        className="w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-200 dark:to-gray-300 shadow-lg z-10 border border-gray-200 dark:border-gray-400"
-        layout
-        transition={{ type: "spring", stiffness: 600, damping: 30 }}
-        animate={{ x: darkMode ? 40 : 0 }}
+      <div
+        className={`w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-200 dark:to-gray-300 shadow-lg z-10 border border-gray-200 dark:border-gray-400 transform transition-transform duration-300 ${darkMode ? 'translate-x-10' : 'translate-x-0'}`}
       />
     </div>
   );

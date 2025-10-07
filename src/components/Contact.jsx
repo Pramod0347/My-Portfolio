@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { motion } from 'framer-motion'
+ 
 
 const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
@@ -41,43 +41,26 @@ const Contact = () => {
     "peer-valid:top-0 peer-valid:text-xs peer-valid:px-1 peer-valid:text-blue-600 peer-valid:font-semibold"
 
   return (
-    <motion.section 
+    <section 
       id="contact" 
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true }}
     >
       {/* Section Heading - left aligned */}
-      <motion.h2 
+      <h2 
         className="mb-4 relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.02 }}
       >
         Contact
-      </motion.h2>
+      </h2>
 
       {/* Form */}
-      <motion.form 
+      <form 
         className="space-y-6" 
         onSubmit={handleSubmit(onSubmit)}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        viewport={{ once: true }}
       >
         {/* Name & Email side by side on md+ */}
         <div className="md:flex md:gap-6 space-y-6 md:space-y-0">
           {/* Name */}
-          <motion.div 
+          <div 
             className="relative md:w-1/2"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            viewport={{ once: true }}
           >
             <input
               type="text"
@@ -92,24 +75,17 @@ const Contact = () => {
               Name
             </label>
             {errors.name && (
-              <motion.p 
+              <p 
                 className="text-red-500 text-xs mt-1"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
               >
                 {errors.name.message}
-              </motion.p>
+              </p>
             )}
-          </motion.div>
+          </div>
 
           {/* Email */}
-          <motion.div 
+          <div 
             className="relative md:w-1/2"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            viewport={{ once: true }}
           >
             <input
               type="email"
@@ -124,25 +100,18 @@ const Contact = () => {
               Email
             </label>
             {errors.email && (
-              <motion.p 
+              <p 
                 className="text-red-500 text-xs mt-1"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
               >
                 {errors.email.message}
-              </motion.p>
+              </p>
             )}
-          </motion.div>
+          </div>
         </div>
 
         {/* Message */}
-        <motion.div 
+        <div 
           className="relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.7 }}
-          viewport={{ once: true }}
         >
           <textarea
             id="message"
@@ -157,34 +126,25 @@ const Contact = () => {
             Message
           </label>
           {errors.message && (
-            <motion.p 
+            <p 
               className="text-red-500 text-xs mt-1"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
             >
               {errors.message.message}
-            </motion.p>
+            </p>
           )}
-        </motion.div>
+        </div>
 
         {/* Submit */}
-        <motion.button
+        <button
           type="submit"
           disabled={isSubmitting}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           className={`w-fit py-2 px-4 text-lg font-semibold text-white rounded-md transition-all duration-300 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
             }`}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
-        </motion.button>
-      </motion.form>
-    </motion.section>
+        </button>
+      </form>
+    </section>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+ 
 
 const Certifications = () => {
   const certifications = [
@@ -17,12 +17,8 @@ const Certifications = () => {
   ];
 
   return (
-    <motion.div
+    <div
       className="w-full mt-8"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      viewport={{ once: true }}
     >
       <h2 className="relative w-fit text-xl lg:text-2xl font-medium after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
         Certifications & Achievements
@@ -56,7 +52,7 @@ const Certifications = () => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
