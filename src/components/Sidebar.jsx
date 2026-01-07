@@ -3,8 +3,8 @@ import { ChevronDown, Mail, Phone, MapPin, Calendar, Github, Linkedin } from 'lu
  
 
 const contactItems = [
-    { icon: Mail, label: 'Gmail', value: 'pramodgoudar.fullstack@gmail.com', link: 'mailto:pramodgoudar.fullstack@gmail.com'},
-    { icon: Phone, label: 'Phone', value: '+918296090286', link: 'tel:+918296090286' },
+    { icon: Mail, label: 'Email', value: 'pramodgoudardev2@gmail.com', link: 'mailto:pramodgoudardev2@gmail.com'},
+    { icon: Phone, label: 'Phone', value: '+91 8951790286', link: 'tel:+918951790286' },
     { icon: MapPin, label: 'Location', value: 'Bangalore, India' },
     { icon: Calendar, label: 'Birthday', value: 'July 17, 2000' },
     { icon: Github, label: 'Github', value: 'github.com/pramod347', link: 'http://github.com/Pramod0347' },
@@ -62,43 +62,41 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Animated Contact Info */}
+            {/* Contact Info - simple, clean list */}
             {showContent && (
-                    <div
-                        className="overflow-hidden flex flex-col gap-4"
-                    >
-                        {contactItems.map(({ icon: Icon, label, value, link }, index) => (
-                            <div 
-                                key={label} 
-                                className="flex gap-3 w-fit items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-pointer"
+                <div className="overflow-hidden flex flex-col gap-3 pt-2">
+                    {contactItems.map(({ icon: Icon, label, value, link }) => (
+                        <div 
+                            key={label} 
+                            className="flex gap-3 items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-all duration-300 cursor-pointer"
+                        >
+                            <span 
+                                className="p-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-lg w-8 h-8 flex items-center justify-center shadow-sm border border-gray-300 dark:border-gray-600"
                             >
-                                <span 
-                                    className="p-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-lg w-8 h-8 flex items-center justify-center shadow-sm border border-gray-300 dark:border-gray-600"
+                                <Icon className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+                            </span>
+                            <div className="flex flex-col">
+                                <p 
+                                    className="text-xs lg:text-sm uppercase font-bold text-gray-600 dark:text-gray-400"
                                 >
-                                    <Icon className="w-4 h-4 text-gray-700 dark:text-gray-300" />
-                                </span>
-                                <div className="flex flex-col">
-                                    <p 
-                                        className="text-xs lg:text-sm uppercase font-bold text-gray-600 dark:text-gray-400"
+                                    {label}
+                                </p>
+                                {link ? (
+                                    <a 
+                                        href={link} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                                     >
-                                        {label}
-                                    </p>
-                                    {link ? (
-                                        <a 
-                                            href={link} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
-                                            className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                                        >
-                                            {value}
-                                        </a>
-                                    ) : (
-                                        <span className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200">{value}</span>
-                                    )}
-                                </div>
+                                        {value}
+                                    </a>
+                                ) : (
+                                    <span className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200">{value}</span>
+                                )}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
+                </div>
                 )}
         </div>
     );

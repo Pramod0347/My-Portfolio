@@ -2,14 +2,35 @@ import React from 'react'
  
 import { ExternalLink, Github } from 'lucide-react'
 import kushalsBanner from '../Images/kushalsBanner.png'
+import procurementImg from '../Images/procurement.png'
 import swiggy from '../Images/swiggy.avif'
 
 const Projects = () => {
   const projects = [
     {
-      title: 'News RAG Application – AI-Powered News Chatbot',
+      title: 'ProcureFlow – Intelligent Procurement & GRN System',
       description:
-        'Developed a RAG-based chatbot using Jina embeddings + Qdrant Vector DB, enabling semantic search over 100+ news articles (BBC, CNN, Reuters). Built Node.js/Express backend with Redis (Upstash) for per-session chat history (sliding TTL) and multi-turn conversation handling. Created a React (Vite) frontend with optimistic UI, pseudo-streaming responses, and secure deployment on Render, Vercel, and Upstash Redis.',
+        'Intelligent procurement workspace with vendor onboarding, PO lifecycle management, SKU validation, and auto-generated GRN records. Built as a MERN microservices system with Prisma ORM, Redis caching, JWT-based auth, and Dockerized deployments. Features a React + Redux dashboard with role-based access, approval workflows, analytics, and real-time PO/GRN status updates.',
+      image: procurementImg,
+      technologies: [
+        'MERN Stack',
+        'Prisma ORM',
+        'Redis',
+        'Microservices',
+        'PostgreSQL',
+        'JWT Auth',
+        'Docker',
+      ],
+      liveLink: 'https://procurement-app-delta.vercel.app/',
+      githubLink: null,
+      backendLink: null,
+      featured: true,
+      highlighted: true,
+    },
+    {
+      title: 'NewsRAG – AI-Powered News Chatbot',
+      description:
+        'RAG-based news chatbot using Jina embeddings + Qdrant Vector DB for semantic search across 100+ news sources (BBC, CNN, Reuters). Node.js/Express backend with Redis (Upstash) for per-session chat history (sliding TTL) and multi-turn conversations, plus a Vite + React frontend with streaming-style responses and global deployment.',
       image:
         'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center',
       technologies: ['Node.js', 'React', 'RAG', 'Qdrant', 'Redis', 'Jina Embeddings', 'Vector DB'],
@@ -17,6 +38,7 @@ const Projects = () => {
       githubLink: 'https://github.com/Pramod0347/voosh-news-rag-frontend',
       backendLink: 'https://github.com/Pramod0347/voosh-news-rag-backend',
       featured: true,
+      highlightedSecondary: true,
     },
     {
       title: 'TaskFlow - Full-Stack Task Management App',
@@ -28,7 +50,7 @@ const Projects = () => {
       liveLink: 'https://taskflow-demo.vercel.app/',
       githubLink: 'https://github.com/Pramod0347/Task-Flow-Frontend-Tailwind',
       backendLink: 'https://github.com/Pramod0347/Task-Flow-Backend-DB',
-      featured: true,
+      featured: false,
     },
     {
       title: 'Kushals Fashion Jewellery - E-commerce Platform',
@@ -99,72 +121,252 @@ const Projects = () => {
   const featuredProjects = projects.filter((project) => project.featured)
   const otherProjects = projects.filter((project) => !project.featured)
 
+  const highlightedProject = featuredProjects.find((project) => project.highlighted)
+  const secondaryHighlightedProjects = featuredProjects.filter(
+    (project) => project.highlightedSecondary
+  )
+  const regularFeaturedProjects = featuredProjects.filter(
+    (project) => !project.highlighted && !project.highlightedSecondary
+  )
+
   return (
     <div
       className="w-full mt-8"
     >
-      <div 
-        className="mb-12"
-      >
-        <h2 
-          className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
-        >
+      {/* Highlighted Project */}
+      {highlightedProject && (
+        <section className="mb-12">
+          <div className="mb-6">
+            <h2 className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-purple-500 after:rounded-full drop-shadow-sm">
+              Highlighted Project
+            </h2>
+            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+              A procurement hub UI inspired by your design, implemented as a production-ready MERN microservices system.
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl ring-1 ring-purple-500/50 dark:ring-purple-400/70 overflow-hidden grid grid-cols-1 md:grid-cols-[1.4fr,1fr]">
+            {/* Image side */}
+            <div className="relative h-52 sm:h-64 md:h-full overflow-hidden">
+              <img
+                src={highlightedProject.image}
+                alt={highlightedProject.title}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+              <span className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[11px] font-medium text-white backdrop-blur">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                Procurement workspace UI
+              </span>
+            </div>
+
+            {/* Content side */}
+            <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-between gap-4">
+              <div>
+                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-purple-500 mb-1.5">
+                  Highlighted project
+                </p>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 dark:text-gray-50 leading-snug">
+                  {highlightedProject.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+                  {highlightedProject.description}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {highlightedProject.technologies.slice(0, 4).map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-medium rounded-full dark:bg-purple-900/40 dark:text-purple-100"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {highlightedProject.technologies.length > 4 && (
+                    <span className="px-2.5 py-1 bg-gray-100 text-gray-700 text-[11px] font-medium rounded-full dark:bg-gray-800 dark:text-gray-200">
+                      +{highlightedProject.technologies.length - 4} more
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={highlightedProject.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all"
+                  >
+                    <ExternalLink size={14} />
+                    View live dashboard
+                  </a>
+                  {highlightedProject.githubLink && (
+                    <a
+                      href={highlightedProject.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                    >
+                      <Github size={14} />
+                      View repo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Secondary highlighted featured projects (e.g., NewsRAG) */}
+      {secondaryHighlightedProjects.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-6">
+            <h3 className="relative w-fit text-lg lg:text-xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-1/2 after:border-b-2 after:border-emerald-500 after:rounded-full">
+              AI & Real-time Experiences
+            </h3>
+            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+              Production-grade AI and realtime apps that pair robust backends with clean, responsive UIs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:gap-8">
+            {secondaryHighlightedProjects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-emerald-200/70 dark:border-emerald-700/60 overflow-hidden grid grid-cols-1 sm:grid-cols-[1.1fr,1.3fr]"
+              >
+                {/* Image */}
+                <div className="relative h-40 sm:h-full overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/15 to-transparent" />
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    AI / RAG
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-4 sm:p-5 flex flex-col justify-between gap-3">
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 leading-snug mb-1.5">
+                      {project.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-2 py-1 bg-emerald-50 text-emerald-700 text-[11px] font-medium rounded-full dark:bg-emerald-900/40 dark:text-emerald-100"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <span className="px-2 py-1 bg-gray-100 text-gray-700 text-[11px] font-medium rounded-full dark:bg-gray-800 dark:text-gray-200">
+                          +{project.technologies.length - 4} more
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all"
+                      >
+                        <ExternalLink size={14} />
+                        Open app
+                      </a>
+                      {project.githubLink && (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                        >
+                          <Github size={14} />
+                          Frontend
+                        </a>
+                      )}
+                      {project.backendLink && (
+                        <a
+                          href={project.backendLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                        >
+                          <Github size={14} />
+                          Backend
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Remaining featured projects */}
+      {regularFeaturedProjects.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-6">
+            <h3 className="relative w-fit text-lg lg:text-xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-1/2 after:border-b-2 after:border-yellow-500 after:rounded-full">
           Featured Projects
-        </h2>
-        <p 
-          className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl"
-        >
-          Key development projects showcasing expertise in full stack development, microservices, and modern web technologies.
+            </h3>
+            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+              Additional end-to-end builds demonstrating real-time systems, AI, and production-grade web apps.
         </p>
       </div>
 
-      {/* Featured Projects Grid */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 mb-12">
-        {featuredProjects.map((project, index) => (
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
+            {regularFeaturedProjects.map((project, index) => (
           <div
             key={index}
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-700"
           >
             {/* Project Image */}
-            <div 
-              className="relative h-40 sm:h-44 overflow-hidden"
-            >
+                <div className="relative h-40 sm:h-44 overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-              {/* Subtle featured tag */}
-              <div 
-                className="absolute bottom-3 left-3 px-2 py-1 bg-yellow-500 text-white text-xs font-medium rounded-md shadow"
-              >
+                  <div className="absolute bottom-3 left-3 px-2 py-1 bg-yellow-500 text-white text-xs font-medium rounded-md shadow">
                 Featured
               </div>
             </div>
 
             {/* Project Content */}
-            <div 
-              className="p-6"
-            >
-              <h3 
-                className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight"
-              >
+                <div className="p-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
                 {project.title}
-              </h3>
+                  </h4>
 
-              <p 
-                className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3"
-              >
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
                 {project.description}
               </p>
 
               {/* Technology Tags */}
-              <div 
-                className="flex flex-wrap gap-2 mb-4"
-              >
+                  <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
@@ -176,9 +378,7 @@ const Projects = () => {
               </div>
 
               {/* Action Buttons */}
-              <div 
-                className="flex flex-wrap gap-2"
-              >
+                  <div className="flex flex-wrap gap-2">
                 <a
                   href={project.liveLink}
                   target="_blank"
@@ -215,27 +415,23 @@ const Projects = () => {
           </div>
         ))}
       </div>
+        </section>
+      )}
 
       {/* Other Projects */}
       {otherProjects.length > 0 && (
-        <div 
-          className="mt-16"
-        >
-          <h3 
-            className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-8"
-          >
+        <div className="mt-14">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">
             Other Projects
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 items-stretch">
             {otherProjects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden border border-gray-200 dark:border-gray-700"
+                className="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden border border-gray-200 dark:border-gray-700"
               >
                 {/* Project Image */}
-                <div 
-                  className="relative h-32 sm:h-36 overflow-hidden"
-                >
+                <div className="relative h-32 sm:h-36 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -246,25 +442,17 @@ const Projects = () => {
                 </div>
 
                 {/* Project Content */}
-                <div 
-                  className="p-4"
-                >
-                  <h4 
-                    className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight"
-                  >
+                <div className="p-4 flex flex-col flex-1">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
                     {project.title}
                   </h4>
 
-                  <p 
-                    className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3 line-clamp-3"
-                  >
+                  <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3 line-clamp-3">
                     {project.description}
                   </p>
 
                   {/* Technology Tags */}
-                  <div 
-                    className="flex flex-wrap gap-1.5 mb-3"
-                  >
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -275,7 +463,7 @@ const Projects = () => {
                     ))}
                     {project.technologies.length > 3 && (
                       <span 
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200 mt-1"
                       >
                         +{project.technologies.length - 3}
                       </span>
