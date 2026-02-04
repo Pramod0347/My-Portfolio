@@ -30,42 +30,46 @@ const MainContents = () => {
 
   const [activeSection, setActiveSection] = useState('home');
 
-  const sectionVisibility = useRef({});
-
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '-20% 0px -55% 0px',
-      threshold: [0.1, 0.25, 0.5, 0.75],
+    let ticking = false;
+    const offset = 140;
+
+    const updateActiveSection = () => {
+      ticking = false;
+      const entries = Object.entries(sectionRefs)
+        .map(([key, ref]) => {
+          if (!ref.current) return null;
+          const rect = ref.current.getBoundingClientRect();
+          return { key, top: rect.top };
+        })
+        .filter(Boolean);
+
+      if (!entries.length) return;
+
+      const visible = entries
+        .filter((item) => item.top - offset <= 0)
+        .sort((a, b) => b.top - a.top);
+
+      const nextKey = visible[0]?.key ?? entries.sort((a, b) => a.top - b.top)[0].key;
+      if (nextKey && nextKey !== activeSection) {
+        setActiveSection(nextKey);
+      }
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const matchedKey = Object.entries(sectionRefs).find(
-          ([, ref]) => ref.current === entry.target
-        )?.[0];
-        if (matchedKey) {
-          sectionVisibility.current[matchedKey] = entry.intersectionRatio;
-        }
-      });
-
-      const mostVisible = Object.entries(sectionVisibility.current).sort(
-        (a, b) => b[1] - a[1]
-      )[0]?.[0];
-
-      if (mostVisible) {
-        setActiveSection(mostVisible);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
       }
-    }, options);
+    };
 
-    Object.values(sectionRefs).forEach((ref) => {
-      if (ref.current) observer.observe(ref.current);
-    });
+    updateActiveSection();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
 
     return () => {
-      Object.values(sectionRefs).forEach((ref) => {
-        if (ref.current) observer.unobserve(ref.current);
-      });
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
