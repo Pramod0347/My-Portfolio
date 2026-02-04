@@ -38,9 +38,9 @@ function App() {
 
         <div className="relative flex flex-col md:flex-row sm:gap-6">
           <aside className="w-full md:w-[28%] md:self-start md:sticky md:top-4">
-            <div className='max-h-[calc(100vh-2rem)] border-r border-slate-200/70 dark:border-slate-700/60 p-4 md:p-6 overflow-y-auto glass-card'>
-              <Sidebar />
-            </div>
+              <div className='max-h-[calc(100vh-2rem)] border border-slate-200/70 dark:border-slate-700/60 p-4 md:p-6 overflow-y-auto glass-card rounded-r-[24px] rounded-l-none overflow-hidden'>
+                <Sidebar />
+              </div>
           </aside>
           <div 
             className='md:w-[72%] md:self-start relative'

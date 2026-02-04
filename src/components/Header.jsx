@@ -19,7 +19,7 @@ const Header = ({ sectionRefs, activeSection }) => {
 
   return (
     <nav 
-      className="md:flex justify-between items-center md:px-6 md:py-2 w-full glass-card md:rounded-2xl border border-white/70 dark:border-slate-700/60"
+      className="md:flex justify-between items-center md:px-6 md:py-2 w-full glass-card rounded-[24px] border border-white/70 dark:border-slate-700/60"
     >
       <div className="flex justify-around items-center w-full md:gap-2">
         {navItems.map(({ key, icon: Icon, label }, index) => {
