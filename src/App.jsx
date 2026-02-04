@@ -33,19 +33,17 @@ function App() {
 
   return (
     <Router>
-      <div 
-        className='bg-gradient-to-br from-stone-50 to-stone-100 text-gray-800 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100 min-h-screen'
-      >
-        <div 
-          className='flex sm:gap-4 md:gap-0 flex-col md:flex-row'
-        >
+      <div className="relative min-h-screen app-shell bg-[#F7F3EC] dark:bg-[#0B1220] text-slate-900 dark:text-slate-100">
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-30 dark:bg-grid-dark dark:opacity-40" />
+
+        <div className="relative flex flex-col md:flex-row sm:gap-6">
+          <aside className="w-full md:w-[28%] md:self-start md:sticky md:top-4">
+            <div className='max-h-[calc(100vh-2rem)] border-r border-slate-200/70 dark:border-slate-700/60 p-4 md:p-6 overflow-y-auto glass-card'>
+              <Sidebar />
+            </div>
+          </aside>
           <div 
-            className='w-full md:w-[25%] md:sticky md:h-[100vh] md:pt-12 md:top-0 md:self-start border-r-2 text-gray-800 dark:text-gray-100 border-gray-200 dark:border-gray-700 p-4 overflow-hidden overflow-y-auto bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm'
-          >
-            <Sidebar />
-          </div>
-          <div 
-            className='bg-gradient-to-br from-stone-50 to-stone-100 text-gray-800 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-700 lg:justify-center md:sticky md:w-[75%] md:self-start relative'
+            className='md:w-[72%] md:self-start relative'
           >
             <MainContents />
           </div>

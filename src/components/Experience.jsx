@@ -29,11 +29,10 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <div
-            className=""
-        >
+        <div className="animate-fade-up">
+            <p className="section-kicker">Timeline</p>
             <h2 
-                className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
+                className="section-title"
             >
                 Work Experience
             </h2>
@@ -41,24 +40,24 @@ const Experience = () => {
             {experiences.map((exp, idx) => (
                 <div 
                     key={idx} 
-                    className="my-8 p-6 rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-xl transition-all duration-500"
+                    className="my-8 p-6 rounded-2xl glass-card hover:shadow-lift transition-all duration-500"
                 >
                     <div 
                         className="flex items-start gap-3 mb-4"
                     >
                         <span 
-                            className="bg-gradient-to-br from-yellow-400 to-yellow-600 w-8 h-8 rounded-full flex items-center justify-center text-white shadow-md mt-1"
+                            className="bg-gradient-to-br from-amber-400 to-amber-600 w-9 h-9 rounded-2xl flex items-center justify-center text-white shadow-md mt-1"
                         >
                             <Briefcase size={16} />
                         </span>
                         <div>
                             <h3 
-                                className="font-bold text-gray-900 dark:text-gray-100 text-base lg:text-lg leading-snug"
+                                className="font-bold text-slate-900 dark:text-slate-100 text-base lg:text-lg leading-snug"
                             >
                                 {exp.title}
                             </h3>
                             <p 
-                                className="text-gray-600 dark:text-gray-400 text-sm lg:text-base font-medium"
+                                className="text-slate-600 dark:text-slate-400 text-sm lg:text-base font-medium"
                             >
                                 {exp.duration}
                             </p>
@@ -66,12 +65,12 @@ const Experience = () => {
                     </div>
 
                     <ul 
-                        className="list-disc pl-6 text-sm lg:text-base space-y-3 text-gray-700 dark:text-gray-300 leading-relaxed"
+                        className="list-disc pl-6 text-sm lg:text-base space-y-3 text-slate-700 dark:text-slate-300 leading-relaxed"
                     >
                         {exp.bullets.map((point, i) => (
                             <li 
                                 key={i} 
-                                className="hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 cursor-pointer"
+                                className="hover:text-slate-900 dark:hover:text-white transition-all duration-300"
                             >
                                 {point}
                             </li>

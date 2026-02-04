@@ -131,21 +131,22 @@ const Projects = () => {
 
   return (
     <div
-      className="w-full mt-8"
+      className="w-full mt-8 animate-fade-up"
     >
       {/* Highlighted Project */}
       {highlightedProject && (
         <section className="mb-12">
           <div className="mb-6">
-            <h2 className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-purple-500 after:rounded-full drop-shadow-sm">
+            <p className="section-kicker">Spotlight</p>
+            <h2 className="section-title">
               Highlighted Project
             </h2>
-            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
               A procurement hub UI inspired by your design, implemented as a production-ready MERN microservices system.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl ring-1 ring-purple-500/50 dark:ring-purple-400/70 overflow-hidden grid grid-cols-1 md:grid-cols-[1.4fr,1fr]">
+          <div className="glass-card rounded-3xl ring-1 ring-amber-300/80 dark:ring-amber-400/40 overflow-hidden grid grid-cols-1 md:grid-cols-[1.4fr,1fr]">
             {/* Image side */}
             <div className="relative h-52 sm:h-64 md:h-full overflow-hidden">
               <img
@@ -154,7 +155,7 @@ const Projects = () => {
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
               <span className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[11px] font-medium text-white backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 Procurement workspace UI
@@ -164,13 +165,13 @@ const Projects = () => {
             {/* Content side */}
             <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-between gap-4">
               <div>
-                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-purple-500 mb-1.5">
+                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-amber-600 dark:text-amber-300 mb-1.5">
                   Highlighted project
                 </p>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 dark:text-gray-50 leading-snug">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900 dark:text-slate-50 leading-snug">
                   {highlightedProject.title}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-4">
                   {highlightedProject.description}
                 </p>
               </div>
@@ -180,13 +181,13 @@ const Projects = () => {
                   {highlightedProject.technologies.slice(0, 4).map((tech, index) => (
                     <span
                       key={index}
-                      className="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-medium rounded-full dark:bg-purple-900/40 dark:text-purple-100"
+                      className="px-2.5 py-1 bg-amber-50 text-amber-700 text-[11px] font-medium rounded-full dark:bg-amber-900/40 dark:text-amber-100"
                     >
                       {tech}
                     </span>
                   ))}
                   {highlightedProject.technologies.length > 4 && (
-                    <span className="px-2.5 py-1 bg-gray-100 text-gray-700 text-[11px] font-medium rounded-full dark:bg-gray-800 dark:text-gray-200">
+                    <span className="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-medium rounded-full dark:bg-slate-800 dark:text-slate-200">
                       +{highlightedProject.technologies.length - 4} more
                     </span>
                   )}
@@ -197,7 +198,7 @@ const Projects = () => {
                     href={highlightedProject.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all"
                   >
                     <ExternalLink size={14} />
                     View live dashboard
@@ -207,7 +208,7 @@ const Projects = () => {
                       href={highlightedProject.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                      className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
                     >
                       <Github size={14} />
                       View repo
@@ -224,10 +225,11 @@ const Projects = () => {
       {secondaryHighlightedProjects.length > 0 && (
         <section className="mb-12">
           <div className="mb-6">
-            <h3 className="relative w-fit text-lg lg:text-xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-1/2 after:border-b-2 after:border-emerald-500 after:rounded-full">
+            <p className="section-kicker">Featured</p>
+            <h3 className="section-title">
               AI & Real-time Experiences
             </h3>
-            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
               Production-grade AI and realtime apps that pair robust backends with clean, responsive UIs.
             </p>
           </div>
@@ -236,7 +238,7 @@ const Projects = () => {
             {secondaryHighlightedProjects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-emerald-200/70 dark:border-emerald-700/60 overflow-hidden grid grid-cols-1 sm:grid-cols-[1.1fr,1.3fr]"
+                className="glass-card rounded-2xl border border-emerald-200/60 dark:border-emerald-700/40 overflow-hidden grid grid-cols-1 sm:grid-cols-[1.1fr,1.3fr]"
               >
                 {/* Image */}
                 <div className="relative h-40 sm:h-full overflow-hidden">
@@ -256,10 +258,10 @@ const Projects = () => {
                 {/* Content */}
                 <div className="p-4 sm:p-5 flex flex-col justify-between gap-3">
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-50 leading-snug mb-1.5">
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-50 leading-snug mb-1.5">
                       {project.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-4">
                       {project.description}
                     </p>
                   </div>
@@ -275,7 +277,7 @@ const Projects = () => {
                         </span>
                       ))}
                       {project.technologies.length > 4 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-700 text-[11px] font-medium rounded-full dark:bg-gray-800 dark:text-gray-200">
+                        <span className="px-2 py-1 bg-slate-100 text-slate-700 text-[11px] font-medium rounded-full dark:bg-slate-800 dark:text-slate-200">
                           +{project.technologies.length - 4} more
                         </span>
                       )}
@@ -286,7 +288,7 @@ const Projects = () => {
                         href={project.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all"
+                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all"
                       >
                         <ExternalLink size={14} />
                         Open app
@@ -296,7 +298,7 @@ const Projects = () => {
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
                         >
                           <Github size={14} />
                           Frontend
@@ -307,7 +309,7 @@ const Projects = () => {
                           href={project.backendLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 text-xs font-semibold rounded-lg transition-all"
+                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
                         >
                           <Github size={14} />
                           Backend
@@ -326,10 +328,11 @@ const Projects = () => {
       {regularFeaturedProjects.length > 0 && (
         <section className="mb-12">
           <div className="mb-6">
-            <h3 className="relative w-fit text-lg lg:text-xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-1/2 after:border-b-2 after:border-yellow-500 after:rounded-full">
+            <p className="section-kicker">Featured</p>
+            <h3 className="section-title">
           Featured Projects
             </h3>
-            <p className="text-sm lg:text-base mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
+            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
               Additional end-to-end builds demonstrating real-time systems, AI, and production-grade web apps.
         </p>
       </div>
@@ -338,7 +341,7 @@ const Projects = () => {
             {regularFeaturedProjects.map((project, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-700"
+            className="glass-card rounded-2xl hover:shadow-lift transition-all duration-500 overflow-hidden border border-white/60 dark:border-slate-700/60"
           >
             {/* Project Image */}
                 <div className="relative h-40 sm:h-44 overflow-hidden">
@@ -350,18 +353,18 @@ const Projects = () => {
               />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-                  <div className="absolute bottom-3 left-3 px-2 py-1 bg-yellow-500 text-white text-xs font-medium rounded-md shadow">
+                  <div className="absolute bottom-3 left-3 px-2 py-1 bg-amber-500 text-white text-xs font-medium rounded-md shadow">
                 Featured
               </div>
             </div>
 
             {/* Project Content */}
                 <div className="p-6">
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
+                  <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
                 {project.title}
                   </h4>
 
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4 line-clamp-3">
                 {project.description}
               </p>
 
@@ -370,7 +373,7 @@ const Projects = () => {
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
+                    className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200"
                   >
                     {tech}
                   </span>
@@ -383,7 +386,7 @@ const Projects = () => {
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-300"
+                  className="flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium rounded-lg transition-all duration-300"
                 >
                   <ExternalLink size={14} />
                   View Details
@@ -393,7 +396,7 @@ const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-xs font-medium rounded-lg transition-all duration-300"
+                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-medium rounded-lg transition-all duration-300"
                   >
                     <Github size={14} />
                     Frontend
@@ -404,7 +407,7 @@ const Projects = () => {
                     href={project.backendLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-xs font-medium rounded-lg transition-all duration-300"
+                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-medium rounded-lg transition-all duration-300"
                   >
                     <Github size={14} />
                     Backend
@@ -421,14 +424,15 @@ const Projects = () => {
       {/* Other Projects */}
       {otherProjects.length > 0 && (
         <div className="mt-14">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">
+          <p className="section-kicker">More Work</p>
+          <h3 className="section-title mb-6">
             Other Projects
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 items-stretch">
             {otherProjects.map((project, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden border border-gray-200 dark:border-gray-700"
+                className="flex flex-col glass-card rounded-2xl shadow-md hover:shadow-lift transition-all duration-400 overflow-hidden border border-white/60 dark:border-slate-700/60"
               >
                 {/* Project Image */}
                 <div className="relative h-32 sm:h-36 overflow-hidden">
@@ -443,11 +447,11 @@ const Projects = () => {
 
                 {/* Project Content */}
                 <div className="p-4 flex flex-col flex-1">
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 leading-tight">
+                  <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
                     {project.title}
                   </h4>
 
-                  <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3 line-clamp-3">
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-3 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -456,14 +460,14 @@ const Projects = () => {
                     {project.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200"
+                        className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
                       <span 
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md transition-all duration-200 mt-1"
+                        className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200 mt-1"
                       >
                         +{project.technologies.length - 3}
                       </span>
@@ -475,7 +479,7 @@ const Projects = () => {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-300 w-full justify-center"
+                    className="flex items-center gap-2 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium rounded-lg transition-all duration-300 w-full justify-center"
                   >
                     <ExternalLink size={14} />
                     View Project

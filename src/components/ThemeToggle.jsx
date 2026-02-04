@@ -11,7 +11,7 @@ const ThemeToggle = () => {
     <div
       onClick={() => dispatch(toggleDarkMode())}
       className="w-20 h-10 flex items-center px-1 rounded-full cursor-pointer transition-all duration-300 relative
-        bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 border-2 border-transparent hover:border-yellow-400 shadow-lg hover:shadow-xl"
+        bg-gradient-to-r from-amber-100 via-amber-200 to-emerald-100 dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 border border-white/70 dark:border-slate-700/60 shadow-soft hover:shadow-lift"
       aria-label="Toggle Theme"
     >
       {/* Icons */}
@@ -22,7 +22,7 @@ const ThemeToggle = () => {
 
       {/* Toggle Ball */}
       <div
-        className={`w-8 h-8 rounded-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-200 dark:to-gray-300 shadow-lg z-10 border border-gray-200 dark:border-gray-400 transform transition-transform duration-300 ${darkMode ? 'translate-x-10' : 'translate-x-0'}`}
+        className={`w-8 h-8 rounded-full bg-white dark:bg-slate-200 shadow-lg z-10 border border-white/80 dark:border-slate-300 transform transition-transform duration-300 ${darkMode ? 'translate-x-10' : 'translate-x-0'}`}
       />
     </div>
   );

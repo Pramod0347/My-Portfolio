@@ -31,18 +31,17 @@ const Education = () => {
 
   return (
     <div
-      className="w-full mt-8"
+      className="w-full mt-8 animate-fade-up"
     >
       <div 
         className="mb-8"
       >
-        <h2 
-          className="relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
-        >
+        <p className="section-kicker">Academics</p>
+        <h2 className="section-title">
           Education
         </h2>
         <p 
-          className="text-sm lg:text-base mt-2 text-gray-600 dark:text-gray-400"
+          className="text-sm lg:text-base mt-2 text-slate-600 dark:text-slate-300"
         >
           Academic background in software engineering and computer science
         </p>
@@ -52,19 +51,19 @@ const Education = () => {
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500"
+            className="glass-card rounded-2xl p-6 hover:shadow-lift transition-all duration-500"
           >
             {/* Header with Icon */}
             <div 
               className="flex items-center gap-3 mb-4"
             >
               <div 
-                className="p-2 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/50 dark:to-blue-800/50 rounded-lg"
+                className="p-2 bg-emerald-100/70 dark:bg-emerald-900/40 rounded-lg"
               >
-                <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <GraduationCap className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
               </div>
               <h3 
-                className="text-lg font-bold text-gray-900 dark:text-gray-100"
+                className="text-lg font-bold text-slate-900 dark:text-slate-100"
               >
                 {edu.title}
               </h3>
@@ -72,7 +71,7 @@ const Education = () => {
 
             {/* Institution */}
             <h4 
-              className="text-blue-600 dark:text-blue-400 font-semibold text-base mb-2"
+              className="text-emerald-700 dark:text-emerald-300 font-semibold text-base mb-2"
             >
               {edu.institution}
             </h4>
@@ -81,8 +80,8 @@ const Education = () => {
             <div 
               className="flex items-center gap-2 mb-4"
             >
-              <Calendar className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              <span className="text-gray-600 dark:text-gray-400 text-sm">
+              <Calendar className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+              <span className="text-slate-600 dark:text-slate-400 text-sm">
                 {edu.duration}
               </span>
             </div>
@@ -96,7 +95,7 @@ const Education = () => {
                 {edu.coursework.map((course, courseIndex) => (
                   <span
                     key={courseIndex}
-                    className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs font-medium rounded-full border border-purple-200 dark:border-purple-700 transition-all duration-200 cursor-pointer"
+                    className="px-3 py-1 bg-amber-100/80 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-xs font-medium rounded-full border border-amber-200 dark:border-amber-700 transition-all duration-200"
                   >
                     {course}
                   </span>

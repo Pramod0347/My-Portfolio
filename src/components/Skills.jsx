@@ -54,13 +54,13 @@ const Skills = () => {
   }, {});
 
   const categoryColors = {
-    'Frontend': 'from-blue-500 to-cyan-500',
-    'Backend': 'from-green-500 to-emerald-500',
-    'Database': 'from-purple-500 to-violet-500',
-    'Testing': 'from-red-500 to-pink-500',
-    'E-commerce': 'from-yellow-500 to-orange-500',
-    'Cloud': 'from-indigo-500 to-blue-500',
-    'Tools': 'from-gray-500 to-slate-500'
+    'Frontend': 'from-sky-500 to-cyan-500',
+    'Backend': 'from-emerald-500 to-teal-500',
+    'Database': 'from-amber-500 to-orange-500',
+    'Testing': 'from-rose-500 to-red-500',
+    'E-commerce': 'from-amber-500 to-yellow-500',
+    'Cloud': 'from-teal-500 to-sky-500',
+    'Tools': 'from-slate-500 to-slate-600'
   };
 
   // v2 UI does not use filters/search; present grouped sections with good mobile UX
@@ -73,8 +73,9 @@ const Skills = () => {
   }
 
   return (
-    <div className="w-full mt-6">
-      <h2 className="relative w-fit text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full">
+    <div className="w-full mt-6 animate-fade-up">
+      <p className="section-kicker">Capabilities</p>
+      <h2 className="section-title">
         My Learnings & Skills
       </h2>
       <div className="mt-6 space-y-8">
@@ -92,23 +93,23 @@ const Skills = () => {
                   return (
                     <div
                       key={skill.name}
-                      className="snap-start shrink-0 w-[240px] p-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm"
+                      className="snap-start shrink-0 w-[240px] p-4 rounded-2xl glass-card border border-white/60 dark:border-slate-700/60"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="rounded-xl p-3 border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700">
+                        <div className="rounded-xl p-3 border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800">
                           <Icon size={20} color={skill.color} />
                         </div>
                         <div className="flex-1">
-                          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{skill.name}</p>
-                          <div className="mt-1 flex items-center gap-2 text-[11px] text-gray-600 dark:text-gray-300">
-                            <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">{skill.level}</span>
-                            <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 whitespace-nowrap">{formatYears(skill.years)}</span>
+                          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{skill.name}</p>
+                          <div className="mt-1 flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300">
+                            <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">{skill.level}</span>
+                            <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 whitespace-nowrap">{formatYears(skill.years)}</span>
                           </div>
                         </div>
                       </div>
                       <div className="mt-3 flex flex-wrap gap-1.5">
                         {skill.usedAt.slice(0, 3).map((proj) => (
-                          <span key={`${skill.name}-${proj}`} className="px-2 py-0.5 text-[11px] rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200">{proj}</span>
+                          <span key={`${skill.name}-${proj}`} className="px-2 py-0.5 text-[11px] rounded-full border border-slate-300 dark:border-slate-600 bg-white/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200">{proj}</span>
                         ))}
                       </div>
                     </div>
@@ -122,23 +123,23 @@ const Skills = () => {
               {items.map((skill) => {
                 const Icon = skill.icon
                 return (
-                  <div key={skill.name} className="p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+                  <div key={skill.name} className="p-5 rounded-2xl glass-card border border-white/60 dark:border-slate-700/60">
                     <div className="flex items-center gap-3">
-                      <div className="rounded-xl p-3 border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700">
+                      <div className="rounded-xl p-3 border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800">
                         <Icon size={20} color={skill.color} />
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{skill.name}</p>
-                        <div className="mt-1 flex items-center gap-2 text-[11px] text-gray-600 dark:text-gray-300">
-                          <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">{skill.level}</span>
-                          <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 whitespace-nowrap">{formatYears(skill.years)}</span>
+                        <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{skill.name}</p>
+                        <div className="mt-1 flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300">
+                          <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">{skill.level}</span>
+                          <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 whitespace-nowrap">{formatYears(skill.years)}</span>
                           <span className={`px-2 py-0.5 rounded-full bg-gradient-to-r ${categoryColors[skill.category]} text-white border border-white/10`}>{skill.category}</span>
                         </div>
                       </div>
                     </div>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {skill.usedAt.slice(0, 4).map((proj) => (
-                        <span key={`${skill.name}-${proj}`} className="px-2 py-0.5 text-[11px] rounded-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200">{proj}</span>
+                        <span key={`${skill.name}-${proj}`} className="px-2 py-0.5 text-[11px] rounded-full border border-slate-300 dark:border-slate-600 bg-white/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200">{proj}</span>
                       ))}
                     </div>
                   </div>

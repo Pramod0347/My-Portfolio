@@ -33,27 +33,27 @@ const Contact = () => {
     }
   }
 
-  const inputStyles = "peer block w-full p-2 text-base border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent dark:bg-transparent dark:text-white dark:border-gray-600"
+  const inputStyles = "peer block w-full p-3 text-base border border-white/60 dark:border-slate-700/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white/70 dark:bg-slate-900/60 dark:text-white"
 
-  const labelStyles = "absolute text-sm text-gray-600 dark:text-gray-300 left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 " +
-    "peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 " +
-    "peer-focus:top-0 peer-focus:text-xs peer-focus:bg-stone-100 peer-focus:dark:bg-gray-700 peer-focus:px-1 peer-focus:text-blue-500 peer-focus:dark:text-blue-400 peer-focus:font-semibold " +
-    "peer-valid:top-0 peer-valid:text-xs peer-valid:px-1 peer-valid:text-blue-600 peer-valid:font-semibold"
+  const labelStyles = "absolute text-sm text-slate-600 dark:text-slate-300 left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 " +
+    "peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 " +
+    "peer-focus:top-0 peer-focus:text-xs peer-focus:bg-[#F7F3EC] peer-focus:dark:bg-[#0E1116] peer-focus:px-1 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-300 peer-focus:font-semibold " +
+    "peer-valid:top-0 peer-valid:text-xs peer-valid:px-1 peer-valid:text-emerald-700 peer-valid:font-semibold"
 
   return (
     <section 
       id="contact" 
+      className="animate-fade-up"
     >
       {/* Section Heading - left aligned */}
-      <h2 
-        className="mb-4 relative w-fit text-xl lg:text-2xl font-medium text-gray-800 dark:text-gray-100 after:content-[''] after:block after:w-2/3 after:border-b-2 after:border-yellow-500 after:rounded-full drop-shadow-sm"
-      >
+      <p className="section-kicker">Get In Touch</p>
+      <h2 className="section-title mb-4">
         Contact
       </h2>
 
       {/* Form */}
       <form 
-        className="space-y-6" 
+        className="space-y-6 glass-card p-6 rounded-2xl border border-white/60 dark:border-slate-700/60"
         onSubmit={handleSubmit(onSubmit)}
       >
         {/* Name & Email side by side on md+ */}
@@ -76,7 +76,7 @@ const Contact = () => {
             </label>
             {errors.name && (
               <p 
-                className="text-red-500 text-xs mt-1"
+                className="text-rose-500 text-xs mt-1"
               >
                 {errors.name.message}
               </p>
@@ -101,7 +101,7 @@ const Contact = () => {
             </label>
             {errors.email && (
               <p 
-                className="text-red-500 text-xs mt-1"
+                className="text-rose-500 text-xs mt-1"
               >
                 {errors.email.message}
               </p>
@@ -127,7 +127,7 @@ const Contact = () => {
           </label>
           {errors.message && (
             <p 
-              className="text-red-500 text-xs mt-1"
+              className="text-rose-500 text-xs mt-1"
             >
               {errors.message.message}
             </p>
@@ -138,7 +138,7 @@ const Contact = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-fit py-2 px-4 text-lg font-semibold text-white rounded-md transition-all duration-300 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+          className={`w-fit py-2.5 px-5 text-base font-semibold text-white rounded-xl transition-all duration-300 ${isSubmitting ? 'bg-emerald-400 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700'
             }`}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}

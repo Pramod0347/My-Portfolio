@@ -20,14 +20,14 @@ const Sidebar = () => {
 
     return (
         <div
-            className="w-full"
+            className="w-full animate-fade-up"
         >
             {/* Header with Avatar and Basic Info */}
             <div 
-                className={`lg:text-center flex lg:flex-col gap-2 items-center ${showContent ? 'border-b-2 border-gray-200 dark:border-gray-700 mb-4 pb-4' : ''}`}
+                className={`lg:text-center flex lg:flex-col gap-3 items-center ${showContent ? 'border-b border-slate-200/70 dark:border-slate-700/60 mb-4 pb-4' : ''}`}
             >
                 <span 
-                    className="bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-3xl flex justify-center items-center w-20 h-20 lg:w-32 lg:h-32 overflow-hidden shadow-lg border border-gray-300 dark:border-gray-600"
+                    className="bg-gradient-to-br from-amber-100 via-amber-200 to-emerald-100 dark:from-slate-700 dark:via-slate-800 dark:to-slate-900 rounded-[28px] flex justify-center items-center w-20 h-20 lg:w-32 lg:h-32 overflow-hidden shadow-soft border border-white/60 dark:border-slate-700/60"
                 >
                     <img
                         src="https://debeshpanda555.github.io/assets/images/my-avatar.png"
@@ -39,12 +39,12 @@ const Sidebar = () => {
                     className="flex flex-col gap-1 lg:gap-2"
                 >
                     <p 
-                        className="text-xl lg:text-2xl text-gray-800 dark:text-white font-semibold drop-shadow-sm"
+                        className="text-xl lg:text-3xl text-slate-900 dark:text-white font-display font-semibold tracking-tight"
                     >
                         Pramod G
                     </p>
                     <p 
-                        className="text-sm lg:text-base bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/50 dark:to-blue-800/50 text-blue-800 dark:text-blue-200 rounded-full py-1 px-3 lg:px-4 lg:py-2 w-fit font-medium shadow-sm border border-blue-200 dark:border-blue-700"
+                        className="text-xs lg:text-sm bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-full py-1.5 px-3 lg:px-4 w-fit font-semibold tracking-wide"
                     >
                         Software Engineer
                     </p>
@@ -57,7 +57,7 @@ const Sidebar = () => {
                     <div
                         className={showContent ? 'rotate-180 transition-transform duration-300 ease-in-out' : 'transition-transform duration-300 ease-in-out'}
                     >
-                        <ChevronDown className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                        <ChevronDown className="w-5 h-5 text-slate-700 dark:text-slate-300" />
                     </div>
                 </div>
             </div>
@@ -68,16 +68,16 @@ const Sidebar = () => {
                     {contactItems.map(({ icon: Icon, label, value, link }) => (
                         <div 
                             key={label} 
-                            className="flex gap-3 items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-all duration-300 cursor-pointer"
+                            className="flex gap-3 items-center p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-white/60 dark:border-slate-700/60 shadow-sm hover:shadow-soft transition-all duration-300 cursor-pointer"
                         >
                             <span 
-                                className="p-2 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-lg w-8 h-8 flex items-center justify-center shadow-sm border border-gray-300 dark:border-gray-600"
+                                className="p-2 bg-amber-100/80 dark:bg-slate-800 rounded-xl w-9 h-9 flex items-center justify-center shadow-sm border border-amber-200/60 dark:border-slate-700"
                             >
-                                <Icon className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+                                <Icon className="w-4 h-4 text-amber-700 dark:text-amber-200" />
                             </span>
                             <div className="flex flex-col">
                                 <p 
-                                    className="text-xs lg:text-sm uppercase font-bold text-gray-600 dark:text-gray-400"
+                                    className="text-[11px] uppercase font-semibold tracking-[0.2em] text-slate-500 dark:text-slate-400"
                                 >
                                     {label}
                                 </p>
@@ -86,12 +86,12 @@ const Sidebar = () => {
                                         href={link} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
-                                        className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                                        className="text-sm lg:text-base break-all text-slate-900 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors duration-200"
                                     >
                                         {value}
                                     </a>
                                 ) : (
-                                    <span className="text-sm lg:text-base break-all text-gray-800 dark:text-gray-200">{value}</span>
+                                    <span className="text-sm lg:text-base break-all text-slate-900 dark:text-slate-200">{value}</span>
                                 )}
                             </div>
                         </div>

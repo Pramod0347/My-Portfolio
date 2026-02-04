@@ -19,7 +19,7 @@ const Header = ({ sectionRefs, activeSection }) => {
 
   return (
     <nav 
-      className="md:flex justify-between items-center md:px-8 md:py-2 w-full md:bg-white/90 dark:md:bg-gray-800/90 md:rounded-bl-2xl md:rounded-br-2xl md:shadow-2xl backdrop-blur-md border border-gray-200/60 dark:border-gray-700/60"
+      className="md:flex justify-between items-center md:px-6 md:py-2 w-full glass-card md:rounded-2xl border border-white/70 dark:border-slate-700/60"
     >
       <div className="flex justify-around items-center w-full md:gap-2">
         {navItems.map(({ key, icon: Icon, label }, index) => {
@@ -28,10 +28,10 @@ const Header = ({ sectionRefs, activeSection }) => {
             <button
               key={key}
               onClick={() => handleScroll(key)}
-              className={`flex flex-col md:flex-row items-center gap-1 md:gap-2 px-3 py-2 md:px-6 md:py-3 text-base font-semibold transition-all duration-500 ease-out rounded-xl md:rounded-lg relative group flex-1 md:flex-none
+              className={`flex flex-col md:flex-row items-center gap-1 md:gap-2 px-3 py-2 md:px-5 md:py-2.5 text-base font-semibold transition-all duration-500 ease-out rounded-xl md:rounded-full relative group flex-1 md:flex-none
                 ${isActive
-                  ? 'text-blue-600 dark:text-blue-400 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 shadow-lg border border-blue-200 dark:border-blue-700/50'
-                  : 'text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-700/30 hover:shadow-md'
+                  ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-50/80 dark:bg-emerald-900/40 shadow-soft border border-emerald-200/60 dark:border-emerald-700/50'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/60 hover:shadow-soft'
                 }`}
             >
                 <Icon 
@@ -39,12 +39,12 @@ const Header = ({ sectionRefs, activeSection }) => {
                   className="transition-all duration-300 group-hover:scale-105" 
                 />
               <p 
-                className="text-xs md:text-sm font-medium"
+                className="text-[11px] md:text-xs font-semibold tracking-wide"
               >
                 {label}
               </p>
               {isActive && (
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full" />
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-300 rounded-full" />
               )}
             </button>
           );
@@ -52,7 +52,7 @@ const Header = ({ sectionRefs, activeSection }) => {
       </div>
 
       <div 
-        className="pr-2 absolute bottom-[75px] right-0 md:static md:pl-6"
+        className="pr-2 absolute bottom-[75px] right-0 md:static md:pl-4"
       >
         <ThemeToggle />
       </div>
