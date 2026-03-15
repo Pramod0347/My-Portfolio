@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, Mail, Phone, MapPin, Calendar, Github, Linkedin, ArrowUpRight, Sparkles, Binary, ServerCog, DatabaseZap } from 'lucide-react';
+import { ChevronDown, Mail, Phone, MapPin, Calendar, Github, Linkedin, ArrowUpRight, Binary, ServerCog, DatabaseZap } from 'lucide-react';
 
 const contactItems = [
   { icon: Mail, label: 'Email', value: 'pramodgoudardev2@gmail.com', link: 'mailto:pramodgoudardev2@gmail.com' },
