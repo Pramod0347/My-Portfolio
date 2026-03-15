@@ -4,25 +4,25 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
     {
-        title: "Software Developer, Kushals Fashion Jewellery",
+        title: "Kushals Retail Pvt. Ltd. | Software Engineer",
         duration: "Nov 2024 – Present, Bengaluru",
         bullets: [
-            "Designed and deployed an inventory sync structure using Node.js, MongoDB, and AWS-hosted pipelines, ensuring real-time stock updates across online and offline channels, cutting fulfillment delays by 25%.",
-            "Implemented OTP-based login & authentication workflows with Express.js + JWT, enhancing account security and reducing cart abandonment rates.",
-            "Built personalized product recommendations & gifting features using MongoDB aggregation + session-based filters, improving AOV and customer retention.",
-            "Migrated backend services to AWS EC2 & S3, improving scalability and cutting hosting costs by ~15%.",
-            "Optimized site performance with lazy loading, image compression, and rendering optimizations, cutting load time by 30% and improving Core Web Vitals.",
+            <>Building a <span className="keyword">B2B SaaS-based AI Display Optimization System</span> for <span className="keyword-badge">110+ jewellery stores</span> that analyzes store-level sales data to recommend product showcase replacements and reduce dead stock.</>,
+            <>Architected a <span className="keyword-accent">distributed inventory synchronization system</span> using <span className="keyword">Node.js</span>, <span className="keyword">PostgreSQL</span>, and <span className="keyword-accent">AWS Event Pipelines</span>, enabling real-time stock updates across stores and online channels.</>,
+            <>Designed <span className="keyword">scalable REST APIs</span> with <span className="keyword-accent">JWT authentication</span>, <span className="keyword">rate limiting</span>, and <span className="keyword">Redis session management</span>, improving login reliability and reducing cart drop-off.</>,
+            <>Optimized <span className="keyword">PostgreSQL queries</span> with <span className="keyword-accent">strategic indexing</span>, reducing API response time from <span className="keyword-badge">~400 ms</span> to <span className="keyword-badge">under 150 ms</span> under load.</>,
+            <>Migrated <span className="keyword">monolithic backend</span> to <span className="keyword-accent">microservices</span> on <span className="keyword">AWS EC2</span> with <span className="keyword">Docker</span> and <span className="keyword">Redis</span>, improving service isolation and reducing hosting costs.</>,
         ],
     },
     {
-        title: "SDE-II, Marmeto Enabling E-Commerce",
+        title: "Marmeto | Software Development Engineer II",
         duration: "Jan 2023 – Nov 2024, Bengaluru",
         bullets: [
-            "Engineered a backend return-flow system using Node.js + MongoDB, enabling seamless refunds/exchanges and reducing support tickets by ~20% for Levi's.",
-            "Built custom coupon & discount logic with Express.js + MongoDB, supporting campaign rules & personalized offers, driving a 10% lift in repeat purchases for Nobero and Levi's.",
-            "Integrated third-party APIs for payments and delivery tracking streamlining operations and improving CSAT by ~15%.",
-            "Led Bewakoof's migration platform from Salesforce to a scalable component-driven architecture, enhancing responsiveness and reducing bounce rates.",
-            "Partnered with cross-functional teams to deliver end-to-end e-commerce solutions for major retail brands, ensuring reliable backend infrastructure and performant UI.",
+            <>Led <span className="keyword">backend development</span> for Levi&apos;s India by building a <span className="keyword-accent">Node.js + MongoDB</span> return/exchange workflow with <span className="keyword">idempotent APIs</span> and automated refund processing, reducing support tickets.</>,
+            <>Designed a <span className="keyword">dynamic coupon engine</span> supporting <span className="keyword-accent">multi-tier campaign rules</span> across brands.</>,
+            <>Integrated third-party APIs such as <span className="keyword">Razorpay</span> and <span className="keyword">Shiprocket</span> with <span className="keyword-accent">webhook handling</span> and <span className="keyword">retry logic</span>, improving payment reliability and shipment tracking.</>,
+            <>Directed migration of Bewakoof.com from Salesforce Commerce Cloud to a <span className="keyword">component-driven React architecture</span>, improving performance and reducing bounce rates.</>,
+            <>Applied <span className="keyword">database query optimization</span> and <span className="keyword-accent">connection pooling</span>, supporting <span className="keyword-badge">10K+ concurrent requests</span> with <span className="keyword-badge">99.9% uptime</span>.</>,
         ],
     },
 ];
@@ -46,7 +46,7 @@ const Experience = () => {
                         className="flex items-start gap-3 mb-4"
                     >
                         <span 
-                            className="bg-gradient-to-br from-amber-400 to-amber-600 w-9 h-9 rounded-2xl flex items-center justify-center text-white shadow-md mt-1"
+                            className="bg-gradient-to-br from-sky-500 to-slate-900 w-9 h-9 rounded-2xl flex items-center justify-center text-white shadow-md mt-1"
                         >
                             <Briefcase size={16} />
                         </span>

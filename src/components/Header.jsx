@@ -1,12 +1,13 @@
 import { IoHomeOutline, IoBriefcaseOutline, IoCodeSlashOutline } from "react-icons/io5";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { GraduationCap } from "lucide-react";
- 
+
 import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { key: 'home', icon: IoHomeOutline, label: 'Home' },
   { key: 'experience', icon: IoBriefcaseOutline, label: 'Experience' },
+  { key: 'architecture', icon: IoCodeSlashOutline, label: 'Systems' },
   { key: 'projects', icon: IoCodeSlashOutline, label: 'Projects' },
   { key: 'education', icon: GraduationCap, label: 'Education' },
   { key: 'contact', icon: RiContactsBook3Line, label: 'Contact' },
@@ -18,43 +19,69 @@ const Header = ({ sectionRefs, activeSection }) => {
   };
 
   return (
-    <nav 
-      className="md:flex justify-between items-center md:px-6 md:py-2 w-full glass-card rounded-[24px] border border-white/70 dark:border-slate-700/60"
-    >
-      <div className="flex justify-around items-center w-full md:gap-2">
-        {navItems.map(({ key, icon: Icon, label }, index) => {
-          const isActive = activeSection === key;
-          return (
-            <button
-              key={key}
-              onClick={() => handleScroll(key)}
-              className={`flex flex-col md:flex-row items-center gap-1 md:gap-2 px-3 py-2 md:px-5 md:py-2.5 text-base font-semibold transition-all duration-500 ease-out rounded-xl md:rounded-full relative group flex-1 md:flex-none
-                ${isActive
-                  ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-50/80 dark:bg-emerald-900/40 shadow-soft border border-emerald-200/60 dark:border-emerald-700/50'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/60 hover:shadow-soft'
+    <nav className="w-full rounded-[24px] border border-slate-200/80 bg-white/95 px-3 py-3 shadow-[0_18px_40px_rgba(15,23,42,0.06)] backdrop-blur dark:border-slate-700/70 dark:bg-slate-900/85">
+      <div className="hidden items-center justify-between gap-5 md:flex">
+        <div className="flex flex-1 items-center justify-center">
+          <div className="flex items-center gap-1.5 rounded-[24px] border border-slate-200 bg-white px-2 py-2 shadow-[0_10px_30px_rgba(15,23,42,0.05)] dark:border-slate-700 dark:bg-slate-950/70">
+          {navItems.map(({ key, icon: Icon, label }) => {
+            const isActive = activeSection === key;
+            return (
+              <button
+                key={key}
+                onClick={() => handleScroll(key)}
+                className={`inline-flex items-center gap-2 rounded-[18px] px-3.5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? 'border border-slate-300 bg-slate-100 text-slate-950 dark:border-slate-600 dark:bg-slate-800 dark:text-white'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
                 }`}
-            >
-                <Icon 
-                  size={18} 
-                  className="transition-all duration-300 group-hover:scale-105" 
-                />
-              <p 
-                className="text-[11px] md:text-xs font-semibold tracking-wide"
               >
-                {label}
-              </p>
-              {isActive && (
-                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-emerald-500 dark:bg-emerald-300 rounded-full" />
-              )}
-            </button>
-          );
-        })}
+                <Icon size={16} />
+                <span>{label}</span>
+              </button>
+            );
+          })}
+        </div>
+        </div>
+
+        <div className="flex items-center justify-end">
+          <ThemeToggle />
+        </div>
       </div>
 
-      <div 
-        className="pr-2 absolute bottom-[75px] right-0 md:static md:pl-4"
-      >
-        <ThemeToggle />
+      <div className="md:hidden">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+              Navigate
+            </p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              Explore sections
+            </p>
+          </div>
+          <ThemeToggle />
+        </div>
+
+        <div className="no-scrollbar -mx-1 overflow-x-auto">
+          <div className="flex min-w-max gap-2 px-1">
+            {navItems.map(({ key, icon: Icon, label }) => {
+              const isActive = activeSection === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => handleScroll(key)}
+                  className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
+                    isActive
+                      ? 'border-slate-300 bg-slate-100 text-slate-950 dark:border-slate-600 dark:bg-slate-800 dark:text-white'
+                      : 'border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-200'
+                  }`}
+                >
+                  <Icon size={15} />
+                  <span>{label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </nav>
   );

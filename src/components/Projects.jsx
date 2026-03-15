@@ -8,35 +8,37 @@ import swiggy from '../Images/swiggy.avif'
 const Projects = () => {
   const projects = [
     {
-      title: 'ProcureFlow – Intelligent Procurement & GRN System',
+      title: 'NewsRAG – AI-Powered News Chatbot',
       description:
-        'Intelligent procurement workspace with vendor onboarding, PO lifecycle management, SKU validation, and auto-generated GRN records. Built as a MERN microservices system with Prisma ORM, Redis caching, JWT-based auth, and Dockerized deployments. Features a React + Redux dashboard with role-based access, approval workflows, analytics, and real-time PO/GRN status updates.',
-      image: procurementImg,
-      technologies: [
-        'MERN Stack',
-        'Prisma ORM',
-        'Redis',
-        'Microservices',
-        'PostgreSQL',
-        'JWT Auth',
-        'Docker',
-      ],
-      liveLink: 'https://procurement-app-delta.vercel.app/',
-      githubLink: null,
-      backendLink: null,
+        'RAG-based semantic search chatbot using Jina embeddings, Qdrant vector DB, and Redis Upstash caching — indexes 50+ news sources with multi-turn conversation support.',
+      systemDesign:
+        'Split retrieval and conversation state so vector search stays fast while Redis preserves low-latency multi-turn context.',
+      image:
+        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center',
+      technologies: ['RAG', 'Qdrant', 'Redis', 'Node.js', 'TypeScript', 'Vector DB'],
+      liveLink: 'https://voosh-news-rag-frontend.vercel.app/',
+      githubLink: 'https://github.com/Pramod0347/voosh-news-rag-frontend',
+      backendLink: 'https://github.com/Pramod0347/voosh-news-rag-backend',
       featured: true,
       highlighted: true,
     },
     {
-      title: 'NewsRAG – AI-Powered News Chatbot',
+      title: 'ProcureFlow – Intelligent Procurement & GRN System',
       description:
-        'RAG-based news chatbot using Jina embeddings + Qdrant Vector DB for semantic search across 100+ news sources (BBC, CNN, Reuters). Node.js/Express backend with Redis (Upstash) for per-session chat history (sliding TTL) and multi-turn conversations, plus a Vite + React frontend with streaming-style responses and global deployment.',
-      image:
-        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center',
-      technologies: ['Node.js', 'React', 'RAG', 'Qdrant', 'Redis', 'Jina Embeddings', 'Vector DB'],
-      liveLink: 'https://voosh-news-rag-frontend.vercel.app/',
-      githubLink: 'https://github.com/Pramod0347/voosh-news-rag-frontend',
-      backendLink: 'https://github.com/Pramod0347/voosh-news-rag-backend',
+        'End-to-end procurement system with microservices architecture, Redis caching, Docker deployments, and PostgreSQL optimized to sub-150ms response times.',
+      systemDesign:
+        'Isolated approval, vendor, and GRN flows into service boundaries to keep high-volume writes away from dashboard read paths.',
+      image: procurementImg,
+      technologies: [
+        'Microservices',
+        'PostgreSQL',
+        'Redis',
+        'Docker',
+        'RBAC',
+      ],
+      liveLink: 'https://procurement-app-delta.vercel.app/',
+      githubLink: null,
+      backendLink: null,
       featured: true,
       highlightedSecondary: true,
     },
@@ -44,6 +46,8 @@ const Projects = () => {
       title: 'TaskFlow - Full-Stack Task Management App',
       description:
         'Responsive, offline-first PWA with real-time collaboration and drag-and-drop boards using MERN stack (MongoDB, Express.js, React, Node.js), Service Workers, Socket.io, and axios for API/file requests. Modular microservices (Node/Express) with JWT authentication, bcrypt password hashing, Redis caching, and Docker Compose for containerized deployment.',
+      systemDesign:
+        'Used websocket updates for collaboration while keeping task persistence behind standard API boundaries for easier recovery and debugging.',
       image:
         'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center',
       technologies: ['MERN Stack', 'Socket.io', 'Redis', 'Docker', 'PWA', 'Microservices'],
@@ -56,6 +60,8 @@ const Projects = () => {
       title: 'Kushals Fashion Jewellery - E-commerce Platform',
       description:
         'Full-stack e-commerce solution with inventory sync structure using Node.js, MongoDB, and AWS-hosted pipelines. Implemented OTP-based authentication, personalized recommendations, and AWS EC2/S3 migration. Optimized performance with lazy loading and image compression, reducing load time by 30%.',
+      systemDesign:
+        'Separated sync processing from storefront requests so inventory updates could scale independently from user traffic.',
       image: kushalsBanner,
       technologies: ['Node.js', 'MongoDB', 'AWS', 'Express.js', 'JWT', 'E-commerce'],
       liveLink: 'https://kushals.com/',
@@ -66,6 +72,8 @@ const Projects = () => {
       title: "Levi's & Nobero - Shopify E-commerce",
       description:
         'Custom Shopify development for major retail brands with backend return-flow system, custom coupon logic, and third-party API integrations. Built scalable component-driven architecture and delivered end-to-end e-commerce solutions with reliable backend infrastructure.',
+      systemDesign:
+        'Abstracted campaign and return rules into backend logic so brand-specific requirements could change without rewriting templates.',
       image:
         'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center',
       technologies: ['Shopify', 'Node.js', 'MongoDB', 'E-commerce', 'API Integration'],
@@ -77,6 +85,8 @@ const Projects = () => {
       title: 'Personal Portfolio Website',
       description:
         'Modern, responsive portfolio built with React, Tailwind CSS, Redux, and Framer Motion. Features animated sidebar navigation, dark/light theme toggle, smooth scrolling, and optimized performance. Deployed on Vercel with CI/CD pipeline.',
+      systemDesign:
+        'Kept the frontend component-driven so positioning changes and content reframing could happen without rewriting the whole page.',
       image:
         'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&crop=center',
       technologies: ['React', 'Tailwind CSS', 'Redux', 'Framer Motion', 'Vercel'],
@@ -88,6 +98,8 @@ const Projects = () => {
       title: 'Spotify Homepage UI Clone',
       description:
         "Cloned Spotify's homepage UI using HTML5, CSS3, and vanilla JavaScript. Focused on pixel-perfect design, responsiveness, and interactive hover effects. Achieved fast load times and seamless user experience.",
+      systemDesign:
+        'Optimized static assets and layout structure for fast paint and smooth interaction on lower-end devices.',
       image:
         'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop&crop=center',
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
@@ -99,6 +111,8 @@ const Projects = () => {
       title: 'Swiggy Food Delivery Clone',
       description:
         'Built a responsive food delivery app clone with React.js featuring restaurant listings, menu browsing, cart functionality, and order tracking. Implemented state management with Redux and integrated with mock APIs for realistic user experience.',
+      systemDesign:
+        'Centralized state updates in Redux to keep cart and menu flows predictable across multiple views.',
       image: swiggy,
       technologies: ['React', 'Redux', 'JavaScript', 'API Integration', 'State Management'],
       liveLink: 'https://swiggy-clone-jet-omega.vercel.app/',
@@ -109,6 +123,8 @@ const Projects = () => {
       title: 'YouTube-Like Video Platform',
       description:
         'Responsive video streaming UI with infinite scroll, debounced search, lazy loading, and axios-based paginated requests to YouTube Data API v3 using Redux Toolkit. Reusable Tailwind CSS UI components and improved performance via code-splitting, memoization (React.memo, useCallback), and custom hooks.',
+      systemDesign:
+        'Used debounced search and paginated fetches to control API usage while keeping the browsing experience responsive.',
       image:
         'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&h=400&fit=crop&crop=center',
       technologies: ['React', 'Redux Toolkit', 'YouTube API', 'Tailwind CSS', 'Performance Optimization'],
@@ -131,18 +147,38 @@ const Projects = () => {
 
   return (
     <div
-      className="w-full mt-8 animate-fade-up"
+      className="w-full animate-fade-up"
     >
+      <div className="mb-8 grid gap-4 lg:grid-cols-[1.3fr,0.7fr]">
+        <div>
+          <p className="section-kicker">Selected Work</p>
+          <h2 className="section-title">Projects That Show <span className="keyword">Product</span> and <span className="keyword-accent">Backend</span> Range</h2>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 lg:text-base">
+            These projects represent the work I want a hiring team to evaluate: <span className="keyword">internal tools</span>, <span className="keyword-accent">AI workflows</span>, <span className="keyword">real-time collaboration</span>, and commerce systems shipped with a backend-first mindset.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="metric-card">
+            <p className="text-2xl font-display font-semibold text-slate-900 dark:text-slate-50">8+</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Production and portfolio builds</p>
+          </div>
+          <div className="metric-card">
+            <p className="text-2xl font-display font-semibold text-slate-900 dark:text-slate-50">Redis + PG</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Frequent backend building blocks</p>
+          </div>
+        </div>
+      </div>
+
       {/* Highlighted Project */}
       {highlightedProject && (
         <section className="mb-12">
           <div className="mb-6">
             <p className="section-kicker">Spotlight</p>
-            <h2 className="section-title">
+            <h3 className="section-title">
               Highlighted Project
-            </h2>
+            </h3>
             <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
-              A procurement hub UI inspired by your design, implemented as a production-ready MERN microservices system.
+              A <span className="keyword">backend-heavy product build</span> implemented as a production-ready <span className="keyword-accent">microservices system</span>.
             </p>
           </div>
 
@@ -158,7 +194,7 @@ const Projects = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
               <span className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[11px] font-medium text-white backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Procurement workspace UI
+                Backend architecture spotlight
               </span>
             </div>
 
@@ -176,8 +212,8 @@ const Projects = () => {
                 </p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex flex-wrap gap-1.5">
+                <div className="space-y-3">
+                  <div className="flex flex-wrap gap-1.5">
                   {highlightedProject.technologies.slice(0, 4).map((tech, index) => (
                     <span
                       key={index}
@@ -191,9 +227,18 @@ const Projects = () => {
                       +{highlightedProject.technologies.length - 4} more
                     </span>
                   )}
-                </div>
+                  </div>
 
-                <div className="flex flex-wrap gap-2">
+                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                      System Design Highlight
+                    </p>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                      {highlightedProject.systemDesign}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
                   <a
                     href={highlightedProject.liveLink}
                     target="_blank"
@@ -227,10 +272,10 @@ const Projects = () => {
           <div className="mb-6">
             <p className="section-kicker">Featured</p>
             <h3 className="section-title">
-              AI & Real-time Experiences
+              <span className="keyword">AI</span> & <span className="keyword-accent">Real-time</span> Experiences
             </h3>
             <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
-              Production-grade AI and realtime apps that pair robust backends with clean, responsive UIs.
+              Production-grade AI and realtime apps that pair <span className="keyword">robust backends</span> with focused delivery.
             </p>
           </div>
 
@@ -281,6 +326,15 @@ const Projects = () => {
                           +{project.technologies.length - 4} more
                         </span>
                       )}
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                        System Design Highlight
+                      </p>
+                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        {project.systemDesign}
+                      </p>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -380,6 +434,15 @@ const Projects = () => {
                 ))}
               </div>
 
+                  <div className="mb-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                      System Design Highlight
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                      {project.systemDesign}
+                    </p>
+                  </div>
+
               {/* Action Buttons */}
                   <div className="flex flex-wrap gap-2">
                 <a
@@ -472,6 +535,15 @@ const Projects = () => {
                         +{project.technologies.length - 3}
                       </span>
                     )}
+                  </div>
+
+                  <div className="mb-3 rounded-xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      System Design Highlight
+                    </p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                      {project.systemDesign}
+                    </p>
                   </div>
 
                   {/* Action Button */}

@@ -1,69 +1,76 @@
 import React from 'react'
  
 import {
-  SiJavascript, SiReact, SiShopify, SiHtml5, SiCss3,
-  SiNodedotjs, SiMysql, SiTailwindcss, SiGit, SiPostman,
-  SiRedux, SiWebpack, SiExpress, SiGraphql, SiMongodb, SiPostgresql,
-  SiJest, SiDocker, SiGithub, SiAmazonwebservices
+  SiReact,
+  SiNodedotjs, SiTailwindcss, SiGit, SiPostman,
+  SiRedux, SiExpress, SiGraphql, SiMongodb, SiPostgresql,
+  SiDocker, SiAmazonwebservices, SiRedis, SiTypescript, SiPrisma, SiNginx
 } from 'react-icons/si';
+import { Layers3, ServerCog, DatabaseZap, Code2 } from 'lucide-react';
 
-const skills = [
-  // Frontend
-  { name: 'React', icon: SiReact, color: '#61dafb', category: 'Frontend', level: 'Advanced', years: 3, usedAt: ['Portfolio', 'TaskFlow'] },
-  { name: 'Redux', icon: SiRedux, color: '#764abc', category: 'Frontend', level: 'Advanced', years: 3, usedAt: ['TaskFlow', 'YouTube Clone'] },
-  { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e', category: 'Frontend', level: 'Advanced', years: 4, usedAt: ['Kushals', 'TaskFlow', 'Spotify UI'] },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38bdf8', category: 'Frontend', level: 'Advanced', years: 3, usedAt: ['Portfolio', 'TaskFlow'] },
-  { name: 'HTML5', icon: SiHtml5, color: '#e44d26', category: 'Frontend', level: 'Advanced', years: 5, usedAt: ['Spotify UI', "Levi's", 'Nobero'] },
-  { name: 'CSS3', icon: SiCss3, color: '#264de4', category: 'Frontend', level: 'Advanced', years: 5, usedAt: ['Spotify UI', 'Portfolio'] },
-  { name: 'Webpack', icon: SiWebpack, color: '#8dd6f9', category: 'Frontend', level: 'Intermediate', years: 2, usedAt: ['Kushals'] },
-
-  // Backend & APIs
-  { name: 'Node.js', icon: SiNodedotjs, color: '#68a063', category: 'Backend', level: 'Advanced', years: 3, usedAt: ['Kushals', 'TaskFlow'] },
-  { name: 'Express.js', icon: SiExpress, color: '#000000', category: 'Backend', level: 'Advanced', years: 3, usedAt: ['Kushals', 'TaskFlow'] },
-  { name: 'REST APIs', icon: SiPostman, color: '#ff6c37', category: 'Backend', level: 'Advanced', years: 4, usedAt: ['Kushals', 'TaskFlow', 'Swiggy Clone'] },
-  { name: 'GraphQL', icon: SiGraphql, color: '#e10098', category: 'Backend', level: 'Beginner', years: 1, usedAt: ['Personal'] },
-
-  // Databases
-  { name: 'MongoDB', icon: SiMongodb, color: '#47a248', category: 'Database', level: 'Advanced', years: 3, usedAt: ['Kushals', 'TaskFlow'] },
-  { name: 'MySQL', icon: SiMysql, color: '#00758f', category: 'Database', level: 'Intermediate', years: 2, usedAt: ['Kushals'] },
-  { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791', category: 'Database', level: 'Beginner', years: 1, usedAt: ['Personal'] },
-
-  // Testing
-  { name: 'Jest', icon: SiJest, color: '#c21325', category: 'Testing', level: 'Intermediate', years: 1, usedAt: ['Personal'] },
-  { name: 'React Testing Library', icon: SiReact, color: '#61dafb', category: 'Testing', level: 'Intermediate', years: 1, usedAt: ['Personal'] },
-
-  // E-commerce
-  { name: 'Shopify 2.0', icon: SiShopify, color: '#95bf47', category: 'E-commerce', level: 'Advanced', years: 2, usedAt: ["Levi's", 'Nobero'] },
-
-  // Cloud & Tools
-  { name: 'AWS', icon: SiAmazonwebservices, color: '#ff9900', category: 'Cloud', level: 'Intermediate', years: 2, usedAt: ['Kushals'] },
-  { name: 'Git', icon: SiGit, color: '#f1502f', category: 'Tools', level: 'Advanced', years: 5, usedAt: ['All Projects'] },
-  { name: 'GitHub', icon: SiGithub, color: '#181717', category: 'Tools', level: 'Advanced', years: 5, usedAt: ['All Projects'] },
-  { name: 'Docker', icon: SiDocker, color: '#2496ed', category: 'Cloud', level: 'Intermediate', years: 1, usedAt: ['TaskFlow'] },
-  { name: 'CI/CD', icon: SiGit, color: '#f1502f', category: 'Tools', level: 'Intermediate', years: 2, usedAt: ['Portfolio', 'TaskFlow'] },
+const skillGroups = [
+  {
+    title: 'Core Backend Stack',
+    emphasis: 'Primary',
+    description: 'The technologies I want to be evaluated on first for backend and systems work.',
+    skills: [
+      { name: 'Node.js', icon: SiNodedotjs, color: '#68a063', level: 'Advanced', years: 3, usedAt: ['Kushals', 'NewsRAG', 'ProcureFlow'] },
+      { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791', level: 'Intermediate', years: 2, usedAt: ['ProcureFlow', 'Architecture Labs'] },
+      { name: 'Redis', icon: SiRedis, color: '#dc382d', level: 'Intermediate', years: 2, usedAt: ['NewsRAG', 'ProcureFlow', 'TaskFlow'] },
+      { name: 'AWS', icon: SiAmazonwebservices, color: '#ff9900', level: 'Intermediate', years: 2, usedAt: ['Kushals', 'Microservices Migration'] },
+      { name: 'Docker', icon: SiDocker, color: '#2496ed', level: 'Intermediate', years: 1, usedAt: ['ProcureFlow', 'TaskFlow'] },
+      { name: 'Microservices', icon: SiPostman, color: '#ff6c37', level: 'Intermediate', years: 2, usedAt: ['ProcureFlow', 'TaskFlow'] },
+      { name: 'TypeScript', icon: SiTypescript, color: '#3178c6', level: 'Working', years: 1, usedAt: ['NewsRAG', 'Backend practice'] },
+    ],
+  },
+  {
+    title: 'Platform and Data Layer',
+    emphasis: 'Secondary',
+    description: 'Supporting tools I use for APIs, data access, deployment, and service operations.',
+    skills: [
+      { name: 'MongoDB', icon: SiMongodb, color: '#47a248', level: 'Advanced', years: 3, usedAt: ['Kushals', 'TaskFlow'] },
+      { name: 'Express.js', icon: SiExpress, color: '#000000', level: 'Advanced', years: 3, usedAt: ['Kushals', 'TaskFlow', 'NewsRAG'] },
+      { name: 'GraphQL', icon: SiGraphql, color: '#e10098', level: 'Beginner', years: 1, usedAt: ['Personal'] },
+      { name: 'Prisma', icon: SiPrisma, color: '#0c344b', level: 'Intermediate', years: 1, usedAt: ['ProcureFlow'] },
+      { name: 'Nginx', icon: SiNginx, color: '#009639', level: 'Working', years: 1, usedAt: ['Deployment setup'] },
+      { name: 'CI/CD', icon: SiGit, color: '#f1502f', level: 'Intermediate', years: 2, usedAt: ['Portfolio', 'TaskFlow'] },
+    ],
+  },
+  {
+    title: 'Frontend Delivery Layer',
+    emphasis: 'Secondary',
+    description: 'Enough frontend range to build internal tools and admin dashboards without making it the centerpiece.',
+    skills: [
+      { name: 'React', icon: SiReact, color: '#61dafb', level: 'Advanced', years: 3, usedAt: ['Portfolio', 'TaskFlow', 'ProcureFlow'] },
+      { name: 'Redux', icon: SiRedux, color: '#764abc', level: 'Advanced', years: 3, usedAt: ['TaskFlow', 'ProcureFlow'] },
+      { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#38bdf8', level: 'Advanced', years: 3, usedAt: ['Portfolio', 'TaskFlow'] },
+    ],
+  },
 ];
 
 const Skills = () => {
-  // Group skills by category
-  const skillsByCategory = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {});
-
-  const categoryColors = {
-    'Frontend': 'from-sky-500 to-cyan-500',
-    'Backend': 'from-emerald-500 to-teal-500',
-    'Database': 'from-amber-500 to-orange-500',
-    'Testing': 'from-rose-500 to-red-500',
-    'E-commerce': 'from-amber-500 to-yellow-500',
-    'Cloud': 'from-teal-500 to-sky-500',
-    'Tools': 'from-slate-500 to-slate-600'
-  };
-
-  // v2 UI does not use filters/search; present grouped sections with good mobile UX
+  const capabilitySummary = [
+    {
+      title: 'API Engineering',
+      description: 'REST services, auth, caching, queue-friendly designs, and pragmatic service boundaries.',
+      icon: ServerCog,
+    },
+    {
+      title: 'Data + Performance',
+      description: 'PostgreSQL, Redis, indexing, query shaping, and latency-driven backend tuning.',
+      icon: DatabaseZap,
+    },
+    {
+      title: 'Cloud + Runtime',
+      description: 'AWS deployments, Dockerized services, environment parity, and production delivery.',
+      icon: Layers3,
+    },
+    {
+      title: 'DSA Progress',
+      description: '120+ LeetCode problems solved while sharpening problem solving for backend interviews.',
+      icon: Code2,
+    },
+  ];
 
   const formatYears = (yrs) => {
     if (typeof yrs !== 'number') return '—'
@@ -73,22 +80,53 @@ const Skills = () => {
   }
 
   return (
-    <div className="w-full mt-6 animate-fade-up">
+    <div className="w-full animate-fade-up">
       <p className="section-kicker">Capabilities</p>
       <h2 className="section-title">
-        My Learnings & Skills
+        <span className="keyword">Backend-First</span> Skills
       </h2>
-      <div className="mt-6 space-y-8">
-        {Object.entries(skillsByCategory).map(([category, items]) => (
-          <section key={category}>
-            <div className="flex items-center justify-between mb-3">
-              <h3 className={`text-base font-semibold bg-gradient-to-r ${categoryColors[category]} bg-clip-text text-transparent`}>{category}</h3>
+      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 lg:text-base">
+        I&apos;ve intentionally reordered the stack to highlight the backend technologies I want to be hired for: <span className="keyword">distributed APIs</span>, <span className="keyword-accent">data infrastructure</span>, and <span className="keyword">service-oriented systems</span>.
+      </p>
+
+      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {capabilitySummary.map(({ title, description, icon: Icon }) => (
+          <div key={title} className="metric-card">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">
+              <Icon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-slate-50">{title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4">
+        <span className="tag-chip">DSA: 120+ LeetCode</span>
+      </div>
+
+      <div className="mt-8 space-y-8">
+        {skillGroups.map((group, groupIndex) => (
+          <section
+            key={group.title}
+            className={`rounded-[26px] border p-4 md:p-5 ${
+              groupIndex === 0
+                ? 'border-sky-200 bg-sky-50/60 dark:border-sky-700/50 dark:bg-sky-950/20'
+                : 'border-slate-200/80 bg-white/50 dark:border-slate-700/60 dark:bg-slate-900/30'
+            }`}
+          >
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-base font-semibold text-slate-900 dark:text-slate-50">{group.title}</h3>
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{group.description}</p>
+              </div>
+              <span className="tag-chip hidden md:inline-flex">{group.emphasis}</span>
             </div>
 
             {/* Mobile: horizontal scroll pills */}
             <div className="md:hidden -mx-1 overflow-x-auto pb-1">
               <div className="px-1 inline-flex gap-3 snap-x snap-mandatory">
-                {items.map((skill) => {
+                {group.skills.map((skill) => {
                   const Icon = skill.icon
                   return (
                     <div
@@ -119,8 +157,8 @@ const Skills = () => {
             </div>
 
             {/* Desktop: grid cards */}
-            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {items.map((skill) => {
+            <div className={`hidden gap-4 md:grid ${groupIndex === 2 ? 'grid-cols-2 xl:grid-cols-3' : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
+              {group.skills.map((skill) => {
                 const Icon = skill.icon
                 return (
                   <div key={skill.name} className="p-5 rounded-2xl glass-card border border-white/60 dark:border-slate-700/60">
@@ -133,7 +171,6 @@ const Skills = () => {
                         <div className="mt-1 flex items-center gap-2 text-[11px] text-slate-600 dark:text-slate-300">
                           <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">{skill.level}</span>
                           <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 whitespace-nowrap">{formatYears(skill.years)}</span>
-                          <span className={`px-2 py-0.5 rounded-full bg-gradient-to-r ${categoryColors[skill.category]} text-white border border-white/10`}>{skill.category}</span>
                         </div>
                       </div>
                     </div>

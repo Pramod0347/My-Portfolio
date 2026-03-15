@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Github, Linkedin, Mail } from 'lucide-react'
  
 
 const Contact = () => {
@@ -33,25 +34,54 @@ const Contact = () => {
     }
   }
 
-  const inputStyles = "peer block w-full p-3 text-base border border-white/60 dark:border-slate-700/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white/70 dark:bg-slate-900/60 dark:text-white"
+  const inputStyles = "peer block w-full rounded-xl border border-slate-300 bg-white p-3 text-base text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-600 dark:bg-slate-900/60 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-900/40"
 
   const labelStyles = "absolute text-sm text-slate-600 dark:text-slate-300 left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 " +
     "peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 " +
-    "peer-focus:top-0 peer-focus:text-xs peer-focus:bg-[#F7F3EC] peer-focus:dark:bg-[#0E1116] peer-focus:px-1 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-300 peer-focus:font-semibold " +
-    "peer-valid:top-0 peer-valid:text-xs peer-valid:px-1 peer-valid:text-emerald-700 peer-valid:font-semibold"
+    "peer-focus:top-0 peer-focus:text-xs peer-focus:bg-white peer-focus:dark:bg-[#0E1116] peer-focus:px-1 peer-focus:text-sky-600 peer-focus:dark:text-sky-300 peer-focus:font-semibold " +
+    "peer-valid:top-0 peer-valid:text-xs peer-valid:bg-white peer-valid:px-1 peer-valid:text-sky-700 peer-valid:dark:bg-[#0E1116] peer-valid:font-semibold"
 
   return (
     <section 
       id="contact" 
       className="animate-fade-up"
     >
-      {/* Section Heading - left aligned */}
       <p className="section-kicker">Get In Touch</p>
       <h2 className="section-title mb-4">
-        Contact
+        Open to <span className="keyword">Backend Engineering</span> Roles
       </h2>
+      <p className="mb-6 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 lg:text-base">
+        Open to <span className="keyword-accent">backend engineering roles</span> · <span className="keyword">pramodgoudardev2@gmail.com</span>
+      </p>
 
-      {/* Form */}
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <a
+          href="mailto:pramodgoudardev2@gmail.com"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+        >
+          <Mail className="h-4 w-4" />
+          Email
+        </a>
+        <a
+          href="http://github.com/Pramod0347"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+        >
+          <Github className="h-4 w-4" />
+          GitHub
+        </a>
+        <a
+          href="http://linkedin.com/in/pramod-goudar-a35605169"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+        >
+          <Linkedin className="h-4 w-4" />
+          LinkedIn
+        </a>
+      </div>
+
       <form 
         className="space-y-6 glass-card p-6 rounded-2xl border border-white/60 dark:border-slate-700/60"
         onSubmit={handleSubmit(onSubmit)}

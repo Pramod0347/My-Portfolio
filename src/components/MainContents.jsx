@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
- 
+
 import Header from './Header';
 import AboutMe from './AboutMe';
 import Experience from './Experience';
@@ -8,6 +8,7 @@ import Contact from './Contact';
 import Skills from './Skills';
 import Certifications from './Certifications';
 import Education from './Education';
+import SystemDesign from './SystemDesign';
 
 const MainContents = () => {
   const aboutRef = useRef(null);
@@ -17,11 +18,13 @@ const MainContents = () => {
   const skillsRef = useRef(null);
   const certificationsRef = useRef(null);
   const educationRef = useRef(null);
+  const architectureRef = useRef(null);
 
   const sectionRefs = {
     home: aboutRef,
     experience: experienceRef,
     skills: skillsRef,
+    architecture: architectureRef,
     projects: projectsRef,
     education: educationRef,
     contact: contactRef,
@@ -74,68 +77,52 @@ const MainContents = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   return (
     <div className="animate-fade-in">
-      {/* Desktop Header */}
-      <div 
-        className="hidden sticky top-4 left-0 md:flex justify-end mx-6 mb-6 z-20"
-      >
+      <div className="sticky top-3 left-0 z-30 mb-4 md:top-4 md:mb-6">
         <Header sectionRefs={sectionRefs} activeSection={activeSection} />
       </div>
 
-      {/* Mobile Header */}
-      <div 
-        className='fixed md:hidden bottom-0 left-0 w-full sm:static sm:w-auto py-[6px] border-t border-white/60 dark:border-slate-700/60 text-slate-800 dark:text-slate-100 sm:rounded-3xl flex justify-around sm:justify-center glass-card z-10 shadow-lift'
-      >
-        <Header sectionRefs={sectionRefs} activeSection={activeSection} />
-      </div>
-
-      {/* Sections */}
-      <div 
-        className='px-4 pb-16 pt-8 md:px-8 md:pb-12 md:pt-16 lg:px-12 lg:pb-16'
-      >
-        <section 
-          className='scroll-mt-32 mt-4 mb-12' 
-          ref={aboutRef}
-        >
-          <AboutMe />
+      <div className="space-y-4 px-0 pb-10 pt-1 sm:space-y-5 md:space-y-6 md:pb-12 md:pt-2">
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={aboutRef}>
+          <div className="section-panel surface-outline">
+            <AboutMe />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={experienceRef}
-        >
-          <Experience />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={experienceRef}>
+          <div className="section-panel surface-outline">
+            <Experience />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={skillsRef}
-        >
-          <Skills />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={skillsRef} id="skills">
+          <div className="section-panel surface-outline">
+            <Skills />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={certificationsRef}
-        >
-          <Certifications />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={architectureRef} id="architecture">
+          <div className="section-panel surface-outline">
+            <SystemDesign />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={projectsRef}
-        >
-          <Projects />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={certificationsRef}>
+          <div className="section-panel surface-outline">
+            <Certifications />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={educationRef}
-        >
-          <Education />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={projectsRef} id="projects">
+          <div className="section-panel surface-outline">
+            <Projects />
+          </div>
         </section>
-        <section 
-          className='scroll-mt-32 my-12' 
-          ref={contactRef}
-        >
-          <Contact />
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={educationRef}>
+          <div className="section-panel surface-outline">
+            <Education />
+          </div>
+        </section>
+        <section className="scroll-mt-32 md:scroll-mt-36" ref={contactRef} id="contact">
+          <div className="section-panel surface-outline">
+            <Contact />
+          </div>
         </section>
       </div>
     </div>
