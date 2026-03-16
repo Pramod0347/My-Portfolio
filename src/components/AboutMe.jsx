@@ -10,13 +10,13 @@ const coreSkills = [
   { label: 'Docker', meta: 'Container runtime' },
   { label: 'Microservices', meta: 'Service boundaries' },
   { label: 'TypeScript', meta: 'Safer backend code' },
-  { label: 'DSA', meta: '120+ LeetCode' },
+  { label: 'AI & RAG Systems', meta: 'Semantic search pipelines' },
 ];
 
 const highlights = [
   { value: '3+', label: 'Years building backend systems' },
   { value: '110+', label: 'Stores synced in realtime' },
-  { value: '120+', label: 'LeetCode problems solved' },
+  { value: '120+', label: 'DSA Problems' },
 ];
 
 const AboutMe = () => {
@@ -34,17 +34,11 @@ const AboutMe = () => {
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700 dark:text-slate-300 lg:text-base">
             <span className="keyword-badge">3+ years</span> building <span className="keyword">event-driven backends</span>, <span className="keyword-accent">real-time data pipelines</span>, and <span className="keyword">cloud-native microservices</span> on <span className="keyword-accent">AWS</span>.
-            Currently solving <span className="keyword">DSA</span> on LeetCode <span className="keyword-badge">(120+)</span>.
-          </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 lg:text-base">
-            I&apos;m a <span className="keyword">Backend Engineer</span> who obsesses over <span className="keyword-accent">distributed systems</span>, <span className="keyword">API design</span>, and making <span className="keyword-accent">databases fast</span>.
-            I&apos;ve spent 3+ years building <span className="keyword">backend infrastructure</span> that handles real-world scale, from <span className="keyword-accent">real-time inventory sync</span> across <span className="keyword-badge">110+ stores</span> to <span className="keyword">AI-powered RAG pipelines</span>. Currently sharpening DSA skills and exploring backend roles at product-focused companies.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2.5">
             <span className="tag-chip">Distributed systems</span>
             <span className="tag-chip">AWS microservices</span>
-            <span className="tag-chip">DSA: 120+ LeetCode</span>
             <span className="tag-chip">Based in Bengaluru</span>
           </div>
 

@@ -83,11 +83,11 @@
   }
 
   .keyword-accent {
-    @apply font-semibold text-sky-700 dark:text-sky-300;
+    @apply font-semibold text-slate-950 dark:text-white;
   }
 
   .keyword-badge {
-    @apply font-semibold text-sky-700 dark:text-sky-300;
+    @apply font-semibold text-slate-950 dark:text-white;
   }
 
   .app-shell {

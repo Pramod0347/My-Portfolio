@@ -3,7 +3,6 @@ import React from 'react'
 import { ExternalLink, Github } from 'lucide-react'
 import kushalsBanner from '../Images/kushalsBanner.png'
 import procurementImg from '../Images/procurement.png'
-import swiggy from '../Images/swiggy.avif'
 
 const Projects = () => {
   const projects = [
@@ -79,57 +78,6 @@ const Projects = () => {
       technologies: ['Shopify', 'Node.js', 'MongoDB', 'E-commerce', 'API Integration'],
       liveLink: 'https://levi.in/',
       githubLink: null,
-      featured: false,
-    },
-    {
-      title: 'Personal Portfolio Website',
-      description:
-        'Modern, responsive portfolio built with React, Tailwind CSS, Redux, and Framer Motion. Features animated sidebar navigation, dark/light theme toggle, smooth scrolling, and optimized performance. Deployed on Vercel with CI/CD pipeline.',
-      systemDesign:
-        'Kept the frontend component-driven so positioning changes and content reframing could happen without rewriting the whole page.',
-      image:
-        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&crop=center',
-      technologies: ['React', 'Tailwind CSS', 'Redux', 'Framer Motion', 'Vercel'],
-      liveLink: 'https://pramod-347.vercel.app/',
-      githubLink: 'https://github.com/pramod347/portfolio',
-      featured: false,
-    },
-    {
-      title: 'Spotify Homepage UI Clone',
-      description:
-        "Cloned Spotify's homepage UI using HTML5, CSS3, and vanilla JavaScript. Focused on pixel-perfect design, responsiveness, and interactive hover effects. Achieved fast load times and seamless user experience.",
-      systemDesign:
-        'Optimized static assets and layout structure for fast paint and smooth interaction on lower-end devices.',
-      image:
-        'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop&crop=center',
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
-      liveLink: 'https://spotify-clone-demo.vercel.app/',
-      githubLink: 'https://github.com/pramod347/spotify-clone',
-      featured: false,
-    },
-    {
-      title: 'Swiggy Food Delivery Clone',
-      description:
-        'Built a responsive food delivery app clone with React.js featuring restaurant listings, menu browsing, cart functionality, and order tracking. Implemented state management with Redux and integrated with mock APIs for realistic user experience.',
-      systemDesign:
-        'Centralized state updates in Redux to keep cart and menu flows predictable across multiple views.',
-      image: swiggy,
-      technologies: ['React', 'Redux', 'JavaScript', 'API Integration', 'State Management'],
-      liveLink: 'https://swiggy-clone-jet-omega.vercel.app/',
-      githubLink: 'https://github.com/pramod347/swiggy-clone',
-      featured: false,
-    },
-    {
-      title: 'YouTube-Like Video Platform',
-      description:
-        'Responsive video streaming UI with infinite scroll, debounced search, lazy loading, and axios-based paginated requests to YouTube Data API v3 using Redux Toolkit. Reusable Tailwind CSS UI components and improved performance via code-splitting, memoization (React.memo, useCallback), and custom hooks.',
-      systemDesign:
-        'Used debounced search and paginated fetches to control API usage while keeping the browsing experience responsive.',
-      image:
-        'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&h=400&fit=crop&crop=center',
-      technologies: ['React', 'Redux Toolkit', 'YouTube API', 'Tailwind CSS', 'Performance Optimization'],
-      liveLink: 'https://youtube-clone-dun-phi-25.vercel.app/',
-      githubLink: 'https://github.com/pramod347/youtube-clone',
       featured: false,
     }
   ]

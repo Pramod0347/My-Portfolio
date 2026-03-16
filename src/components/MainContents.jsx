@@ -35,7 +35,7 @@ const MainContents = () => {
 
   useEffect(() => {
     let ticking = false;
-    const offset = 140;
+    const anchorOffset = 170;
 
     const updateActiveSection = () => {
       ticking = false;
@@ -43,17 +43,24 @@ const MainContents = () => {
         .map(([key, ref]) => {
           if (!ref.current) return null;
           const rect = ref.current.getBoundingClientRect();
-          return { key, top: rect.top };
+          return {
+            key,
+            top: rect.top,
+            bottom: rect.bottom,
+            distanceFromAnchor: Math.abs(rect.top - anchorOffset),
+          };
         })
         .filter(Boolean);
 
       if (!entries.length) return;
 
-      const visible = entries
-        .filter((item) => item.top - offset <= 0)
-        .sort((a, b) => b.top - a.top);
+      const containingAnchor = entries.find(
+        (item) => item.top <= anchorOffset && item.bottom > anchorOffset
+      );
 
-      const nextKey = visible[0]?.key ?? entries.sort((a, b) => a.top - b.top)[0].key;
+      const nextKey = containingAnchor?.key
+        ?? entries.sort((a, b) => a.distanceFromAnchor - b.distanceFromAnchor)[0]?.key;
+
       if (nextKey && nextKey !== activeSection) {
         setActiveSection(nextKey);
       }
