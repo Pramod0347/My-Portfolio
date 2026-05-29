@@ -51,12 +51,12 @@ const Contact = () => {
         Open to <span className="keyword">Backend Engineering</span> Roles
       </h2>
       <p className="mb-6 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 lg:text-base">
-        Open to <span className="keyword-accent">backend engineering roles</span> · <span className="keyword">pramodgoudardev2@gmail.com</span>
+        Open to <span className="keyword-accent">backend engineering roles</span> · <span className="keyword">pramod.goudar.dev@gmail.com</span>
       </p>
 
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <a
-          href="mailto:pramodgoudardev2@gmail.com"
+          href="mailto:pramod.goudar.dev@gmail.com"
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
         >
           <Mail className="h-4 w-4" />

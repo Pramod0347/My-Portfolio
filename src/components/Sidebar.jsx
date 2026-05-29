@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, Mail, Phone, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 
 const contactItems = [
-  { icon: Mail, label: 'Email', value: 'pramodgoudardev2@gmail.com', link: 'mailto:pramodgoudardev2@gmail.com' },
+  { icon: Mail, label: 'Email', value: 'pramod.goudar.dev@gmail.com', link: 'mailto:pramod.goudar.dev@gmail.com' },
   { icon: Phone, label: 'Phone', value: '+91 8951790286', link: 'tel:+918951790286' },
   { icon: MapPin, label: 'Location', value: 'Bangalore, India' },
   { icon: Github, label: 'Github', value: 'github.com/pramod347', link: 'http://github.com/Pramod0347' },
@@ -10,7 +10,7 @@ const contactItems = [
 ];
 
 const quickFacts = [
-  { label: 'Experience', value: '3+ years' },
+  { label: 'Experience', value: '3.5 years' },
   { label: 'Focus', value: 'Node + AWS' },
   { label: 'Location', value: 'Bangalore' },
 ];
@@ -35,7 +35,7 @@ const Sidebar = () => {
               Pramod Goudar
             </p>
             <p className="w-fit rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-              Backend Engineer
+              Software Engineer
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-300">
               Building <span className="font-semibold text-slate-950 dark:text-white">distributed backends</span>, <span className="font-semibold text-sky-700 dark:text-sky-300">scalable APIs</span>, and <span className="font-semibold text-slate-950 dark:text-white">cloud-native services</span> with a product mindset.

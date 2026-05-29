@@ -30,10 +30,10 @@ const AboutMe = () => {
           <h2 
             className="section-title"
           >
-            <span className="keyword">Backend Engineer</span> · <span className="keyword-accent">Distributed Systems</span> · <span className="keyword">Scalable APIs</span> · <span className="keyword-accent">Microservices</span>
+            <span className="keyword">Software Engineer</span> · <span className="keyword-accent">Distributed Systems</span> · <span className="keyword">Scalable APIs</span> · <span className="keyword-accent">Microservices</span>
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700 dark:text-slate-300 lg:text-base">
-            <span className="keyword-badge">3+ years</span> building <span className="keyword">event-driven backends</span>, <span className="keyword-accent">real-time data pipelines</span>, and <span className="keyword">cloud-native microservices</span> on <span className="keyword-accent">AWS</span>.
+            <span className="keyword-badge">3.5 years</span> building <span className="keyword">event-driven backends</span>, <span className="keyword-accent">real-time data pipelines</span>, and <span className="keyword">cloud-native microservices</span> on <span className="keyword-accent">AWS</span>.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2.5">
