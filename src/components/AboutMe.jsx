@@ -3,20 +3,20 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
  
 
 const coreSkills = [
-  { label: 'Node.js', meta: 'API services' },
-  { label: 'PostgreSQL', meta: 'Query tuning' },
-  { label: 'Redis', meta: 'Caching layer' },
-  { label: 'AWS', meta: 'Cloud-native deploys' },
-  { label: 'Docker', meta: 'Container runtime' },
-  { label: 'Microservices', meta: 'Service boundaries' },
-  { label: 'TypeScript', meta: 'Safer backend code' },
-  { label: 'AI & RAG Systems', meta: 'Semantic search pipelines' },
+  { label: 'Node.js · Python', meta: 'Backend development' },
+  { label: 'NestJS · FastAPI', meta: 'Services and APIs' },
+  { label: 'PostgreSQL · MongoDB', meta: 'Data stores' },
+  { label: 'Kafka · RabbitMQ', meta: 'Event messaging' },
+  { label: 'AWS · Docker', meta: 'Cloud and containers' },
+  { label: 'Redis', meta: 'Caching and sessions' },
+  { label: 'GraphQL · REST', meta: 'API design' },
+  { label: 'OpenAI · RAG', meta: 'AI integrations' },
 ];
 
 const highlights = [
-  { value: '3+', label: 'Years building backend systems' },
-  { value: '110+', label: 'Stores synced in realtime' },
-  { value: '120+', label: 'DSA Problems' },
+  { value: '4+', label: 'Years building full-stack products' },
+  { value: '125+', label: 'Retail stores supported' },
+  { value: '20+', label: 'Hospitals with patient tracking' },
 ];
 
 const AboutMe = () => {
@@ -30,15 +30,15 @@ const AboutMe = () => {
           <h2 
             className="section-title"
           >
-            <span className="keyword">Software Engineer</span> · <span className="keyword-accent">Distributed Systems</span> · <span className="keyword">Scalable APIs</span> · <span className="keyword-accent">Microservices</span>
+            <span className="keyword">Software Engineer</span> · <span className="keyword-accent">Backend & Full-Stack</span> · <span className="keyword">Event-Driven Systems</span> · <span className="keyword-accent">Applied AI</span>
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700 dark:text-slate-300 lg:text-base">
-            <span className="keyword-badge">3.5 years</span> building <span className="keyword">event-driven backends</span>, <span className="keyword-accent">real-time data pipelines</span>, and <span className="keyword">cloud-native microservices</span> on <span className="keyword-accent">AWS</span>.
+            <span className="keyword-badge">4+ years</span> building full-stack applications across <span className="keyword">SaaS, healthcare, and e-commerce</span>. I deliver APIs, microservices, event-driven systems, and AI/RAG integrations using <span className="keyword-accent">Node.js, Python, and AWS</span>.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2.5">
-            <span className="tag-chip">Distributed systems</span>
-            <span className="tag-chip">AWS microservices</span>
+            <span className="tag-chip">Event-driven systems</span>
+            <span className="tag-chip">AI & RAG pipelines</span>
             <span className="tag-chip">Based in Bengaluru</span>
           </div>
 
@@ -57,6 +57,13 @@ const AboutMe = () => {
               Open to Work
               <ArrowRight className="h-4 w-4" />
               Let&apos;s Talk
+            </a>
+            <a
+              href="/pramod_goudar.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            >
+              Download Resume
             </a>
           </div>
         </div>

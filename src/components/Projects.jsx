@@ -24,9 +24,9 @@ const Projects = () => {
     {
       title: 'ProcureFlow – Intelligent Procurement & GRN System',
       description:
-        'End-to-end procurement system with microservices architecture, Redis caching, Docker deployments, and PostgreSQL optimized to sub-150ms response times.',
+        'Intelligent procurement and goods receipt note (GRN) system, built to streamline purchasing workflows and receiving operations.',
       systemDesign:
-        'Isolated approval, vendor, and GRN flows into service boundaries to keep high-volume writes away from dashboard read paths.',
+        'A focused procurement workflow connecting purchasing operations with goods receipt tracking.',
       image: procurementImg,
       technologies: [
         'Microservices',

@@ -1,85 +1,60 @@
 import React from 'react';
 import { Briefcase } from 'lucide-react';
- 
 
 const experiences = [
-    {
-        title: "Kushals Retail Pvt. Ltd. | Software Engineer",
-        duration: "Nov 2024 – Present, Bengaluru",
-        bullets: [
-            <>Building a <span className="keyword">B2B SaaS-based AI Display Optimization System</span> for <span className="keyword-badge">110+ jewellery stores</span> that analyzes store-level sales data to recommend product showcase replacements and reduce dead stock.</>,
-            <>Architected a <span className="keyword-accent">distributed inventory synchronization system</span> using <span className="keyword">Node.js</span>, <span className="keyword">PostgreSQL</span>, and <span className="keyword-accent">AWS Event Pipelines</span>, enabling real-time stock updates across stores and online channels.</>,
-            <>Designed <span className="keyword">scalable REST APIs</span> with <span className="keyword-accent">JWT authentication</span>, <span className="keyword">rate limiting</span>, and <span className="keyword">Redis session management</span>, improving login reliability and reducing cart drop-off.</>,
-            <>Optimized <span className="keyword">PostgreSQL queries</span> with <span className="keyword-accent">strategic indexing</span>, reducing API response time from <span className="keyword-badge">~400 ms</span> to <span className="keyword-badge">under 150 ms</span> under load.</>,
-            <>Migrated <span className="keyword">monolithic backend</span> to <span className="keyword-accent">microservices</span> on <span className="keyword">AWS EC2</span> with <span className="keyword">Docker</span> and <span className="keyword">Redis</span>, improving service isolation and reducing hosting costs.</>,
-        ],
-    },
-    {
-        title: "Marmeto | Software Development Engineer II",
-        duration: "Jan 2023 – Nov 2024, Bengaluru",
-        bullets: [
-            <>Led <span className="keyword">backend development</span> for Levi&apos;s India by building a <span className="keyword-accent">Node.js + MongoDB</span> return/exchange workflow with <span className="keyword">idempotent APIs</span> and automated refund processing, reducing support tickets.</>,
-            <>Designed a <span className="keyword">dynamic coupon engine</span> supporting <span className="keyword-accent">multi-tier campaign rules</span> across brands.</>,
-            <>Integrated third-party APIs such as <span className="keyword">Razorpay</span> and <span className="keyword">Shiprocket</span> with <span className="keyword-accent">webhook handling</span> and <span className="keyword">retry logic</span>, improving payment reliability and shipment tracking.</>,
-            <>Directed migration of Bewakoof.com from Salesforce Commerce Cloud to a <span className="keyword">component-driven React architecture</span>, improving performance and reducing bounce rates.</>,
-            <>Applied <span className="keyword">database query optimization</span> and <span className="keyword-accent">connection pooling</span>, supporting <span className="keyword-badge">10K+ concurrent requests</span> with <span className="keyword-badge">99.9% uptime</span>.</>,
-        ],
-    },
+  {
+    title: 'Software Engineer 2 · Meril Life Sciences (Nuvo AI)',
+    duration: 'Jul 2026 – Present',
+    bullets: [
+      'Built an event-driven patient journey tracking architecture spanning 20+ hospitals and tracking 100+ patients daily across multiple hospital stages.',
+      'Developed configurable PDF report modules for Laboratory, Radiology, and Billing using NestJS and GraphQL, supporting hospital-specific formats.',
+      'Configured and deployed Plane, an open-source project management tool, with custom features for internal project tracking.',
+    ],
+  },
+  {
+    title: 'Software Engineer · Kushals Retail Pvt. Ltd.',
+    duration: 'Nov 2024 – Jun 2026',
+    bullets: [
+      'Built a B2B SaaS AI display optimization system for 125+ jewellery stores, using sales data to recommend showcase changes and reduce dead stock by 30%.',
+      'Designed distributed inventory synchronization with Node.js, PostgreSQL, and AWS Event Pipelines for real-time stock updates across 125+ stores and online channels.',
+      'Built an AI strategy tool with OKR tracking and transcript analysis using Python and OpenAI APIs, supporting decisions across five teams.',
+      'Designed REST APIs with JWT authentication, rate limiting, and Redis session management, improving login reliability for 10K+ users and reducing cart drop-off.',
+      'Optimized PostgreSQL queries from ~400 ms to under 150 ms under load, and migrated a monolith to AWS EC2 microservices using Docker and Redis.',
+    ],
+  },
+  {
+    title: 'Software Engineer · Marmeto',
+    duration: 'Jan 2023 – Nov 2024',
+    bullets: [
+      'Led backend development for Levi’s India, building Node.js and MongoDB returns and exchanges with idempotent APIs and automated refunds.',
+      'Integrated Razorpay and Shiprocket with webhook handling and retry logic to improve payment reliability and shipment tracking.',
+      'Directed Bewakoof.com’s migration from Salesforce Commerce Cloud to component-driven React, improving page load performance and reducing bounce rates by 20%.',
+      'Optimized database queries and connection pooling to support 10K+ concurrent requests with 99.9% uptime for the Levi’s India platform.',
+    ],
+  },
 ];
 
-const Experience = () => {
-    return (
-        <div className="animate-fade-up">
-            <p className="section-kicker">Timeline</p>
-            <h2 
-                className="section-title"
-            >
-                Work Experience
-            </h2>
-
-            {experiences.map((exp, idx) => (
-                <div 
-                    key={idx} 
-                    className="my-8 p-6 rounded-2xl glass-card hover:shadow-lift transition-all duration-500"
-                >
-                    <div 
-                        className="flex items-start gap-3 mb-4"
-                    >
-                        <span 
-                            className="bg-gradient-to-br from-sky-500 to-slate-900 w-9 h-9 rounded-2xl flex items-center justify-center text-white shadow-md mt-1"
-                        >
-                            <Briefcase size={16} />
-                        </span>
-                        <div>
-                            <h3 
-                                className="font-bold text-slate-900 dark:text-slate-100 text-base lg:text-lg leading-snug"
-                            >
-                                {exp.title}
-                            </h3>
-                            <p 
-                                className="text-slate-600 dark:text-slate-400 text-sm lg:text-base font-medium"
-                            >
-                                {exp.duration}
-                            </p>
-                        </div>
-                    </div>
-
-                    <ul 
-                        className="list-disc pl-6 text-sm lg:text-base space-y-3 text-slate-700 dark:text-slate-300 leading-relaxed"
-                    >
-                        {exp.bullets.map((point, i) => (
-                            <li 
-                                key={i} 
-                                className="hover:text-slate-900 dark:hover:text-white transition-all duration-300"
-                            >
-                                {point}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
+const Experience = () => (
+  <div className="animate-fade-up">
+    <p className="section-kicker">Timeline</p>
+    <h2 className="section-title">Work Experience</h2>
+    {experiences.map((exp) => (
+      <article key={exp.title} className="my-8 rounded-2xl p-6 glass-card transition-all duration-500 hover:shadow-lift">
+        <div className="mb-4 flex items-start gap-3">
+          <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-slate-900 text-white shadow-md">
+            <Briefcase size={16} />
+          </span>
+          <div>
+            <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-slate-100 lg:text-lg">{exp.title}</h3>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-400 lg:text-base">{exp.duration} · Bengaluru</p>
+          </div>
         </div>
-    );
-};
+        <ul className="list-disc space-y-3 pl-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300 lg:text-base">
+          {exp.bullets.map((point) => <li key={point}>{point}</li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+);
 
 export default Experience;

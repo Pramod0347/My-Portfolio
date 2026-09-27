@@ -3,31 +3,11 @@ import React from 'react';
 import { GraduationCap, Calendar } from 'lucide-react';
 
 const Education = () => {
-  const educationData = [
-    {
-      title: "Bachelor of Engineering",
-      institution: "Sir M Visvesvaraya Institute of Technology",
-      duration: "2018 – 2022",
-      coursework: [
-        "Data Structures & Algorithms",
-        "Database Management Systems", 
-        "Web Technologies",
-        "Software Engineering",
-        "Computer Networks"
-      ]
-    },
-    {
-      title: "Higher Secondary Education",
-      institution: "Sainik School Kodagu",
-      duration: "2016 – 2018",
-      coursework: [
-        "Mathematics",
-        "Physics",
-        "Chemistry",
-        "Computer Science"
-      ]
-    }
-  ];
+  const educationData = [{
+    title: 'Bachelor of Engineering',
+    institution: 'Sir M Visvesvaraya Institute of Technology',
+    duration: '2018 – 2022',
+  }];
 
   return (
     <div
@@ -43,7 +23,7 @@ const Education = () => {
         <p 
           className="text-sm lg:text-base mt-2 text-slate-600 dark:text-slate-300"
         >
-          Academic background in software engineering and computer science
+          Bachelor of Engineering
         </p>
       </div>
 
@@ -86,22 +66,6 @@ const Education = () => {
               </span>
             </div>
 
-            {/* Key Coursework */}
-            <div>
-              <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                Key Coursework:
-              </h5>
-              <div className="flex flex-wrap gap-2">
-                {edu.coursework.map((course, courseIndex) => (
-                  <span
-                    key={courseIndex}
-                    className="px-3 py-1 bg-amber-100/80 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-xs font-medium rounded-full border border-amber-200 dark:border-amber-700 transition-all duration-200"
-                  >
-                    {course}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         ))}
       </div>

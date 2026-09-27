@@ -11,7 +11,13 @@ const Certifications = () => {
         'Explored advanced techniques like model tuning, zero-shot, and few-shot learning.',
         'Built an AI-powered tagline generator application using Python and Vertex AI SDK.'
       ],
-      link: 'https://www.credly.com/badges/ee52b16b-ef7f-4049-b228-ab7b07a259df/public_url',
+      link: 'https://www.cloudskillsboost.google/public_profiles/2db6c1af-fede-4828-8b15-475876db8639/badges/15341157',
+    },
+    {
+      title: 'Build Real World AI Applications with Gemini and Imagen',
+      organization: 'Google Cloud',
+      description: ['Completed Google Cloud Skills Boost training in building AI applications with Gemini and Imagen.'],
+      link: 'https://www.cloudskillsboost.google/public_profiles/2db6c1af-fede-4828-8b15-475876db8639/badges/15589348',
     }
     // You can add more certifications here later easily
   ];

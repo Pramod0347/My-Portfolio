@@ -63,7 +63,7 @@ const Contact = () => {
           Email
         </a>
         <a
-          href="http://github.com/Pramod0347"
+          href="https://github.com/Pramod0347"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
@@ -72,7 +72,7 @@ const Contact = () => {
           GitHub
         </a>
         <a
-          href="http://linkedin.com/in/pramod-goudar-a35605169"
+          href="https://linkedin.com/in/pramod-goudar-a35605169"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"

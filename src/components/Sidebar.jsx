@@ -5,13 +5,13 @@ const contactItems = [
   { icon: Mail, label: 'Email', value: 'pramod.goudar.dev@gmail.com', link: 'mailto:pramod.goudar.dev@gmail.com' },
   { icon: Phone, label: 'Phone', value: '+91 8951790286', link: 'tel:+918951790286' },
   { icon: MapPin, label: 'Location', value: 'Bangalore, India' },
-  { icon: Github, label: 'Github', value: 'github.com/pramod347', link: 'http://github.com/Pramod0347' },
-  { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/pramod-347', link: 'http://linkedin.com/in/pramod-goudar-a35605169' },
+  { icon: Github, label: 'Github', value: 'github.com/Pramod0347', link: 'https://github.com/Pramod0347' },
+  { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/pramod-goudar-a35605169', link: 'https://linkedin.com/in/pramod-goudar-a35605169' },
 ];
 
 const quickFacts = [
-  { label: 'Experience', value: '3.5 years' },
-  { label: 'Focus', value: 'Node + AWS' },
+  { label: 'Experience', value: '4+ years' },
+  { label: 'Focus', value: 'Backend + AI' },
   { label: 'Location', value: 'Bangalore' },
 ];
 
@@ -38,7 +38,7 @@ const Sidebar = () => {
               Software Engineer
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              Building <span className="font-semibold text-slate-950 dark:text-white">distributed backends</span>, <span className="font-semibold text-sky-700 dark:text-sky-300">scalable APIs</span>, and <span className="font-semibold text-slate-950 dark:text-white">cloud-native services</span> with a product mindset.
+              Building <span className="font-semibold text-slate-950 dark:text-white">event-driven systems</span>, <span className="font-semibold text-sky-700 dark:text-sky-300">scalable APIs</span>, and <span className="font-semibold text-slate-950 dark:text-white">AI-powered products</span>.
             </p>
           </div>
 
