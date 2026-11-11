@@ -1,12 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
- 
-import Sidebar from './components/Sidebar';
+import { motion } from 'framer-motion';
+
+import Header from './components/Header';
 import MainContents from './components/MainContents';
+import FloatingActionDock from './components/FloatingActionDock';
+import DeveloperBackground from './components/DeveloperBackground';
+import { getRouteForPath } from './routes';
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const [activeRoute, setActiveRoute] = useState(() => getRouteForPath(window.location.pathname).key);
+  const [isContentRevealed, setIsContentRevealed] = useState(
+    () => process.env.NODE_ENV === 'test'
+  );
+
+  // Safety fallback to guarantee content is revealed
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'test') return;
+    const fallbackTimer = setTimeout(() => {
+      setIsContentRevealed(true);
+    }, 1200);
+    return () => clearTimeout(fallbackTimer);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -25,26 +41,102 @@ function App() {
     };
   }, []);
 
-  return (
-    <Router>
-      <div className="relative min-h-screen app-shell bg-white dark:bg-[#0b1220] text-slate-900 dark:text-slate-100">
-        <div className="pointer-events-none absolute inset-0 bg-grid opacity-20 dark:bg-grid-dark dark:opacity-30" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-slate-100/70 via-white/40 to-transparent dark:from-slate-950/40 dark:via-transparent" />
+  // Listen to browser forward/backward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const currentRoute = getRouteForPath(window.location.pathname);
+      setActiveRoute(currentRoute.key);
+      const element = document.getElementById(currentRoute.key);
+      if (element?.scrollIntoView) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
-        <div className="relative mx-auto flex max-w-[1500px] flex-col gap-4 px-3 py-3 sm:px-4 md:flex-row md:gap-6 md:px-4 md:py-4 xl:px-6">
-          <aside className="w-full md:w-[31%] md:self-start md:sticky md:top-4">
-              <div className='surface-outline overflow-visible border border-slate-200/70 p-4 glass-card rounded-[26px] dark:border-slate-700/60 sm:p-5 md:h-[calc(100vh-2rem)] md:rounded-[30px] md:p-6'>
-                <Sidebar />
-              </div>
-          </aside>
-          <div 
-            className='relative min-w-0 md:w-[69%] md:self-start'
-          >
-            <MainContents />
-          </div>
-        </div>
-      </div>
-    </Router>
+  // Initial scroll if URL points to a specific section on load
+  useEffect(() => {
+    const initialRoute = getRouteForPath(window.location.pathname);
+    if (initialRoute.key !== 'home') {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(initialRoute.key);
+        if (element?.scrollIntoView) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const isNavigatingRef = useRef(false);
+  const navTimeoutRef = useRef(null);
+
+  const navigateTo = (path, explicitKey) => {
+    const targetRoute = getRouteForPath(path);
+    const routeKey = explicitKey || targetRoute.key;
+
+    if (window.location.pathname !== targetRoute.path) {
+      window.history.pushState({}, '', targetRoute.path);
+    }
+    setActiveRoute(routeKey);
+
+    // Lock scroll-spy during programmatic smooth scroll to prevent accidental overrides
+    isNavigatingRef.current = true;
+    clearTimeout(navTimeoutRef.current);
+    navTimeoutRef.current = setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 900);
+
+    const targetElement = document.getElementById(routeKey);
+    if (targetElement?.scrollIntoView) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    } else if (routeKey === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleSectionVisible = (sectionKey) => {
+    if (!isNavigatingRef.current) {
+      setActiveRoute(sectionKey);
+    }
+  };
+
+  return (
+    <div className="app-shell relative min-h-screen w-full max-w-full overflow-x-clip text-slate-900 dark:text-slate-100">
+      {/* Dynamic AI Developer Ambient Background (Cybernetic Grid, Neural Paths, Floating Telemetry) */}
+      <DeveloperBackground />
+
+      {/* Page Content: Blank screen while dock is in center, smoothly reveals as it starts moving to corner */}
+      <motion.div
+        initial={process.env.NODE_ENV === 'test' ? false : { opacity: 0, y: 24 }}
+        animate={
+          isContentRevealed
+            ? { opacity: 1, y: 0 }
+            : { opacity: 0, y: 24, pointerEvents: 'none' }
+        }
+        transition={{
+          duration: 0.8,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="w-full flex flex-col"
+      >
+        {/* Modern Floating Header: Just Menus & Dark/Light Toggle */}
+        <Header activeRoute={activeRoute} onNavigate={navigateTo} />
+
+        {/* Infinite Scroll Full-Width Main Canvas */}
+        <main className="relative mx-auto w-full max-w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 sm:py-10">
+          <MainContents
+            activeRoute={activeRoute}
+            onNavigate={navigateTo}
+            onSectionVisible={handleSectionVisible}
+          />
+        </main>
+      </motion.div>
+
+      {/* iOS/macOS Curved Floating Action Dock with Emoji Face in Bottom-Right Corner */}
+      <FloatingActionDock onStartMoving={() => setIsContentRevealed(true)} />
+    </div>
   );
 }
 

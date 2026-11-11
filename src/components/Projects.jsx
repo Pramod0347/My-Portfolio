@@ -1,517 +1,523 @@
-import React from 'react'
- 
-import { ExternalLink, Github } from 'lucide-react'
-import kushalsBanner from '../Images/kushalsBanner.png'
-import procurementImg from '../Images/procurement.png'
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import {
+  Activity,
+  ArrowUpRight,
+  Bot,
+  Cpu,
+  Database,
+  Github,
+  Globe,
+  Lock,
+  Radio,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+  Workflow,
+  Zap,
+} from 'lucide-react';
 
-const Projects = () => {
-  const projects = [
-    {
-      title: 'NewsRAG – AI-Powered News Chatbot',
-      description:
-        'RAG-based semantic search chatbot using Jina embeddings, Qdrant vector DB, and Redis Upstash caching — indexes 50+ news sources with multi-turn conversation support.',
-      systemDesign:
-        'Split retrieval and conversation state so vector search stays fast while Redis preserves low-latency multi-turn context.',
-      image:
-        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center',
-      technologies: ['RAG', 'Qdrant', 'Redis', 'Node.js', 'TypeScript', 'Vector DB'],
-      liveLink: 'https://voosh-news-rag-frontend.vercel.app/',
-      githubLink: 'https://github.com/Pramod0347/voosh-news-rag-frontend',
-      backendLink: 'https://github.com/Pramod0347/voosh-news-rag-backend',
-      featured: true,
-      highlighted: true,
-    },
-    {
-      title: 'ProcureFlow – Intelligent Procurement & GRN System',
-      description:
-        'Intelligent procurement and goods receipt note (GRN) system, built to streamline purchasing workflows and receiving operations.',
-      systemDesign:
-        'A focused procurement workflow connecting purchasing operations with goods receipt tracking.',
-      image: procurementImg,
-      technologies: [
-        'Microservices',
-        'PostgreSQL',
-        'Redis',
-        'Docker',
-        'RBAC',
-      ],
-      liveLink: 'https://procurement-app-delta.vercel.app/',
-      githubLink: null,
-      backendLink: null,
-      featured: true,
-      highlightedSecondary: true,
-    },
-    {
-      title: 'TaskFlow - Full-Stack Task Management App',
-      description:
-        'Responsive, offline-first PWA with real-time collaboration and drag-and-drop boards using MERN stack (MongoDB, Express.js, React, Node.js), Service Workers, Socket.io, and axios for API/file requests. Modular microservices (Node/Express) with JWT authentication, bcrypt password hashing, Redis caching, and Docker Compose for containerized deployment.',
-      systemDesign:
-        'Used websocket updates for collaboration while keeping task persistence behind standard API boundaries for easier recovery and debugging.',
-      image:
-        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center',
-      technologies: ['MERN Stack', 'Socket.io', 'Redis', 'Docker', 'PWA', 'Microservices'],
-      liveLink: 'https://taskflow-demo.vercel.app/',
-      githubLink: 'https://github.com/Pramod0347/Task-Flow-Frontend-Tailwind',
-      backendLink: 'https://github.com/Pramod0347/Task-Flow-Backend-DB',
-      featured: false,
-    },
-    {
-      title: 'Kushals Fashion Jewellery - E-commerce Platform',
-      description:
-        'Full-stack e-commerce solution with inventory sync structure using Node.js, MongoDB, and AWS-hosted pipelines. Implemented OTP-based authentication, personalized recommendations, and AWS EC2/S3 migration. Optimized performance with lazy loading and image compression, reducing load time by 30%.',
-      systemDesign:
-        'Separated sync processing from storefront requests so inventory updates could scale independently from user traffic.',
-      image: kushalsBanner,
-      technologies: ['Node.js', 'MongoDB', 'AWS', 'Express.js', 'JWT', 'E-commerce'],
-      liveLink: 'https://kushals.com/',
-      githubLink: null,
-      featured: false,
-    },
-    {
-      title: "Levi's & Nobero - Shopify E-commerce",
-      description:
-        'Custom Shopify development for major retail brands with backend return-flow system, custom coupon logic, and third-party API integrations. Built scalable component-driven architecture and delivered end-to-end e-commerce solutions with reliable backend infrastructure.',
-      systemDesign:
-        'Abstracted campaign and return rules into backend logic so brand-specific requirements could change without rewriting templates.',
-      image:
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center',
-      technologies: ['Shopify', 'Node.js', 'MongoDB', 'E-commerce', 'API Integration'],
-      liveLink: 'https://levi.in/',
-      githubLink: null,
-      featured: false,
-    }
-  ]
+const renderHighlightedText = (
+  text,
+  highlights = [],
+  colorClass = 'font-semibold text-violet-600 dark:text-violet-300'
+) => {
+  if (!highlights || highlights.length === 0) return text;
+  const escaped = highlights.map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escaped.join('|')})`, 'g');
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    highlights.includes(part) ? (
+      <span key={i} className={colorClass}>
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+};
 
-  const featuredProjects = projects.filter((project) => project.featured)
-  const otherProjects = projects.filter((project) => !project.featured)
+const projects = [
+  {
+    number: '01',
+    title: 'Wealth Pilot',
+    roleTag: 'AI Software Engineer · LLM Security & RAG',
+    subtitle: 'AI-Powered Personal Finance & Stock Intelligence',
+    mission:
+      'A full-stack financial intelligence platform tracking portfolios, cashflow, and taxes, featuring a Gemini-powered research engine with strict source-grounding and privacy guarantees.',
+    kpis: [
+      { value: 'Zero PII', label: 'Privacy Boundary', subtext: 'Client-side normalized ratios' },
+      { value: '100%', label: 'Source Grounded', subtext: 'AST verification guardrail' },
+      { value: 'Multi-Tier', label: 'Inference Routing', subtext: 'Gemini Pro & Flash fallback' },
+      { value: '99.9%', label: 'Surge Uptime', subtext: 'Redis sliding rate limiting' },
+    ],
+    pipeline: [
+      'Live Market RSS & APIs',
+      'Citation Validator Guardrail',
+      'Python Analytics Engine',
+      'Gemini 1.5 Pro / Flash',
+      'PostgreSQL ACID Ledger',
+    ],
+    challenges: [
+      {
+        title: 'Zero-Trust Privacy & PII Boundary',
+        icon: Lock,
+        text: 'Sends only normalized percentage ratios and public ticker symbols to LLMs—no account balances, personal names, or banking credentials ever leave the secure Python execution runtime.',
+        highlights: ['normalized percentage ratios', 'secure Python execution runtime'],
+      },
+      {
+        title: 'Automated AST Source-Citation Verification',
+        icon: ShieldCheck,
+        text: 'Engineered a market research engine that automatically parses Gemini generated output and drops any unverified financial claims lacking explicit source links.',
+        highlights: ['market research engine', 'Gemini generated output', 'explicit source links'],
+      },
+      {
+        title: 'Multi-Tier Dynamic Model Fallback',
+        icon: Zap,
+        text: 'Configured automated traffic routing between Gemini 1.5 Pro for deep qualitative analysis and Gemini Flash for rapid summaries, with sliding Redis rate limiters.',
+        highlights: ['Gemini 1.5 Pro', 'Gemini Flash', 'Redis rate limiters'],
+      },
+      {
+        title: 'Full-Stack Portfolio Ledger & Tax Analytics',
+        icon: TrendingUp,
+        text: 'Built high-precision asset valuation and tax-loss harvesting tracking with PostgreSQL and Redis caching, supporting instant portfolio recalibration.',
+        highlights: ['asset valuation', 'PostgreSQL and Redis caching'],
+      },
+    ],
+    technologies: ['Google Gemini API', 'FastAPI', 'Python 3.12', 'PostgreSQL', 'TypeScript', 'React', 'Docker'],
+    image: '/assets/projects/wealth-pilot.jpg',
+    featured: true,
+  },
+  {
+    number: '02',
+    title: 'NewsRAG',
+    roleTag: 'AI Software Engineer · Vector Search & Memory',
+    subtitle: 'Autonomous Semantic News Research & Multi-Turn Chatbot',
+    mission:
+      'A production retrieval-augmented chatbot continuously indexing 50+ global sources (Reuters, BBC, CNN) with multi-turn conversational session memory and semantic caching.',
+    kpis: [
+      { value: '50+', label: 'Live Data Streams', subtext: 'Global RSS & API feeds' },
+      { value: '5-Turn', label: 'Session Memory', subtext: 'Upstash Redis sliding TTL' },
+      { value: '~60%', label: 'API Deduplication', subtext: 'Semantic vector caching' },
+      { value: '<300ms', label: 'Query Latency', subtext: 'HNSW vector search in Qdrant' },
+    ],
+    pipeline: [
+      '50+ Global News Streams',
+      'Jina v2 Vector Embeddings',
+      'Qdrant Vector DB (HNSW)',
+      'Upstash Redis Memory',
+      'Fast Contextual API',
+    ],
+    challenges: [
+      {
+        title: 'High-Dimensional Vector Ingestion & HNSW Search',
+        icon: Database,
+        text: 'Built an automated news ingestion and chunking pipeline using Jina v2 embeddings and Qdrant vector database for sub-second semantic retrieval across thousands of daily articles.',
+        highlights: ['Jina v2 embeddings', 'Qdrant vector database', 'sub-second semantic retrieval'],
+      },
+      {
+        title: 'Sliding-Window Conversation Memory',
+        icon: Bot,
+        text: 'Engineered conversational session state backed by Upstash Redis with dynamic TTL, preserving coherent dialog context across 5 distinct interaction turns without token bloat.',
+        highlights: ['Upstash Redis', '5 distinct interaction turns'],
+      },
+      {
+        title: 'Semantic Response Caching',
+        icon: Zap,
+        text: 'Implemented vector similarity caching for recurring breaking news topics, slashing third-party LLM API expenses by ~60% and dropping response times to under 300ms.',
+        highlights: ['vector similarity caching', 'slashing third-party LLM API expenses by ~60%', 'under 300ms'],
+      },
+      {
+        title: 'Multi-Source Cross-Verification',
+        icon: Radio,
+        text: 'Automated clustering across competing news agencies to extract consensus facts while flagging editorial bias and unverified claims.',
+        highlights: ['extract consensus facts', 'flagging editorial bias'],
+      },
+    ],
+    technologies: ['RAG Pipeline', 'Qdrant', 'Jina Embeddings', 'Redis Upstash', 'TypeScript', 'Node.js', 'React'],
+    image: '/assets/projects/news-rag.jpg',
+    liveLink: 'https://voosh-news-rag-frontend.vercel.app/',
+    githubLink: 'https://github.com/Pramod0347/voosh-news-rag-frontend',
+    backendLink: 'https://github.com/Pramod0347/voosh-news-rag-backend',
+    featured: true,
+  },
+  {
+    number: '03',
+    title: 'Clinical Copilot & MCP Architecture',
+    roleTag: 'Software Engineer 2 · Agentic AI & MedTech',
+    subtitle: 'LangGraph Autonomous Clinical Agents & On-Premise GPU Serving',
+    mission:
+      'Enterprise clinical copilot platform serving 20+ hospitals: built multi-step agent workflows via Model Context Protocol (MCP), event-driven patient journeys, and local GPU inference.',
+    kpis: [
+      { value: '87%', label: 'Contextual Accuracy', subtext: 'Optimized chunking & evaluation' },
+      { value: '10×', label: 'Processing Speedup', subtext: 'Decoupled RabbitMQ workers' },
+      { value: '−85%', label: 'Token Reduction', subtext: 'Prompt & graph caching' },
+      { value: '20+', label: 'Hospitals Deployed', subtext: '1,000+ daily patients' },
+    ],
+    pipeline: [
+      'Hospital EHR Data & Notes',
+      'Custom Clinical MCP Server',
+      'LangGraph Multi-Agent Graph',
+      'vLLM on On-Premise GPU',
+      'Clinician Verified Discharge',
+    ],
+    challenges: [
+      {
+        title: 'LangGraph Multi-Agent Orchestration',
+        icon: Workflow,
+        text: 'Built autonomous clinical agent loops with fallback paths and automated error recovery, coordinating diagnosis checks and drug interaction validations.',
+        highlights: ['autonomous clinical agent loops', 'fallback paths', 'automated error recovery'],
+      },
+      {
+        title: 'Model Context Protocol (MCP) Tool Boundaries',
+        icon: ShieldCheck,
+        text: 'Architected secure MCP servers to standardize agent tool-calling against clinical databases and knowledge graphs with strict HIPAA access boundaries.',
+        highlights: ['secure MCP servers', 'strict HIPAA access boundaries'],
+      },
+      {
+        title: 'On-Premise vLLM GPU Serving',
+        icon: Cpu,
+        text: 'Configured local high-throughput vLLM inference on on-premise GPUs, decoupling heavy narrative processing into asynchronous RabbitMQ worker queues.',
+        highlights: ['high-throughput vLLM inference', 'on-premise GPUs', 'RabbitMQ worker queues'],
+      },
+      {
+        title: 'Clinical Accuracy Tuning & Discharge Automation',
+        icon: Activity,
+        text: 'Elevated contextual search accuracy to 87% through specialized medical vector chunking and prompt engineering, cutting overall token expenditure by 85%.',
+        highlights: ['accuracy to 87%', 'medical vector chunking', 'token expenditure by 85%'],
+      },
+    ],
+    technologies: ['LangGraph', 'Model Context Protocol (MCP)', 'vLLM', 'RabbitMQ', 'FastAPI', 'Docker', 'Kubernetes'],
+    image: '/assets/projects/clinical-copilot.jpg',
+    featured: true,
+  },
+  {
+    number: '04',
+    title: 'ProcureFlow',
+    roleTag: 'AI Software Engineer · Distributed Microservices',
+    subtitle: 'Intelligent Enterprise Procurement & Auto-Reconciliation',
+    mission:
+      'An end-to-end B2B procurement workflow replacing manual tracking with automated vendor onboarding, purchase-order lifecycles, and auto-generated Goods Received Notes (GRN).',
+    kpis: [
+      { value: 'Multi-Role', label: 'Governance', subtext: 'Granular RBAC security' },
+      { value: '100%', label: 'Audit Trail', subtext: 'Immutable approval logs' },
+      { value: '99.4%', label: 'Match Rate', subtext: 'Automated GRN reconciliation' },
+      { value: 'Dockerized', label: 'Microservices', subtext: 'Prisma + PostgreSQL backend' },
+    ],
+    pipeline: [
+      'Vendor Onboarding Portal',
+      'Microservices API Gateway',
+      'Prisma ORM & PostgreSQL',
+      'Redis Session Cache',
+      'Auto-Reconciliation Engine',
+    ],
+    challenges: [
+      {
+        title: 'Automated Purchase-Order Lifecycles',
+        icon: Workflow,
+        text: 'Engineered an enterprise procurement dashboard with Role-Based Access Control (RBAC), real-time PO/GRN tracking, and multi-tier approval chains.',
+        highlights: ['Role-Based Access Control (RBAC)', 'multi-tier approval chains'],
+      },
+      {
+        title: 'High-Performance Microservices Backend',
+        icon: Zap,
+        text: 'Designed microservices with Docker, Prisma ORM, and PostgreSQL, cutting database response times and handling concurrent vendor updates.',
+        highlights: ['Docker, Prisma ORM, and PostgreSQL', 'database response times'],
+      },
+      {
+        title: 'Automated GRN Reconciliation',
+        icon: ShieldCheck,
+        text: 'Built automated matching between purchase orders, vendor invoices, and physical Goods Received Notes, flagging discrepancies instantly.',
+        highlights: ['automated matching', 'Goods Received Notes', 'flagging discrepancies'],
+      },
+      {
+        title: 'Enterprise Audit Trail & Reporting',
+        icon: Database,
+        text: 'Implemented tamper-evident transaction logging and executive spending dashboards with real-time budget burn charts.',
+        highlights: ['tamper-evident transaction logging', 'real-time budget burn charts'],
+      },
+    ],
+    technologies: ['React', 'Redux', 'PostgreSQL', 'Prisma', 'Redis', 'Docker', 'Microservices'],
+    image: '/assets/projects/procureflow.jpg',
+    liveLink: 'https://procurement-app-delta.vercel.app/',
+    featured: false,
+  },
+];
 
-  const highlightedProject = featuredProjects.find((project) => project.highlighted)
-  const secondaryHighlightedProjects = featuredProjects.filter(
-    (project) => project.highlightedSecondary
-  )
-  const regularFeaturedProjects = featuredProjects.filter(
-    (project) => !project.highlighted && !project.highlightedSecondary
-  )
+// Compact Full-Width Unboxed Project Row (NO outer container boxes!)
+const ProjectRow = ({ project, isLast }) => {
+  const rowRef = useRef(null);
+
+  // Track each project item's scroll progress for bi-directional fade-in & fade-out
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 22,
+    restDelta: 0.001,
+  });
+
+  const rowY = useTransform(smoothProgress, [0.03, 0.25, 0.75, 0.97], [50, 0, 0, -50]);
+  const rowOpacity = useTransform(smoothProgress, [0.03, 0.20, 0.80, 0.97], [0, 1, 1, 0]);
 
   return (
-    <div
-      className="w-full animate-fade-up"
+    <motion.article
+      ref={rowRef}
+      style={{ y: rowY, opacity: rowOpacity }}
+      className={`w-full space-y-4 ${
+        isLast ? 'pb-2' : 'border-b border-slate-200/80 pb-8 dark:border-slate-800/80'
+      }`}
     >
-      <div className="mb-8 grid gap-4 lg:grid-cols-[1.3fr,0.7fr]">
-        <div>
-          <p className="section-kicker">Selected Work</p>
-          <h2 className="section-title">Projects That Show <span className="keyword">Product</span> and <span className="keyword-accent">Backend</span> Range</h2>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 lg:text-base">
-            These projects represent the work I want a hiring team to evaluate: <span className="keyword">internal tools</span>, <span className="keyword-accent">AI workflows</span>, <span className="keyword">real-time collaboration</span>, and commerce systems shipped with a backend-first mindset.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="metric-card">
-            <p className="text-2xl font-display font-semibold text-slate-900 dark:text-slate-50">8+</p>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Production and portfolio builds</p>
-          </div>
-          <div className="metric-card">
-            <p className="text-2xl font-display font-semibold text-slate-900 dark:text-slate-50">Redis + PG</p>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Frequent backend building blocks</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Highlighted Project */}
-      {highlightedProject && (
-        <section className="mb-12">
-          <div className="mb-6">
-            <p className="section-kicker">Spotlight</p>
-            <h3 className="section-title">
-              Highlighted Project
-            </h3>
-            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
-              A <span className="keyword">backend-heavy product build</span> implemented as a production-ready <span className="keyword-accent">microservices system</span>.
-            </p>
-          </div>
-
-          <div className="glass-card rounded-3xl ring-1 ring-amber-300/80 dark:ring-amber-400/40 overflow-hidden grid grid-cols-1 md:grid-cols-[1.4fr,1fr]">
-            {/* Image side */}
-            <div className="relative h-52 sm:h-64 md:h-full overflow-hidden">
-              <img
-                src={highlightedProject.image}
-                alt={highlightedProject.title}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-              <span className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-[11px] font-medium text-white backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Backend architecture spotlight
+      {/* Top Split: Content on Left, Compact Thumbnail on Right (saves massive height!) */}
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+        <div className="flex-1 space-y-3">
+          {/* Header Row: Number + Title + Role Tag + Actions */}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-violet-500/30 bg-slate-950 font-mono text-sm font-extrabold text-violet-400 shadow-2xs dark:bg-violet-950/40">
+                {project.number}
               </span>
-            </div>
-
-            {/* Content side */}
-            <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-between gap-4">
               <div>
-                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-amber-600 dark:text-amber-300 mb-1.5">
-                  Highlighted project
-                </p>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900 dark:text-slate-50 leading-snug">
-                  {highlightedProject.title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-4">
-                  {highlightedProject.description}
-                </p>
-              </div>
-
-                <div className="space-y-3">
-                  <div className="flex flex-wrap gap-1.5">
-                  {highlightedProject.technologies.slice(0, 4).map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2.5 py-1 bg-amber-50 text-amber-700 text-[11px] font-medium rounded-full dark:bg-amber-900/40 dark:text-amber-100"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {highlightedProject.technologies.length > 4 && (
-                    <span className="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-medium rounded-full dark:bg-slate-800 dark:text-slate-200">
-                      +{highlightedProject.technologies.length - 4} more
-                    </span>
-                  )}
-                  </div>
-
-                  <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                      System Design Highlight
-                    </p>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                      {highlightedProject.systemDesign}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                  <a
-                    href={highlightedProject.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all"
-                  >
-                    <ExternalLink size={14} />
-                    View live dashboard
-                  </a>
-                  {highlightedProject.githubLink && (
-                    <a
-                      href={highlightedProject.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
-                    >
-                      <Github size={14} />
-                      View repo
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Secondary highlighted featured projects (e.g., NewsRAG) */}
-      {secondaryHighlightedProjects.length > 0 && (
-        <section className="mb-12">
-          <div className="mb-6">
-            <p className="section-kicker">Featured</p>
-            <h3 className="section-title">
-              <span className="keyword">AI</span> & <span className="keyword-accent">Real-time</span> Experiences
-            </h3>
-            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
-              Production-grade AI and realtime apps that pair <span className="keyword">robust backends</span> with focused delivery.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 lg:gap-8">
-            {secondaryHighlightedProjects.map((project, index) => (
-              <div
-                key={index}
-                className="glass-card rounded-2xl border border-emerald-200/60 dark:border-emerald-700/40 overflow-hidden grid grid-cols-1 sm:grid-cols-[1.1fr,1.3fr]"
-              >
-                {/* Image */}
-                <div className="relative h-40 sm:h-full overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/15 to-transparent" />
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    AI / RAG
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-display text-lg sm:text-xl font-black tracking-tight text-cyan-600 dark:text-cyan-400 drop-shadow-[0_1px_8px_rgba(6,182,212,0.25)]">
+                    {project.title}
+                  </h3>
+                  <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-2 py-0.5 font-mono text-[9px] font-bold text-violet-700 dark:text-violet-300">
+                    {project.roleTag}
                   </span>
                 </div>
-
-                {/* Content */}
-                <div className="p-4 sm:p-5 flex flex-col justify-between gap-3">
-                  <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-50 leading-snug mb-1.5">
-                      {project.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-4">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2.5">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-1 bg-emerald-50 text-emerald-700 text-[11px] font-medium rounded-full dark:bg-emerald-900/40 dark:text-emerald-100"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 4 && (
-                        <span className="px-2 py-1 bg-slate-100 text-slate-700 text-[11px] font-medium rounded-full dark:bg-slate-800 dark:text-slate-200">
-                          +{project.technologies.length - 4} more
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                        System Design Highlight
-                      </p>
-                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                        {project.systemDesign}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all"
-                      >
-                        <ExternalLink size={14} />
-                        Open app
-                      </a>
-                      {project.githubLink && (
-                        <a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
-                        >
-                          <Github size={14} />
-                          Frontend
-                        </a>
-                      )}
-                      {project.backendLink && (
-                        <a
-                          href={project.backendLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-all"
-                        >
-                          <Github size={14} />
-                          Backend
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Remaining featured projects */}
-      {regularFeaturedProjects.length > 0 && (
-        <section className="mb-12">
-          <div className="mb-6">
-            <p className="section-kicker">Featured</p>
-            <h3 className="section-title">
-          Featured Projects
-            </h3>
-            <p className="text-sm lg:text-base mt-3 text-slate-600 dark:text-slate-300 max-w-3xl">
-              Additional end-to-end builds demonstrating real-time systems, AI, and production-grade web apps.
-        </p>
-      </div>
-
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
-            {regularFeaturedProjects.map((project, index) => (
-          <div
-            key={index}
-            className="glass-card rounded-2xl hover:shadow-lift transition-all duration-500 overflow-hidden border border-white/60 dark:border-slate-700/60"
-          >
-            {/* Project Image */}
-                <div className="relative h-40 sm:h-44 overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-
-                  <div className="absolute bottom-3 left-3 px-2 py-1 bg-amber-500 text-white text-xs font-medium rounded-md shadow">
-                Featured
+                <p className="font-mono text-xs text-violet-700/90 dark:text-violet-300/80 font-medium">
+                  {project.subtitle}
+                </p>
               </div>
             </div>
 
-            {/* Project Content */}
-                <div className="p-6">
-                  <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
-                {project.title}
-                  </h4>
-
-                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4 line-clamp-3">
-                {project.description}
-              </p>
-
-              {/* Technology Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-                  <div className="mb-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                      System Design Highlight
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                      {project.systemDesign}
-                    </p>
-                  </div>
-
-              {/* Action Buttons */}
-                  <div className="flex flex-wrap gap-2">
+            {/* Action Links */}
+            <div className="flex flex-wrap items-center gap-2">
+              {project.liveLink && (
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium rounded-lg transition-all duration-300"
+                  className="inline-flex items-center gap-1 rounded-lg border border-violet-500/40 bg-violet-500/10 px-2.5 py-1 font-mono text-xs font-semibold text-violet-700 hover:bg-violet-500/20 dark:text-violet-300 transition-colors"
                 >
-                  <ExternalLink size={14} />
-                  View Details
+                  <Globe size={12} />
+                  <span>Live Demo</span>
+                  <ArrowUpRight size={11} />
                 </a>
-                {project.githubLink && (
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-medium rounded-lg transition-all duration-300"
-                  >
-                    <Github size={14} />
-                    Frontend
-                  </a>
-                )}
-                {project.backendLink && (
-                  <a
-                    href={project.backendLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 py-1.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-800 text-xs font-medium rounded-lg transition-all duration-300"
-                  >
-                    <Github size={14} />
-                    Backend
-                  </a>
-                )}
-              </div>
+              )}
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 rounded-lg border border-slate-200/80 bg-slate-100/80 px-2.5 py-1 font-mono text-xs font-semibold text-slate-700 hover:text-violet-600 dark:border-slate-800 dark:bg-slate-800/70 dark:text-slate-300 dark:hover:text-violet-300 transition-colors"
+                >
+                  <Github size={12} />
+                  <span>Frontend</span>
+                </a>
+              )}
+              {project.backendLink && (
+                <a
+                  href={project.backendLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 rounded-lg border border-slate-200/80 bg-slate-100/80 px-2.5 py-1 font-mono text-xs font-semibold text-slate-700 hover:text-violet-600 dark:border-slate-800 dark:bg-slate-800/70 dark:text-slate-300 dark:hover:text-violet-300 transition-colors"
+                >
+                  <Github size={12} />
+                  <span>Backend</span>
+                </a>
+              )}
             </div>
           </div>
-        ))}
-      </div>
-        </section>
-      )}
 
-      {/* Other Projects */}
-      {otherProjects.length > 0 && (
-        <div className="mt-14">
-          <p className="section-kicker">More Work</p>
-          <h3 className="section-title mb-6">
-            Other Projects
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 items-stretch">
-            {otherProjects.map((project, index) => (
-              <div
-                key={index}
-                className="flex flex-col glass-card rounded-2xl shadow-md hover:shadow-lift transition-all duration-400 overflow-hidden border border-white/60 dark:border-slate-700/60"
-              >
-                {/* Project Image */}
-                <div className="relative h-32 sm:h-36 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
+          {/* Core Mandate Banner */}
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            <span className="font-bold text-violet-600 dark:text-violet-400 mr-1.5">⚡ Architectural Core:</span>
+            {project.mission}
+          </p>
 
-                {/* Project Content */}
-                <div className="p-4 flex flex-col flex-1">
-                  <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2 leading-tight">
-                    {project.title}
-                  </h4>
-
-                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-3 line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  {/* Technology Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span 
-                        className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md transition-all duration-200 mt-1"
-                      >
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="mb-3 rounded-xl border border-slate-200/80 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/70">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                      System Design Highlight
-                    </p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
-                      {project.systemDesign}
-                    </p>
-                  </div>
-
-                  {/* Action Button */}
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium rounded-lg transition-all duration-300 w-full justify-center"
-                  >
-                    <ExternalLink size={14} />
-                    View Project
-                  </a>
-                </div>
+          {/* Lightweight Full-Width Telemetry Strip (NO nested boxes!) */}
+          <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-10 gap-y-2 py-2 border-y border-slate-200/60 dark:border-slate-800/60 font-mono">
+            {project.kpis.map((kpi) => (
+              <div key={kpi.label} className="flex items-baseline gap-1.5">
+                <span className="text-lg sm:text-xl font-black text-violet-600 dark:text-violet-400">
+                  {kpi.value}
+                </span>
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                  {kpi.label}
+                </span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 hidden md:inline">
+                  ({kpi.subtext})
+                </span>
               </div>
             ))}
           </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
-export default Projects
+          {/* Pipeline Flow (Clean inline text flow with arrow separators) */}
+          <div className="flex flex-wrap items-center gap-1.5 text-xs">
+            <span className="font-mono text-[10px] uppercase font-bold text-violet-600 dark:text-violet-400 mr-1 flex items-center gap-1">
+              <Workflow size={12} /> Pipeline:
+            </span>
+            {project.pipeline.map((step, idx) => (
+              <span
+                key={step}
+                className="font-mono text-[11px] text-slate-700 dark:text-slate-300 flex items-center gap-1"
+              >
+                <span className="font-medium">{step}</span>
+                {idx < project.pipeline.length - 1 && (
+                  <span className="text-violet-500 font-bold mx-0.5">➔</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Compact Side Thumbnail (Replaces giant 300px box; cuts massive vertical height!) */}
+        <div className="w-full lg:w-72 xl:w-80 h-36 sm:h-40 shrink-0 overflow-hidden rounded-2xl border border-slate-200/80 bg-[#070a12] shadow-sm dark:border-slate-800/80 relative group">
+          <div className="flex items-center justify-between border-b border-slate-800/90 bg-[#0d121f]/90 px-3 py-1 text-[10px] font-mono text-slate-400">
+            <span className="truncate">{project.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.app</span>
+            <span className="flex items-center gap-1 text-[9px] text-emerald-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              LIVE
+            </span>
+          </div>
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            className="h-full w-full object-cover object-top opacity-75 contrast-95 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
+          />
+        </div>
+      </div>
+
+      {/* Key Engineering Challenges & Solutions (2-Column Grid without heavy card borders) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 pt-1">
+        {project.challenges.map((ch) => {
+          const Icon = ch.icon;
+          return (
+            <div key={ch.title} className="flex items-start gap-2.5">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center text-violet-600 dark:text-violet-400">
+                <Icon size={14} />
+              </span>
+              <div>
+                <h4 className="font-display text-xs sm:text-sm font-bold text-violet-800 dark:text-violet-200 leading-tight">
+                  {ch.title}
+                </h4>
+                <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {renderHighlightedText(
+                    ch.text,
+                    ch.highlights,
+                    'font-semibold text-violet-600 dark:text-violet-300'
+                  )}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Stack Chips */}
+      <div className="flex flex-wrap items-center gap-1.5 pt-1">
+        <span className="font-mono text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 mr-1">
+          Stack:
+        </span>
+        {project.technologies.map((tech) => (
+          <span
+            key={tech}
+            className="rounded-md border border-slate-200/80 bg-slate-100/70 px-2 py-0.5 font-mono text-[10px] font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </motion.article>
+  );
+};
+
+const Projects = () => {
+  const headerRef = useRef(null);
+
+  // Track header scroll for smooth entry & exit
+  const { scrollYProgress: headerProgress } = useScroll({
+    target: headerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const smoothHeader = useSpring(headerProgress, {
+    stiffness: 90,
+    damping: 22,
+    restDelta: 0.001,
+  });
+
+  const headerY = useTransform(smoothHeader, [0.02, 0.35, 0.65, 0.95], [50, 0, 0, -50]);
+  const headerOpacity = useTransform(smoothHeader, [0.02, 0.28, 0.72, 0.95], [0, 1, 1, 0]);
+
+  return (
+    <div className="w-full space-y-8">
+      {/* Section Header & Executive Summary */}
+      <motion.div
+        ref={headerRef}
+        style={{ y: headerY, opacity: headerOpacity }}
+        className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-slate-200/80 pb-5 dark:border-slate-800/80"
+      >
+        <div>
+          <h2 className="section-title flex flex-wrap items-center gap-x-2.5">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              AI systems,
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 40, scale: 1.25 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ type: 'spring', stiffness: 180, damping: 14, delay: 0.22 }}
+              className="bg-gradient-to-r from-violet-500 via-purple-400 to-indigo-400 dark:from-violet-300 dark:via-purple-300 dark:to-indigo-300 bg-clip-text text-transparent font-black inline-block drop-shadow-[0_2px_12px_rgba(139,92,246,0.25)]"
+            >
+              built for real workflows
+            </motion.span>
+          </h2>
+          <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+            Deep-dive production architectures: <span className="font-semibold text-violet-600 dark:text-violet-400">autonomous agents</span>,{' '}
+            <span className="font-semibold text-cyan-600 dark:text-cyan-400">high-precision RAG pipelines</span>,{' '}
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400">on-premise GPU inference</span>, and verifiable safety guardrails.
+          </p>
+        </div>
+
+        {/* Quick Filter Badges */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <span className="rounded-xl border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-mono text-xs font-semibold text-violet-700 dark:text-violet-300">
+            Production AI
+          </span>
+          <span className="rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 font-mono text-xs font-semibold text-cyan-700 dark:text-cyan-300">
+            High-Throughput RAG
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+            <Sparkles className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+            Agentic Workflows
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Projects Full-Width Open Stack (NO outer container boxes!) */}
+      <div className="space-y-8">
+        {projects.map((project, index) => (
+          <ProjectRow
+            key={project.title}
+            project={project}
+            isLast={index === projects.length - 1}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Projects;
