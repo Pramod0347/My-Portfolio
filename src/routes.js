@@ -1,14 +1,15 @@
 export const routes = [
   { key: 'home', path: '/', label: 'Home' },
-  { key: 'skills', path: '/skills', label: 'Skills' },
   { key: 'experience', path: '/experience', label: 'Experience' },
   { key: 'projects', path: '/projects', label: 'Projects' },
-  { key: 'systems', path: '/systems', label: 'Systems' },
-  { key: 'certifications', path: '/certifications', label: 'Certifications' },
+  { key: 'activity', path: '/activity', label: 'Activity' },
+  { key: 'skills', path: '/skills', label: 'Skills' },
   { key: 'education', path: '/education', label: 'Education' },
+  { key: 'resume', path: '/resume', label: 'Resume' },
   { key: 'contact', path: '/contact', label: 'Contact' },
 ];
 
+export const navRoutes = routes.filter((r) => ['experience', 'projects', 'activity', 'skills', 'resume', 'contact'].includes(r.key));
+
 export const getRouteForPath = (pathname) =>
-  routes.find((route) => route.path === pathname.replace(/\/+$/, '') || route.path === pathname)
-  ?? routes[0];
+  routes.find((route) => route.path === (pathname.replace(/\/+$/, '') || '/')) ?? routes[0];

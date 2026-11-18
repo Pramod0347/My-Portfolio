@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,199 +10,76 @@
   }
 
   body {
-    @apply font-sans bg-white text-slate-900 antialiased;
-    background-image:
-      linear-gradient(to bottom, rgba(248, 250, 252, 0.95), rgba(255, 255, 255, 1));
+    @apply bg-page-light font-sans text-slate-900 antialiased dark:bg-page-dark dark:text-slate-100;
   }
 
-  .dark body {
-    @apply bg-[#0B1220] text-slate-100;
-    background-image:
-      radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 32%),
-      radial-gradient(circle at right 15%, rgba(34, 197, 94, 0.08), transparent 28%);
+  ::selection {
+    @apply bg-accent/20;
   }
 }
 
 @layer components {
-  .section-title {
-    @apply relative w-fit text-2xl md:text-3xl font-display font-semibold tracking-tight text-slate-900 dark:text-slate-50;
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-6;
   }
 
-  .section-title:after {
-    content: '';
-    @apply block w-2/3 mt-2 h-0.5 bg-gradient-to-r from-cyan-500 via-teal-400 to-transparent rounded-full;
+  .link {
+    @apply underline decoration-slate-300 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent dark:decoration-slate-700;
   }
 
-  .ambient-orb {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: 0;
+  .chip {
+    @apply rounded-md bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-900 dark:text-slate-400;
   }
 
-  .ambient-orb-one {
-    top: 3%;
-    left: 8%;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.14), transparent 70%);
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors;
   }
 
-  .ambient-orb-two {
-    top: 36%;
-    right: 5%;
-    width: 620px;
-    height: 620px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%);
+  .btn-primary {
+    @apply btn bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white;
   }
 
-  .ambient-orb-three {
-    top: 72%;
-    left: 8%;
-    width: 560px;
-    height: 560px;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.10), transparent 70%);
+  .btn-ghost {
+    @apply btn border border-slate-200 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white;
   }
 
-  .section-kicker {
-    @apply text-xs uppercase tracking-[0.35em] text-sky-700 dark:text-sky-300 font-semibold;
-  }
-
-  .metric-card {
-    @apply rounded-2xl border border-slate-200/80 dark:border-slate-700/70 bg-slate-50/90 dark:bg-slate-900/60 p-4;
-  }
-
-  .tag-chip {
-    @apply inline-flex items-center rounded-full border border-slate-200/80 dark:border-slate-700/70 bg-white dark:bg-slate-900/70 px-3 py-1 text-xs font-semibold text-slate-700 dark:text-slate-200;
-  }
-
-  .keyword {
-    @apply font-semibold text-slate-900 dark:text-slate-100;
-  }
-
-  .keyword-accent {
-    @apply font-semibold text-cyan-600 dark:text-cyan-400;
-  }
-
-  .keyword-badge {
-    @apply font-bold text-slate-950 dark:text-white;
-  }
-
-  .hero-title-accent {
-    @apply bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 dark:from-cyan-400 dark:via-teal-300 dark:to-emerald-400 bg-clip-text text-transparent font-extrabold;
-  }
-
-  .hero-title-period {
-    @apply text-cyan-500 dark:text-cyan-400 font-extrabold;
-  }
-
-  .app-shell {
-    background-image:
-      radial-gradient(480px 480px at 100% 0%, rgba(14, 165, 233, 0.08), transparent 55%),
-      radial-gradient(520px 520px at 0% 100%, rgba(148, 163, 184, 0.08), transparent 55%);
-  }
-
-  .dark .app-shell {
-    background-image:
-      radial-gradient(520px 520px at 85% -10%, rgba(56, 189, 248, 0.18), transparent 60%),
-      radial-gradient(540px 540px at 10% 110%, rgba(34, 197, 94, 0.14), transparent 60%);
+  .input {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none transition-colors placeholder:text-slate-400 focus:border-accent dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-600;
   }
 }
 
 @layer utilities {
-  .bg-grid {
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.08) 1px, transparent 0);
-    background-size: 24px 24px;
-  }
-
-  .bg-grid-dark {
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(226, 232, 240, 0.08) 1px, transparent 0);
-    background-size: 24px 24px;
-  }
-
-  .animate-fade-up {
-    animation: fade-up 0.8s ease both;
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.6s ease both;
-  }
-
-  .surface-outline {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.6),
-      0 12px 32px rgba(15, 23, 42, 0.05);
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  .bg-dots {
+    background-image: radial-gradient(circle at 1px 1px, rgb(161 161 170 / 0.25) 1px, transparent 0);
+    background-size: 18px 18px;
   }
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Infinite Marquee Ribbons */
+/* Skill marquee: the track holds the list twice, so shifting it by half loops seamlessly. */
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
+  from {
+    transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
 
-@keyframes marquee-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
+.marquee-track {
+  animation: marquee 40s linear infinite;
 }
 
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 35s linear infinite;
-}
-
-.animate-marquee:hover {
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
   animation-play-state: paused;
 }
 
-.animate-marquee-reverse {
-  display: flex;
-  width: max-content;
-  animation: marquee-reverse 40s linear infinite;
+.marquee-fade {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
-

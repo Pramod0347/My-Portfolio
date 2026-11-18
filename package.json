@@ -12,6 +12,7 @@
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^14.12.0",
     "lucide-react": "^0.488.0",
+    "pdfjs-dist": "3.11.174",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.55.0",
@@ -22,7 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "node -e \"require('fs').copyFileSync(require.resolve('pdfjs-dist/legacy/build/pdf.worker.min.js'),'public/pdf.worker.min.js')\"",
     "start": "react-scripts start",
+    "prebuild": "node -e \"require('fs').copyFileSync(require.resolve('pdfjs-dist/legacy/build/pdf.worker.min.js'),'public/pdf.worker.min.js')\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
