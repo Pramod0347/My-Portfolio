@@ -1,28 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const getInitialDarkMode = () => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const stored = window.localStorage.getItem('portfolio_theme');
-    if (stored) {
-      return stored === 'dark';
-    }
-  }
-  return true; // Default to dark theme
-};
-
+// Every visit opens in dark mode. The toggle only lasts for the current visit,
+// so an earlier "light" choice never overrides the default.
 const initialState = {
-  darkMode: getInitialDarkMode(),
+  darkMode: true,
 };
+
+// Clear the preference saved by older versions of the site.
+if (typeof window !== 'undefined') {
+  try {
+    window.localStorage.removeItem('portfolio_theme');
+  } catch {
+    /* storage disabled: nothing to clear */
+  }
+}
 
 const themeSlice = createSlice({
-  name: "theme",
+  name: 'theme',
   initialState,
   reducers: {
     toggleDarkMode: (state) => {
       state.darkMode = !state.darkMode;
-      if (typeof window !== 'undefined' && window.localStorage) {
-        window.localStorage.setItem('portfolio_theme', state.darkMode ? 'dark' : 'light');
-      }
     },
   },
 });
